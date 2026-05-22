@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { buildMailto } from "@/lib/enquiry";
+import { countryFlag, defaultCountry } from "@/lib/countries";
+import { PhoneCountryFields } from "@/components/ui/PhoneCountryFields";
 
 export function ConsultationForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [country, setCountry] = useState("");
+  const [phone, setPhone] = useState(defaultCountry.dialCode);
+  const [country, setCountry] = useState(`${countryFlag(defaultCountry.code)} ${defaultCountry.name}`);
   const [method, setMethod] = useState("Private Video Consultation (Zoom / Google Meet)");
   const [remark, setRemark] = useState("");
 
@@ -53,26 +55,14 @@ export function ConsultationForm() {
         />
       </label>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <label className={labelClass}>
-          Phone
-          <input
-            className={inputClass}
-            onChange={(event) => setPhone(event.target.value)}
-            type="tel"
-            value={phone}
-          />
-        </label>
-        <label className={labelClass}>
-          Country
-          <input
-            className={inputClass}
-            onChange={(event) => setCountry(event.target.value)}
-            type="text"
-            value={country}
-          />
-        </label>
-      </div>
+      <PhoneCountryFields
+        phone={phone}
+        country={country}
+        onPhoneChange={setPhone}
+        onCountryChange={setCountry}
+        inputClassName={inputClass}
+        labelClassName={labelClass}
+      />
 
       <label className={labelClass}>
         Consultation Method

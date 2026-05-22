@@ -8,6 +8,8 @@ import { productImage } from "@/lib/images";
 import type { EnquiryItem, Product } from "@/lib/types";
 import { siteConfig } from "@/config/site";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { PhoneCountryFields } from "@/components/ui/PhoneCountryFields";
+import { countryFlag, defaultCountry } from "@/lib/countries";
 
 export function EnquiryList({ products }: { products: Product[] }) {
   const [items, setItems] = useState<EnquiryItem[]>([]);
@@ -17,8 +19,8 @@ export function EnquiryList({ products }: { products: Product[] }) {
   const [enquiryDetails, setEnquiryDetails] = useState<EnquiryDetails>({
     name: "",
     email: "",
-    phone: "",
-    country: "",
+    phone: defaultCountry.dialCode,
+    country: `${countryFlag(defaultCountry.code)} ${defaultCountry.name}`,
     remark: ""
   });
 
@@ -191,24 +193,14 @@ export function EnquiryList({ products }: { products: Product[] }) {
                       onChange={(event) => setEnquiryDetails({ ...enquiryDetails, email: event.target.value })}
                     />
                   </label>
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <label className="block text-xs uppercase tracking-[0.18em] text-mink">
-                      Phone
-                      <input
-                        className="mt-2 h-12 w-full border border-[#d9cbbb] bg-transparent px-3"
-                        value={enquiryDetails.phone}
-                        onChange={(event) => setEnquiryDetails({ ...enquiryDetails, phone: event.target.value })}
-                      />
-                    </label>
-                    <label className="block text-xs uppercase tracking-[0.18em] text-mink">
-                      Country
-                      <input
-                        className="mt-2 h-12 w-full border border-[#d9cbbb] bg-transparent px-3"
-                        value={enquiryDetails.country}
-                        onChange={(event) => setEnquiryDetails({ ...enquiryDetails, country: event.target.value })}
-                      />
-                    </label>
-                  </div>
+                  <PhoneCountryFields
+                    phone={enquiryDetails.phone ?? defaultCountry.dialCode}
+                    country={enquiryDetails.country ?? `${countryFlag(defaultCountry.code)} ${defaultCountry.name}`}
+                    onPhoneChange={(phone) => setEnquiryDetails({ ...enquiryDetails, phone })}
+                    onCountryChange={(country) => setEnquiryDetails({ ...enquiryDetails, country })}
+                    inputClassName="mt-2 h-12 w-full border border-[#d9cbbb] bg-transparent px-3 text-ink outline-none transition focus:border-[#092E2B]"
+                    labelClassName="block text-xs uppercase tracking-[0.18em] text-mink"
+                  />
                   <label className="block text-xs uppercase tracking-[0.18em] text-mink">
                     Remark
                     <textarea
