@@ -98,13 +98,13 @@ export default function HomePage() {
         ))}
       </section>
 
-      <section className="bg-white py-14 text-center md:py-16">
+      <section className="bg-white py-12 text-center md:py-14">
         <div className="container-shell">
           <h2 className="font-serif text-4xl uppercase text-[rgb(9_46_43/var(--tw-bg-opacity,1))]">
             Signature collection
           </h2>
         </div>
-        <div className="mx-auto mt-11 grid max-w-[1480px] gap-x-9 gap-y-10 px-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-10">
+        <div className="mx-auto mt-9 grid max-w-[1180px] gap-x-8 gap-y-9 px-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
               title: "MINSKHI",
@@ -131,19 +131,19 @@ export default function HomePage() {
               image: "/wp-content/uploads/2026/04/eb59c115-b36f-42f7-9288-66d6cf0ea5ae.jpg"
             }
           ].map((item) => (
-            <Link href={item.href} key={item.title} className="group mx-auto w-full max-w-[350px] text-center">
+            <Link href={item.href} key={item.title} className="group mx-auto w-full max-w-[255px] text-center">
               <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-full bg-[#f6f2ec]">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(min-width: 1280px) 24vw, (min-width: 768px) 42vw, 82vw"
+                  sizes="(min-width: 1280px) 255px, (min-width: 768px) 36vw, 78vw"
                   className="object-cover transition duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="mt-6">
-                <h3 className="text-[21px] uppercase leading-tight tracking-[0.02em] text-black">{item.title}</h3>
-                <p className="mt-2 text-[16px] uppercase tracking-[0.04em] text-[#4f4f4f]">{item.subtitle}</p>
+              <div className="mt-5">
+                <h3 className="text-[18px] uppercase leading-tight tracking-[0.02em] text-black">{item.title}</h3>
+                <p className="mt-2 text-[14px] uppercase tracking-[0.04em] text-[#4f4f4f]">{item.subtitle}</p>
               </div>
             </Link>
           ))}
