@@ -97,7 +97,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
                 </p>
               </div>
               <button
-                className="rounded-full border border-[#d5c6b6] px-4 py-2 text-sm uppercase tracking-[0.18em] text-mink"
+                className="rounded-full border border-[#d5c6b6] px-4 py-2 text-sm uppercase text-mink"
                 onClick={handleClose}
                 type="button"
               >
@@ -112,7 +112,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5">
                         <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-sm font-semibold uppercase tracking-[0.23em]">Success</span>
+                      <span className="text-sm font-semibold uppercase">Success</span>
                     </div>
                     <h3 className="mt-6 font-serif text-3xl">Thank you</h3>
                     <p className="mt-4 text-base text-[#33413d]">
@@ -120,31 +120,31 @@ export function EnquiryList({ products }: { products: Product[] }) {
                     </p>
                     <div className="mt-6 grid gap-3 rounded-[10px] border border-[#d9e9df] bg-white p-5 text-sm text-mink sm:grid-cols-2">
                       <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-[#7f8b82]">Name</p>
+                        <p className="text-[0.65rem] uppercase text-[#7f8b82]">Name</p>
                         <p className="mt-2 font-medium text-[#0f311f]">{enquiryDetails.name || "—"}</p>
                       </div>
                       <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-[#7f8b82]">Email</p>
+                        <p className="text-[0.65rem] uppercase text-[#7f8b82]">Email</p>
                         <p className="mt-2 font-medium text-[#0f311f]">{enquiryDetails.email || "—"}</p>
                       </div>
                       <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-[#7f8b82]">Phone</p>
+                        <p className="text-[0.65rem] uppercase text-[#7f8b82]">Phone</p>
                         <p className="mt-2 font-medium text-[#0f311f]">{enquiryDetails.phone || "—"}</p>
                       </div>
                       <div>
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-[#7f8b82]">Country</p>
+                        <p className="text-[0.65rem] uppercase text-[#7f8b82]">Country</p>
                         <p className="mt-2 font-medium text-[#0f311f]">{enquiryDetails.country || "—"}</p>
                       </div>
                     </div>
                     {enquiryDetails.remark ? (
                       <div className="mt-4 rounded-[10px] border border-[#d9e9df] bg-white p-4 text-sm text-mink">
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-[#7f8b82]">Remark</p>
+                        <p className="text-[0.65rem] uppercase text-[#7f8b82]">Remark</p>
                         <p className="mt-2 font-medium text-[#0f311f]">{enquiryDetails.remark}</p>
                       </div>
                     ) : null}
                   </div>
                   <button
-                    className="inline-flex w-full justify-center rounded-full bg-ink px-6 py-3 text-xs uppercase tracking-[0.18em] text-white"
+                    className="inline-flex w-full justify-center rounded-full bg-ink px-6 py-3 text-xs uppercase text-white"
                     onClick={handleClose}
                     type="button"
                   >
@@ -176,7 +176,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
             ) : (
               <div className="grid min-h-0 flex-1 grid-cols-1 gap-6 overflow-y-auto px-6 py-6 lg:grid-cols-[1.2fr_0.8fr]">
                 <div className="space-y-6">
-                  <label className="block text-xs uppercase tracking-[0.18em] text-mink">
+                  <label className="block text-xs uppercase text-mink">
                     Name
                     <input
                       className="mt-2 h-12 w-full border border-[#d9cbbb] bg-transparent px-3"
@@ -184,7 +184,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
                       onChange={(event) => setEnquiryDetails({ ...enquiryDetails, name: event.target.value })}
                     />
                   </label>
-                  <label className="block text-xs uppercase tracking-[0.18em] text-mink">
+                  <label className="block text-xs uppercase text-mink">
                     Email
                     <input
                       className="mt-2 h-12 w-full border border-[#d9cbbb] bg-transparent px-3"
@@ -199,9 +199,9 @@ export function EnquiryList({ products }: { products: Product[] }) {
                     onPhoneChange={(phone) => setEnquiryDetails({ ...enquiryDetails, phone })}
                     onCountryChange={(country) => setEnquiryDetails({ ...enquiryDetails, country })}
                     inputClassName="mt-2 h-12 w-full border border-[#d9cbbb] bg-transparent px-3 text-ink outline-none transition focus:border-[#092E2B]"
-                    labelClassName="block text-xs uppercase tracking-[0.18em] text-mink"
+                    labelClassName="block text-xs uppercase text-mink"
                   />
-                  <label className="block text-xs uppercase tracking-[0.18em] text-mink">
+                  <label className="block text-xs uppercase text-mink">
                     Remark
                     <textarea
                       className="mt-2 min-h-[220px] w-full border border-[#d9cbbb] bg-transparent px-3 py-3"
@@ -216,14 +216,14 @@ export function EnquiryList({ products }: { products: Product[] }) {
                     </p>
                     <div className="mt-6 grid gap-3 sm:grid-cols-2">
                       <button
-                        className="inline-flex w-full justify-center rounded-full bg-ink px-6 py-3 text-xs uppercase tracking-[0.18em] text-white"
+                        className="inline-flex w-full justify-center rounded-full bg-ink px-6 py-3 text-xs uppercase text-white"
                         onClick={handleEmailSubmit}
                         type="button"
                       >
                         Send enquiry by email
                       </button>
                       <button
-                        className="inline-flex w-full justify-center rounded-full border border-ink bg-white px-6 py-3 text-xs uppercase tracking-[0.18em] text-mink"
+                        className="inline-flex w-full justify-center rounded-full border border-ink bg-white px-6 py-3 text-xs uppercase text-mink"
                         onClick={handleClose}
                         type="button"
                       >
@@ -280,7 +280,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
                                 </div>
                                 <button
                                   aria-label={`Remove ${product.name}`}
-                                  className="inline-flex items-center gap-1.5 rounded-full border border-[#d5c6b6] px-2.5 py-1.5 text-[9px] uppercase tracking-[0.1em] text-mink transition hover:border-[#092E2B] hover:bg-[#092E2B] hover:text-white sm:gap-2 sm:px-3 sm:text-[10px]"
+                                  className="inline-flex items-center gap-1.5 rounded-full border border-[#d5c6b6] px-2.5 py-1.5 text-[9px] uppercase text-mink transition hover:border-[#092E2B] hover:bg-[#092E2B] hover:text-white sm:gap-2 sm:px-3 sm:text-[10px]"
                                   onClick={() => removeItem(product.slug)}
                                   type="button"
                                 >
@@ -306,7 +306,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-md">
           <div className="w-full max-w-[560px] overflow-hidden rounded-[14px] border border-[#ddcfbf] bg-white shadow-2xl">
             <div className="border-b border-[#ddcfbf] px-7 py-6">
-              <p className="text-xs uppercase tracking-[0.24em] text-mink">Confirmation</p>
+              <p className="text-xs uppercase text-mink">Confirmation</p>
               <h2 className="mt-3 font-serif text-4xl leading-tight text-ink">Clear enquiry list?</h2>
             </div>
             <div className="bg-[#fbfaf8] px-7 py-6">
@@ -318,14 +318,14 @@ export function EnquiryList({ products }: { products: Product[] }) {
             </div>
             <div className="grid gap-3 border-t border-[#ddcfbf] bg-white px-7 py-6 sm:grid-cols-2">
               <button
-                className="inline-flex h-12 items-center justify-center bg-ink px-5 text-xs uppercase tracking-[0.18em] text-white transition hover:bg-[#092E2B]"
+                className="inline-flex h-12 items-center justify-center bg-ink px-5 text-xs uppercase text-white transition hover:bg-[#092E2B]"
                 onClick={clearList}
                 type="button"
               >
                 Yes, clear
               </button>
               <button
-                className="inline-flex h-12 items-center justify-center border border-ink bg-white px-5 text-xs uppercase tracking-[0.18em] text-mink transition hover:border-[#092E2B] hover:bg-[#092E2B] hover:text-white"
+                className="inline-flex h-12 items-center justify-center border border-ink bg-white px-5 text-xs uppercase text-mink transition hover:border-[#092E2B] hover:bg-[#092E2B] hover:text-white"
                 onClick={() => setShowClearConfirm(false)}
                 type="button"
               >
@@ -367,7 +367,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
               </label>
             </div>
             <button
-              className="self-start text-xs uppercase tracking-[0.18em] text-mink"
+              className="self-start text-xs uppercase text-mink"
               onClick={() => persist(items.filter((entry) => entry.slug !== item.slug))}
               type="button"
             >
@@ -382,20 +382,20 @@ export function EnquiryList({ products }: { products: Product[] }) {
           Open the enquiry form to add your contact details and submit a personalised request.
         </p>
         <button
-          className="mt-6 flex w-full justify-center border border-ink bg-ink px-5 py-3 text-center text-xs uppercase tracking-[0.18em] text-white"
+          className="mt-6 flex w-full justify-center border border-ink bg-ink px-5 py-3 text-center text-xs uppercase text-white"
           onClick={() => setShowForm(true)}
           type="button"
         >
           Open enquiry form
         </button>
         <a
-          className="mt-3 flex justify-center border border-ink px-5 py-3 text-center text-xs uppercase tracking-[0.18em]"
+          className="mt-3 flex justify-center border border-ink px-5 py-3 text-center text-xs uppercase"
           href={`https://wa.me/${siteConfig.whatsapp.replace("+", "")}?text=${encodeURIComponent(body)}`}
         >
           WhatsApp enquiry
         </a>
         <button
-          className="mt-3 w-full px-5 py-3 text-xs uppercase tracking-[0.18em] text-mink"
+          className="mt-3 w-full px-5 py-3 text-xs uppercase text-mink"
           onClick={() => setShowClearConfirm(true)}
           type="button"
         >

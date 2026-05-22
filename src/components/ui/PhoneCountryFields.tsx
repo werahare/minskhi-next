@@ -18,7 +18,7 @@ export function PhoneCountryFields({
   onPhoneChange,
   onCountryChange,
   inputClassName = "mt-3 h-[60px] w-full border border-[#d8cfc4] bg-white px-4 text-[15px] text-ink outline-none transition focus:border-[#092E2B]",
-  labelClassName = "block text-[13px] uppercase tracking-[0.26em] text-mink"
+  labelClassName = "block text-[13px] uppercase text-mink"
 }: PhoneCountryFieldsProps) {
   const initialCountry = useMemo(
     () => countries.find((option) => country.includes(option.name)) ?? defaultCountry,

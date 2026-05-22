@@ -31,7 +31,7 @@ export function ConsultationForm() {
 
   const inputClass =
     "mt-2 h-[54px] w-full border border-[#cdbdab] bg-[#fffdf9] px-4 text-[15px] text-ink outline-none transition placeholder:text-[#978d82] focus:border-[#092E2B] focus:bg-white";
-  const labelClass = "block text-[12px] font-medium uppercase tracking-[0.22em] text-[#3f4643]";
+  const labelClass = "block text-[12px] font-medium uppercase text-[#3f4643]";
 
   return (
     <form className="space-y-5">
@@ -91,7 +91,7 @@ export function ConsultationForm() {
       </label>
 
       <a
-        className="inline-flex h-12 w-full items-center justify-center bg-[#092E2B] px-8 text-[11px] uppercase tracking-[0.18em] text-white transition hover:bg-ink sm:w-auto"
+        className="inline-flex h-12 w-full items-center justify-center bg-[#092E2B] px-8 text-[11px] uppercase text-white transition hover:bg-ink sm:w-auto"
         href={buildMailto("Minskhi consultation request", body)}
       >
         Submit Request
