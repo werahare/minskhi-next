@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-label="Minskhi product placeholder">
+  <rect width="900" height="1100" fill="#f6f1eb"/>
+  <path d="M450 250 650 455 450 850 250 455Z" fill="#d9cab9"/>
+  <path d="M250 455h400M450 250l-95 205 95 395 95-395Z" fill="none" stroke="#a3834b" stroke-width="10"/>
+  <text x="450" y="965" text-anchor="middle" font-family="Georgia, serif" font-size="58" fill="#201c18">MINSKHI</text>
+</svg>

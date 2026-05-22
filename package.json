@@ -1,0 +1,29 @@
+{
+  "name": "minskhi-next",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "import-products": "tsc scripts/import-products.ts --target ES2022 --module commonjs --esModuleInterop --outDir .tmp/scripts && node .tmp/scripts/import-products.js",
+    "import-product-videos": "tsc scripts/import-product-videos.ts --target ES2022 --module commonjs --esModuleInterop --resolveJsonModule --outDir .tmp/scripts && node .tmp/scripts/import-product-videos.js"
+  },
+  "dependencies": {
+    "next": "^15.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.2.4",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,19 @@
+node_modules/
+.next/
+out/
+dist/
+build/
+
+.env
+.env*.local
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+reports/
+.tmp/
+
+# Keep original source videos local only. The site uses compressed web videos.
+public/videos/products/
