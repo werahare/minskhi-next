@@ -46,7 +46,7 @@ export function PhoneCountryFields({
     <div className="grid gap-5 sm:grid-cols-2">
       <label className={labelClassName}>
         Phone
-        <div className="mt-3 grid grid-cols-[128px_minmax(0,1fr)]">
+        <div className="mt-2 grid grid-cols-[118px_minmax(0,1fr)] sm:grid-cols-[128px_minmax(0,1fr)]">
           <select
             aria-label="Phone country code"
             className={`${inputClassName} mt-0 border-r-0 px-3`}

@@ -30,16 +30,17 @@ export function ConsultationForm() {
   ].join("\n");
 
   const inputClass =
-    "mt-3 h-[60px] w-full border border-[#d8cfc4] bg-white px-4 text-[15px] text-ink outline-none transition focus:border-[#092E2B]";
-  const labelClass = "block text-[13px] uppercase tracking-[0.26em] text-mink";
+    "mt-2 h-[54px] w-full border border-[#cdbdab] bg-[#fffdf9] px-4 text-[15px] text-ink outline-none transition placeholder:text-[#978d82] focus:border-[#092E2B] focus:bg-white";
+  const labelClass = "block text-[12px] font-medium uppercase tracking-[0.22em] text-[#3f4643]";
 
   return (
-    <form className="mx-auto max-w-[833px] space-y-7">
+    <form className="space-y-5">
       <label className={labelClass}>
         Name
         <input
           className={inputClass}
           onChange={(event) => setName(event.target.value)}
+          placeholder="Your full name"
           type="text"
           value={name}
         />
@@ -50,6 +51,7 @@ export function ConsultationForm() {
         <input
           className={inputClass}
           onChange={(event) => setEmail(event.target.value)}
+          placeholder="you@example.com"
           type="email"
           value={email}
         />
@@ -81,14 +83,15 @@ export function ConsultationForm() {
       <label className={labelClass}>
         Remark
         <textarea
-          className="mt-3 min-h-[210px] w-full border border-[#d8cfc4] bg-white px-4 py-4 text-[15px] text-ink outline-none transition focus:border-[#092E2B]"
+          className="mt-2 min-h-[160px] w-full border border-[#cdbdab] bg-[#fffdf9] px-4 py-4 text-[15px] leading-7 text-ink outline-none transition placeholder:text-[#978d82] focus:border-[#092E2B] focus:bg-white"
           onChange={(event) => setRemark(event.target.value)}
+          placeholder="Tell us about your preferred gemstone, jewellery idea, appointment needs, or any questions."
           value={remark}
         />
       </label>
 
       <a
-        className="inline-flex h-12 items-center justify-center bg-[#092E2B] px-8 text-[11px] uppercase tracking-[0.18em] text-white transition hover:bg-ink"
+        className="inline-flex h-12 w-full items-center justify-center bg-[#092E2B] px-8 text-[11px] uppercase tracking-[0.18em] text-white transition hover:bg-ink sm:w-auto"
         href={buildMailto("Minskhi consultation request", body)}
       >
         Submit Request
