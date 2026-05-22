@@ -5,12 +5,17 @@ import { getAttribute } from "@/lib/products";
 import { productImage } from "@/lib/images";
 import type { Product } from "@/lib/types";
 import { AddToEnquiryButton } from "@/components/enquiry/AddToEnquiryButton";
+import { WishlistButton } from "@/components/wishlist/WishlistButton";
 
 export function ProductCard({ product }: { product: Product }) {
   const gemType = getAttribute(product, ["Gem Type"]);
 
   return (
     <article className="group relative border border-[#dfd1c0] bg-white p-4 text-center transition duration-500 before:pointer-events-none before:absolute before:inset-2 before:border before:border-[#f3eee8] before:content-[''] hover:-translate-y-1 hover:border-[#b99f76] hover:shadow-[0_24px_70px_rgba(36,28,19,0.10)]">
+      <WishlistButton
+        slug={product.slug}
+        className="absolute right-7 top-7 z-20 h-10 w-10 rounded-full border-[#e8dccf] bg-white/90 shadow-[0_12px_34px_rgba(36,28,19,0.10)] backdrop-blur"
+      />
       <Link href={`/product/${product.slug}`} className="relative block overflow-hidden bg-[#fbfaf7]">
         <span className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_42%,rgba(255,255,255,0.12),transparent_62%)] opacity-0 transition duration-500 group-hover:opacity-100" />
         <div className="relative aspect-[700/798]">

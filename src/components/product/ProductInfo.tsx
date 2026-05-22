@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import type { Product } from "@/lib/types";
 import { AddToEnquiryButton } from "@/components/enquiry/AddToEnquiryButton";
+import { WishlistButton } from "@/components/wishlist/WishlistButton";
 import { ProductAttributeTable } from "@/components/product/ProductAttributeTable";
 
 export function ProductInfo({ product }: { product: Product }) {
@@ -31,6 +32,11 @@ export function ProductInfo({ product }: { product: Product }) {
           type="number"
         />
         <AddToEnquiryButton slug={product.slug} className="min-w-[220px]" />
+        <WishlistButton
+          slug={product.slug}
+          label
+          className="min-h-12 px-5 text-xs uppercase tracking-[0.12em]"
+        />
       </div>
       <section className="mt-16 border-t border-[#ddcfbf] pt-8">
         <h2 className="mb-5 font-serif text-3xl">Additional information</h2>

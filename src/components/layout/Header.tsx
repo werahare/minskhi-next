@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { readEnquiryItems } from "@/lib/enquiry";
+import { readWishlistItems } from "@/lib/wishlist";
 import { AnnouncementBar } from "./AnnouncementBar";
 
 const navItems = [
@@ -20,18 +21,25 @@ const navItems = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(0);
+  const [wishlistCount, setWishlistCount] = useState(0);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
   useEffect(() => {
     const update = () =>
       setCount(readEnquiryItems().reduce((total, item) => total + item.quantity, 0));
+    const updateWishlist = () => setWishlistCount(readWishlistItems().length);
     update();
+    updateWishlist();
     window.addEventListener("storage", update);
+    window.addEventListener("storage", updateWishlist);
     window.addEventListener("minskhi-enquiry-updated", update);
+    window.addEventListener("minskhi-wishlist-updated", updateWishlist);
     return () => {
       window.removeEventListener("storage", update);
+      window.removeEventListener("storage", updateWishlist);
       window.removeEventListener("minskhi-enquiry-updated", update);
+      window.removeEventListener("minskhi-wishlist-updated", updateWishlist);
     };
   }, []);
 
@@ -125,8 +133,13 @@ export function Header() {
           <Link href="/shop-2" aria-label="Search" className="transition hover:opacity-70">
             <SearchIcon />
           </Link>
-          <Link href="/enquiry-list" aria-label="Wishlist" className="transition hover:opacity-70">
+          <Link href="/wishlist" aria-label="Wishlist" className="relative transition hover:opacity-70">
             <HeartIcon />
+            {wishlistCount ? (
+              <span className="absolute -right-[13px] -top-[12px] grid h-5 min-w-5 place-items-center rounded-full bg-[#082e2b] px-1 text-[11px] leading-none text-white">
+                {wishlistCount}
+              </span>
+            ) : null}
           </Link>
           <Link href="/enquiry-list" aria-label="Enquiry list" className="relative transition hover:opacity-70">
             <BagIcon />

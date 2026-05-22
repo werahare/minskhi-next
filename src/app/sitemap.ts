@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/book-a-consultation",
     "/journal",
     "/contact",
+    "/wishlist",
     "/enquiry-list",
     ...Object.keys(staticPages).map((slug) => `/${slug}`),
     ...products.map((product) => `/product/${product.slug}`),
