@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type FilterGroup = {
@@ -10,7 +10,7 @@ type FilterGroup = {
 
 const dropdownFilterNames = new Set(["gem type", "shape / cut", "colour", "treatment"]);
 
-export function ProductFilters({ filters, mode }: { filters: FilterGroup[]; mode?: "gemstones" | "jewellery" }) {
+export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "gemstones" | "jewellery" }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -35,21 +35,6 @@ export function ProductFilters({ filters, mode }: { filters: FilterGroup[]; mode
     else params.delete(key);
     params.set("page", "1");
     router.push(`${pathname}?${params.toString()}`);
-  }
-
-  const initialMin = parseFloat(searchParams.get("price_min") ?? "") || 0;
-  const initialMax = parseFloat(searchParams.get("price_max") ?? "") || 0;
-  const [priceMin, setPriceMin] = useState<number>(initialMin);
-  const [priceMax, setPriceMax] = useState<number>(initialMax);
-
-  useEffect(() => {
-    setPriceMin(parseFloat(searchParams.get("price_min") ?? "") || 0);
-    setPriceMax(parseFloat(searchParams.get("price_max") ?? "") || 0);
-  }, [searchParams.toString()]);
-
-  function applyPrice() {
-    updateParam("price_min", priceMin ? String(priceMin) : "");
-    updateParam("price_max", priceMax ? String(priceMax) : "");
   }
 
   function viewItems() {
@@ -129,7 +114,7 @@ export function ProductFilters({ filters, mode }: { filters: FilterGroup[]; mode
                     beige: "#f5e9dc",
                     yellow: "#f59e0b",
                     pink: "#ec4899",
-                    brown: "#8b5a2b",
+                    brown: "#8b5a2b"
                   };
                   if (key.startsWith("#")) return key;
                   return map[key] ?? "transparent";
@@ -175,77 +160,18 @@ export function ProductFilters({ filters, mode }: { filters: FilterGroup[]; mode
         );
       })}
 
-      {mode === "gemstones" ? (
-        <div className="border-t border-[#f0e9df] pt-4">
-          <div className="mb-3 text-xs uppercase tracking-[0.18em] text-ink">Price</div>
-          <div className="flex items-center justify-between text-sm text-mink">
-            <div>£{priceMin || "0"}</div>
-            <div>£{priceMax || "0"}</div>
-          </div>
-          <div className="mt-4">
-            <div className="relative h-8">
-              <div className="absolute left-0 right-0 top-[13px] h-px bg-[#d8cfc4]" />
-              <input
-                type="range"
-                min={0}
-                max={10000}
-                value={priceMin}
-                onChange={(e) => {
-                  const val = Math.min(Number(e.currentTarget.value), priceMax - 1 || Number(e.currentTarget.value));
-                  setPriceMin(val);
-                }}
-                className="absolute left-0 right-0 top-2 h-2 appearance-none bg-transparent accent-[#092E2B]"
-              />
-              <input
-                type="range"
-                min={0}
-                max={10000}
-                value={priceMax}
-                onChange={(e) => {
-                  const val = Math.max(Number(e.currentTarget.value), priceMin + 1 || Number(e.currentTarget.value));
-                  setPriceMax(val);
-                }}
-                className="absolute left-0 right-0 top-2 h-2 appearance-none bg-transparent accent-[#092E2B]"
-              />
-            </div>
-            <div className="mt-3 flex gap-2">
-              <input
-                type="number"
-                className="h-10 w-1/2 rounded-md border border-[#e6ded2] px-3 text-sm"
-                value={priceMin}
-                onChange={(e) => setPriceMin(Number(e.currentTarget.value || 0))}
-                placeholder="Min"
-              />
-              <input
-                type="number"
-                className="h-10 w-1/2 rounded-md border border-[#e6ded2] px-3 text-sm"
-                value={priceMax}
-                onChange={(e) => setPriceMax(Number(e.currentTarget.value || 0))}
-                placeholder="Max"
-              />
-            </div>
-          </div>
-        </div>
-      ) : null}
-
       <div className="pt-6 flex gap-3">
         <button
           className="flex-1 rounded-md border border-ink bg-transparent px-4 py-3 text-sm"
-          onClick={() => {
-            setPriceMin(0);
-            setPriceMax(0);
-            clearFilters();
-          }}
+          onClick={clearFilters}
           type="button"
         >
           Reset
         </button>
         <button
           className="flex-1 rounded-full bg-ink px-6 py-3 text-sm font-medium uppercase text-white shadow-md"
-          onClick={() => {
-            applyPrice();
-            viewItems();
-          }}
+          onClick={viewItems}
+          type="button"
         >
           Apply
         </button>

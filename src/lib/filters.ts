@@ -113,21 +113,6 @@ export function productMatchesFilters(product: Product, params: URLSearchParams)
     return false;
   }
 
-  // Price range handling (price_min, price_max)
-  const priceMin = params.get("price_min");
-  const priceMax = params.get("price_max");
-  if (priceMin || priceMax) {
-    const p = parseFloat(product.price || "0") || 0;
-    if (priceMin) {
-      const min = parseFloat(priceMin);
-      if (!Number.isNaN(min) && p < min) return false;
-    }
-    if (priceMax) {
-      const max = parseFloat(priceMax);
-      if (!Number.isNaN(max) && p > max) return false;
-    }
-  }
-
   for (const [key, value] of params.entries()) {
     if (["q", "sort", "count", "page", "price_min", "price_max"].includes(key) || !value) continue;
     const requestedValues = value.split(",").map((part) => part.toLowerCase());
