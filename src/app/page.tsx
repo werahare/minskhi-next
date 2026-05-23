@@ -31,19 +31,19 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative min-h-[867px] overflow-hidden bg-ink text-white">
+      <section className="relative min-h-[312px] overflow-hidden bg-white text-white md:min-h-[867px] md:bg-ink">
         <video
           autoPlay
           loop
           muted
           playsInline
           poster="/wp-content/uploads/revslider/video-media/Slider_1.jpeg"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         >
           <source src="/wp-content/uploads/2026/03/Slider.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/5" />
-        <div className="relative flex min-h-[867px] items-center justify-center px-6 pb-6 pt-[120px] text-center">
+        <div className="absolute inset-0 bg-white/70 md:bg-black/5" />
+        <div className="relative hidden min-h-[867px] items-center justify-center px-6 pb-6 pt-[120px] text-center md:flex">
           <div className="mx-auto mt-[-34px] max-w-[980px]">
             <h1 className="font-[Bellefair,serif] text-[58px] font-normal uppercase leading-[0.98] tracking-[0.055em] text-white md:text-[88px] xl:text-[98px]">
               Sapphire
@@ -66,8 +66,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container-shell py-16">
-        <h2 className="mb-10 text-center font-serif text-4xl uppercase text-[rgb(9_46_43/var(--tw-bg-opacity,1))]">Latest discoveries</h2>
+      <section className="container-shell overflow-hidden py-11 md:py-16">
+        <h2 className="mb-8 whitespace-nowrap text-center font-serif text-[34px] uppercase leading-none text-[rgb(9_46_43/var(--tw-bg-opacity,1))] md:mb-10 md:text-4xl">Latest discoveries</h2>
         <ProductGrid products={latest} />
       </section>
 
