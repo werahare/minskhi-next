@@ -16,6 +16,8 @@ type RawProduct = {
   salePrice?: string;
   categories?: string[];
   tags?: string[];
+  mainImage?: string;
+  galleryImages?: string[];
   images?: string[];
   attributes?: { name?: string; value?: string }[];
   metadata?: { stock?: string };
@@ -41,7 +43,11 @@ function normalizeCategoryPath(category: string) {
 }
 
 function normalizeProduct(product: RawProduct): Product {
-  const images = (product.images ?? []).filter(Boolean);
+  const images = (
+    product.images ??
+    product.galleryImages ??
+    (product.mainImage ? [product.mainImage] : [])
+  ).filter(Boolean);
   const slug = product.slug ?? "";
 
   return {
@@ -71,7 +77,14 @@ function normalizeProduct(product: RawProduct): Product {
   };
 }
 
-export const products: Product[] = (rawProducts as RawProduct[]).map(normalizeProduct);
+function hasVisibleProductImage(product: RawProduct) {
+  return Boolean(product.mainImage || product.images?.some(Boolean) || product.galleryImages?.some(Boolean));
+}
+
+export const products: Product[] = (rawProducts as RawProduct[])
+  // Hide placeholder-image products until their real images are added.
+  .filter(hasVisibleProductImage)
+  .map(normalizeProduct);
 
 export function getProductBySlug(slug: string) {
   return products.find((product) => product.slug === slug);
