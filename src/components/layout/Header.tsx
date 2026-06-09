@@ -75,7 +75,7 @@ export function Header() {
             width={1024}
             height={1024}
             priority
-            className={isHome ? "h-auto w-[58px] lg:w-[112px]" : "h-auto w-[60px] sm:w-[72px] lg:w-[92px]"}
+            className={isHome ? "h-auto w-[70px] lg:w-[132px]" : "h-auto w-[72px] sm:w-[86px] lg:w-[108px]"}
           />
         </Link>
         <nav
