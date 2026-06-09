@@ -70,12 +70,12 @@ export function Header() {
         </button>
         <Link href="/" className={isHome ? "justify-self-start" : "justify-self-center lg:justify-self-start"}>
           <Image
-            src="/wp-content/uploads/2024/01/minskhi.png"
+            src="/assets/brand/minskhi_logo_transparent.png"
             alt="Minskhi"
-            width={2048}
-            height={590}
+            width={1024}
+            height={1024}
             priority
-            className={isHome ? "h-auto w-[94px] lg:w-[190px]" : "h-auto w-[145px] sm:w-[175px] lg:w-[205px]"}
+            className={isHome ? "h-auto w-[58px] lg:w-[112px]" : "h-auto w-[60px] sm:w-[72px] lg:w-[92px]"}
           />
         </Link>
         <nav
