@@ -78,7 +78,14 @@ function normalizeProduct(product: RawProduct): Product {
 }
 
 function hasVisibleProductImage(product: RawProduct) {
-  return Boolean(product.mainImage || product.images?.some(Boolean) || product.galleryImages?.some(Boolean));
+  const categories = product.categories ?? [];
+  const isCarving = categories.some((category) => category.toLowerCase().includes("carving"));
+  return Boolean(
+    isCarving ||
+      product.mainImage ||
+      product.images?.some(Boolean) ||
+      product.galleryImages?.some(Boolean)
+  );
 }
 
 export const products: Product[] = (rawProducts as RawProduct[])
