@@ -71,33 +71,6 @@ export default function HomePage() {
         <ProductGrid products={latest} />
       </section>
 
-      <section className="container-shell grid gap-8 py-10 md:grid-cols-2">
-        {featureTiles.map((tile) => (
-          <Link href="/shop-2" className="group block" key={tile.title}>
-            <div className="relative aspect-[1220/1320] overflow-hidden bg-linen">
-              <Image
-                src={tile.image}
-                alt={tile.title}
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover transition duration-700 group-hover:scale-105"
-              />
-            </div>
-            <div className="mt-5 grid min-h-[122px] gap-5 border-b border-[#e6ddd2] pb-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
-              <div className="max-w-[520px]">
-                <p className="text-[12px] uppercase tracking-[0.13em] text-[#7a716a]">{tile.eyebrow}</p>
-                <h3 className="mt-3 font-serif text-[30px] leading-[1.08] text-ink md:text-[34px]">
-                  {tile.title}
-                </h3>
-              </div>
-              <span className="inline-flex h-[48px] min-w-[136px] items-center justify-center self-start bg-[#092E2B] px-7 text-[12px] uppercase tracking-[0.08em] text-white transition group-hover:bg-ink sm:mt-3">
-                Shop now
-              </span>
-            </div>
-          </Link>
-        ))}
-      </section>
-
       <section className="bg-white py-12 text-center md:py-14">
         <div className="container-shell">
           <h2 className="font-serif text-4xl uppercase text-[rgb(9_46_43/var(--tw-bg-opacity,1))]">
