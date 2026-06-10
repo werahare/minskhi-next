@@ -120,7 +120,21 @@ export function getProductsByCategory(category: "gemstones" | "jewellery" | "min
   );
 }
 
+function isMineralProduct(product: Product) {
+  return product.categories.some((item) => {
+    const lower = item.toLowerCase();
+    return lower.includes("mineral") || lower.includes("carving");
+  });
+}
+
 export function getRelatedProducts(product: Product, count = 4) {
+  if (isMineralProduct(product)) {
+    return products
+      .filter((candidate) => candidate.id !== product.id)
+      .filter(isMineralProduct)
+      .slice(0, count);
+  }
+
   const primary = product.categories[0]?.split(">")[0]?.trim().toLowerCase();
   return products
     .filter((candidate) => candidate.id !== product.id)
