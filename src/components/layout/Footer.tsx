@@ -103,7 +103,7 @@ export function Footer() {
       </section>
 
       <div className="bg-[#161616]">
-        <div className="w-full px-6 py-[10px] text-[16px] text-[#505050] sm:px-10 xl:px-[100px]">
+        <div className="w-full px-6 py-[10px] text-[12px] text-[#505050] sm:px-10 xl:px-[100px]">
           &copy; 2026 Minskhi All rights reserved. | ABN {siteConfig.abn}
         </div>
       </div>

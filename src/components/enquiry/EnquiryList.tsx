@@ -343,7 +343,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
               <Image src={productImage(product.mainImage)} alt={product.name} fill sizes="140px" className="object-cover" />
             </Link>
             <div>
-              <h2 className="font-serif text-2xl">
+              <h2 className="minskhi-product-name font-serif text-2xl">
                 <Link href={`/product/${product.slug}`}>{product.name}</Link>
               </h2>
               <p className="mt-2 text-sm text-mink">SKU: {product.sku || "N/A"}</p>

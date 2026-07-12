@@ -68,7 +68,7 @@ export function WishlistList({ products }: { products: Product[] }) {
                 <p className="text-[11px] uppercase tracking-[0.22em] text-[#9a8262]">
                   {product.categories[0]?.replace(">", "/") ?? "Minskhi"}
                 </p>
-                <h2 className="mt-3 font-serif text-2xl leading-tight text-ink">
+                <h2 className="minskhi-product-name mt-3 font-serif text-2xl leading-tight text-ink">
                   <Link className="transition hover:text-[#092E2B]" href={`/product/${product.slug}`}>
                     {product.name}
                   </Link>

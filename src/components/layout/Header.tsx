@@ -72,10 +72,10 @@ export function Header() {
           <Image
             src="/assets/brand/minskhi_logo_transparent.png"
             alt="Minskhi"
-            width={1024}
-            height={1024}
+            width={3580}
+            height={657}
             priority
-            className={isHome ? "h-auto w-[70px] lg:w-[162px]" : "h-auto w-[72px] sm:w-[86px] lg:w-[180px]"}
+            className={isHome ? "h-auto w-[132px] sm:w-[156px] lg:w-[230px]" : "h-auto w-[132px] sm:w-[156px] lg:w-[220px]"}
           />
         </Link>
         <nav
@@ -94,9 +94,6 @@ export function Header() {
               href="/collection"
             >
               <span>Collection</span>
-              <span aria-hidden="true" className="text-[16px] leading-none">
-                &#8964;
-              </span>
             </Link>
             <div className="invisible absolute left-0 top-full z-20 min-w-48 border border-[#e9e9e9] bg-white py-3 text-ink opacity-0 shadow-soft transition group-hover:visible group-hover:opacity-100">
               <Link className="block px-5 py-2 hover:text-coral" href="/gemstones">

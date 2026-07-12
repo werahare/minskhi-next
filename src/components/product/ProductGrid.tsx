@@ -2,7 +2,13 @@ import type { Product } from "@/lib/types";
 import { ProductCard } from "./ProductCard";
 import { EmptyState } from "@/components/ui/EmptyState";
 
-export function ProductGrid({ products }: { products: Product[] }) {
+export function ProductGrid({
+  products,
+  desktopColumns = 3
+}: {
+  products: Product[];
+  desktopColumns?: 3 | 4;
+}) {
   if (products.length === 0) {
     return (
       <EmptyState
@@ -14,8 +20,10 @@ export function ProductGrid({ products }: { products: Product[] }) {
     );
   }
 
+  const desktopGridClass = desktopColumns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3";
+
   return (
-    <div className="grid gap-x-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className={`grid gap-x-7 gap-y-12 sm:grid-cols-2 ${desktopGridClass}`}>
       {products.map((product) => (
         <ProductCard product={product} key={product.id} />
       ))}

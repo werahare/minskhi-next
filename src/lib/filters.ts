@@ -83,7 +83,20 @@ export function formatAttributeValue(value: string) {
   const trimmed = String(value ?? "").trim();
   if (trimmed.toLowerCase() === "heated") return "Heated";
   if (trimmed.toLowerCase() === "unheated") return "Unheated";
+  if (isRectangularCushionMixed(trimmed)) return "Rectangular Cushion / Mixed";
   return trimmed;
+}
+
+function isRectangularCushionMixed(value: string) {
+  const normalized = value
+    .toLowerCase()
+    .replace(/\bcut\b/g, "")
+    .replace(/\bwith truncated corners\b/g, "")
+    .replace(/[,/]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return normalized === "rectangular cushion mixed" || normalized === "rectangular cushion";
 }
 
 function normalizeValueForKey(value: string, keyLabel: string) {
@@ -100,6 +113,7 @@ function normalizeValueForKey(value: string, keyLabel: string) {
     if (v === "unheated") return "unheated";
   }
   if (keyLabel.toLowerCase().includes("shape")) {
+    if (isRectangularCushionMixed(v)) return "rectangular cushion/mixed";
     // remove the word 'cut' which is often inconsistent
     v = v.replace(/\bcut\b/g, "");
     v = v.replace(/\s+/g, " ").trim();

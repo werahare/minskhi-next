@@ -35,7 +35,7 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="text-[12px] uppercase tracking-[0.2em] text-[#9a8262]">
           {gemType ?? product.categories[0]?.replace(">", "/") ?? "Minskhi"}
         </p>
-        <h3 className="mx-auto mt-4 min-h-12 max-w-[280px] text-[17px] leading-snug text-[#111]">
+        <h3 className="minskhi-product-name mx-auto mt-4 min-h-12 max-w-[280px] text-[17px] leading-snug text-[#111]">
           <Link className="transition hover:text-[#092E2B]" href={`/product/${product.slug}`}>
             {product.name}
           </Link>

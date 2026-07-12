@@ -45,7 +45,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-white/70 md:bg-black/5" />
         <div className="relative hidden min-h-[867px] items-center justify-center px-6 pb-6 pt-[120px] text-center md:flex">
           <div className="mx-auto mt-[-34px] max-w-[980px]">
-            <h1 className="font-[Bellefair,serif] text-[58px] font-normal uppercase leading-[0.98] tracking-[0.055em] text-white md:text-[88px] xl:text-[98px]">
+            <h1 className="minskhi-home-hero-title text-[58px] font-normal uppercase leading-[0.98] tracking-[0.055em] text-white md:text-[88px] xl:text-[98px]">
               Sapphire
               <br />
               House of
@@ -68,7 +68,7 @@ export default function HomePage() {
 
       <section className="container-shell overflow-hidden py-11 md:py-16">
         <h2 className="mb-8 whitespace-nowrap text-center font-serif text-[34px] uppercase leading-none text-[rgb(9_46_43/var(--tw-bg-opacity,1))] md:mb-10 md:text-4xl">Latest discoveries</h2>
-        <ProductGrid products={latest} />
+        <ProductGrid products={latest} desktopColumns={4} />
       </section>
 
       <section className="bg-white py-12 text-center md:py-14">
@@ -136,7 +136,7 @@ export default function HomePage() {
             <h2 className="font-serif text-4xl uppercase text-white">rare stones</h2>
           </div>
         </div>
-        <ProductGrid products={rareStones} />
+        <ProductGrid products={rareStones} desktopColumns={4} />
       </section>
 
       <section className="container-shell py-20">

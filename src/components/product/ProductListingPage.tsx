@@ -45,7 +45,9 @@ export function ProductListingPage({
     <section className="container-shell py-14">
       <div className="mb-10 text-center">
         <p className="text-xs uppercase tracking-[0.2em] text-gold">{eyebrow}</p>
-        <h1 className="mt-3 font-serif text-5xl text-[rgb(9_46_43/var(--tw-bg-opacity,1))]">{title}</h1>
+        <h1 className="mt-3 font-serif text-4xl font-semibold uppercase tracking-[0.03em] text-[rgb(9_46_43/var(--tw-bg-opacity,1))]">
+          {title}
+        </h1>
         <p className="mx-auto mt-4 max-w-4xl text-sm leading-7 text-mink">{description}</p>
       </div>
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-y border-[#ddcfbf] py-4">

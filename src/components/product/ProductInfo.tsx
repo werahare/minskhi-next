@@ -11,7 +11,9 @@ export function ProductInfo({ product }: { product: Product }) {
   return (
     <div className="lg:pl-8">
       <p className="text-xs uppercase tracking-[0.22em] text-gold">{category}</p>
-      <h1 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">{product.name}</h1>
+      <h1 className="minskhi-product-name mt-3 font-serif text-4xl leading-tight md:text-5xl">
+        {product.name}
+      </h1>
       <p className="mt-4 text-sm text-mink">
         {product.sku ? `SKU ${product.sku}` : "SKU available on enquiry"}
       </p>
@@ -76,12 +78,12 @@ export function ProductInfo({ product }: { product: Product }) {
         highlight the beauty and detail of each gemstone. Colours and appearance may vary slightly in
         real life depending on lighting, environment, and screen settings.
       </p>
-      <div className="mt-6 flex flex-wrap gap-3 text-sm uppercase tracking-[0.16em] text-mink">
+      <div className="mt-6 flex flex-wrap gap-3 text-sm text-mink">
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${siteConfig.url}/product/${product.slug}`}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-[#ddcfbf] bg-white px-4 py-2 font-semibold text-mink transition hover:border-ink hover:text-ink"
+          className="inline-flex min-h-11 items-center gap-2.5 border border-[#d8c8b6] bg-white px-5 text-[12px] font-semibold uppercase tracking-[0.12em] text-[#2d2a27] shadow-[0_10px_24px_rgba(42,34,25,0.04)] transition hover:border-[#092E2B] hover:bg-[#092E2B] hover:text-white"
           aria-label="Share on Facebook"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current">
@@ -93,7 +95,7 @@ export function ProductInfo({ product }: { product: Product }) {
           href={`https://wa.me/?text=${encodeURIComponent(`${product.name} ${siteConfig.url}/product/${product.slug}`)}`}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-[#ddcfbf] bg-white px-4 py-2 font-semibold text-mink transition hover:border-ink hover:text-ink"
+          className="inline-flex min-h-11 items-center gap-2.5 border border-[#d8c8b6] bg-white px-5 text-[12px] font-semibold uppercase tracking-[0.12em] text-[#2d2a27] shadow-[0_10px_24px_rgba(42,34,25,0.04)] transition hover:border-[#092E2B] hover:bg-[#092E2B] hover:text-white"
           aria-label="Share on WhatsApp"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current">
@@ -103,7 +105,7 @@ export function ProductInfo({ product }: { product: Product }) {
         </a>
         <a
           href={`mailto:?subject=${encodeURIComponent(product.name)}&body=${encodeURIComponent(`${siteConfig.url}/product/${product.slug}`)}`}
-          className="inline-flex items-center gap-2 rounded-full border border-[#ddcfbf] bg-white px-4 py-2 font-semibold text-mink transition hover:border-ink hover:text-ink"
+          className="inline-flex min-h-11 items-center gap-2.5 border border-[#d8c8b6] bg-white px-5 text-[12px] font-semibold uppercase tracking-[0.12em] text-[#2d2a27] shadow-[0_10px_24px_rgba(42,34,25,0.04)] transition hover:border-[#092E2B] hover:bg-[#092E2B] hover:text-white"
           aria-label="Share by Email"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current">
