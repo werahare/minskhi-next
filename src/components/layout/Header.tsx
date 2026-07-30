@@ -70,9 +70,9 @@ export function Header() {
         </button>
         <Link href="/" className={isHome ? "justify-self-start" : "justify-self-center lg:justify-self-start"}>
           <Image
-            src="/assets/brand/minskhi_logo_transparent.png"
+            src="/assets/brand/minskhi-logo.png"
             alt="Minskhi"
-            width={3580}
+            width={3431}
             height={657}
             priority
             className={isHome ? "h-auto w-[132px] sm:w-[156px] lg:w-[230px]" : "h-auto w-[132px] sm:w-[156px] lg:w-[220px]"}

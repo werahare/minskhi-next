@@ -20,6 +20,15 @@ export function ProductCard({ product }: { product: Product }) {
         slug={product.slug}
         className="absolute right-7 top-7 z-20 h-10 w-10 rounded-full border-[#e8dccf] bg-white/90 shadow-[0_12px_34px_rgba(36,28,19,0.10)] backdrop-blur"
       />
+      {product.lotSize ? (
+        <span
+          className="absolute left-7 top-7 z-20 inline-flex min-h-10 items-center gap-2 border border-[#e8dccf] bg-white/95 px-3 text-[#111] shadow-[0_12px_34px_rgba(36,28,19,0.10)]"
+          aria-label={`Lot of ${product.lotSize}`}
+        >
+          <span className="text-[9px] uppercase tracking-[0.16em] text-[#9a8262]">Lot of</span>
+          <strong className="text-[17px] font-medium leading-none">{product.lotSize}</strong>
+        </span>
+      ) : null}
       <Link href={`/product/${product.slug}`} className="relative block overflow-hidden bg-[#fbfaf7]">
         <span className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_42%,rgba(255,255,255,0.12),transparent_62%)] opacity-0 transition duration-500 group-hover:opacity-100" />
         <div className="relative aspect-[700/798]">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { journalPosts } from "@/content/journal/posts";
 
 const careLinks = [
   ["Policies", "/policies"],
@@ -17,13 +18,18 @@ const discoverLinks = [
   ["Minskhi Certifications", "/minskhi-certifications"]
 ];
 
+const blogLinks = [
+  ...journalPosts.map((post) => [post.title, `/journal/${post.slug}`]),
+  ["View All Blogs", "/journal"]
+];
+
 export function Footer() {
   return (
     <footer className="w-full bg-[#03110F] text-white">
       <section className="grid w-full gap-[60px] px-6 py-[90px] sm:px-10 lg:grid-cols-[30fr_20fr_20fr_30fr] xl:px-[100px]">
         <div>
-          <h3 className="font-serif text-[20px] uppercase leading-none">Contact us</h3>
-          <div className="mt-5 grid gap-[15px] text-[16px] leading-[1.55]">
+          <h3 className="font-serif text-[18px] uppercase leading-none">Contact us</h3>
+          <div className="mt-5 grid gap-[15px] text-[14px] leading-[1.55]">
             <div className="grid grid-cols-[39px_1fr] gap-[15px]">
               <LocationIcon />
               <p>
@@ -69,25 +75,7 @@ export function Footer() {
 
         <FooterLinkColumn title="Customer Care" links={careLinks} />
         <FooterLinkColumn title="Discover Minskhi" links={discoverLinks} />
-
-        <div>
-          <h3 className="font-serif text-[20px] uppercase leading-none">Join the Minskhi Circle</h3>
-          <p className="mt-5 text-[16px]">Subscribe us</p>
-          <form className="mt-5 flex h-[58px] bg-white text-black">
-            <input
-              className="min-w-0 flex-1 px-4 text-[16px] outline-none placeholder:text-[#7f8589]"
-              placeholder="Enter your email address..."
-              type="email"
-            />
-            <button
-              className="grid w-[58px] place-items-center text-[24px] transition hover:bg-[#092E2B] hover:text-white"
-              type="button"
-              aria-label="Subscribe"
-            >
-              &#8594;
-            </button>
-          </form>
-        </div>
+        <FooterLinkColumn title="Blogs" links={blogLinks} />
       </section>
 
       <section className="w-full bg-[#03110F] px-6 pb-[30px] sm:px-10 xl:px-[100px]">
@@ -114,8 +102,8 @@ export function Footer() {
 function FooterLinkColumn({ title, links }: { title: string; links: string[][] }) {
   return (
     <div>
-      <h3 className="font-serif text-[20px] uppercase leading-none">{title}</h3>
-      <ul className="mt-5 grid gap-[9px] text-[16px] leading-[1.45]">
+      <h3 className="font-serif text-[18px] uppercase leading-none">{title}</h3>
+      <ul className="mt-5 grid gap-[9px] text-[14px] leading-[1.45]">
         {links.map(([label, href]) => (
           <li key={href}>
             <Link className="transition hover:text-[#AAAAAA]" href={href}>

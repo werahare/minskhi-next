@@ -3057,7 +3057,8 @@
   {
     "id": "1434",
     "slug": "2-07-ct-pink-sapphires",
-    "name": "2.07 ct. Lot of 4 Pink Sapphires",
+    "name": "2.07 ct. Pink Sapphires",
+    "lotSize": 4,
     "sku": "222551",
     "categories": [
       "Gemstones > Sapphire"
@@ -3787,7 +3788,8 @@
   {
     "id": "1447",
     "slug": "1-73-ct-unhetaed-pink-sapphires",
-    "name": "1.73 ct. Lot of 3 Unheated Pink Sapphires",
+    "name": "1.73 ct. Unheated Pink Sapphires",
+    "lotSize": 3,
     "sku": "222549",
     "categories": [
       "Gemstones > Sapphire"
@@ -4201,7 +4203,8 @@
   {
     "id": "1456",
     "slug": "2-73-ct-unheated-purple-sapphiresm",
-    "name": "2.73 ct. Lot of 3 Unheated Violet, Violetish Purple and Purplish Violet Sapphires",
+    "name": "2.73 ct. Unheated Violet, Violetish Purple and Purplish Violet Sapphires",
+    "lotSize": 3,
     "sku": "222553",
     "categories": [
       "Gemstones > Sapphire"
@@ -4513,7 +4516,8 @@
   {
     "id": "1462",
     "slug": "5-06-ct-spinel",
-    "name": "5.06 ct. Lot of 13 Spinels",
+    "name": "5.06 ct. Spinels",
+    "lotSize": 13,
     "sku": "222175",
     "categories": [
       "Gemstones > Sapphire"
@@ -8775,7 +8779,8 @@
   {
     "id": "3697",
     "slug": "2-5-ct-multi-coloured-sapphires",
-    "name": "2.50 ct. Lot of 10 Multi Coloured Sapphires",
+    "name": "2.50 ct. Multi Coloured Sapphires",
+    "lotSize": 10,
     "sku": "220929",
     "categories": [
       "Gemstones > Sapphire"

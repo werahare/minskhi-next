@@ -17,24 +17,27 @@ export function AddToEnquiryButton({
   }, [slug]);
 
   function add() {
+    if (added) return;
+
     const items = readEnquiryItems();
-    const existing = items.find((item) => item.slug === slug);
-    const next = existing
-      ? items.map((item) =>
-          item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item
-        )
-      : [...items, { slug, quantity: 1 }];
-    writeEnquiryItems(next);
+    if (items.some((item) => item.slug === slug)) {
+      setAdded(true);
+      return;
+    }
+
+    writeEnquiryItems([...items, { slug, quantity: 1 }]);
     setAdded(true);
   }
 
   return (
     <button
-      className={`border border-ink px-5 py-3 text-xs uppercase tracking-[0.12em] transition hover:bg-[#082e2b] hover:text-white ${className}`}
+      aria-disabled={added}
+      className={`border border-ink px-5 py-3 text-xs uppercase tracking-[0.12em] transition enabled:hover:bg-[#082e2b] enabled:hover:text-white disabled:cursor-not-allowed disabled:border-[#cfc7bd] disabled:bg-[#f3f0eb] disabled:text-[#8e8880] ${className}`}
+      disabled={added}
       onClick={add}
       type="button"
     >
-      {added ? "Add Again" : "Add to Enquire List"}
+      Add to Enquire List
     </button>
   );
 }

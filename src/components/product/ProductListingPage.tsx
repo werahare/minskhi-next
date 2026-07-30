@@ -5,6 +5,7 @@ import { sortProducts } from "@/lib/products";
 import type { Product, SortKey } from "@/lib/types";
 
 type SearchParams = Record<string, string | string[] | undefined>;
+const PRODUCTS_PER_PAGE = 9;
 
 function toParams(searchParams: SearchParams) {
   const params = new URLSearchParams();
@@ -13,6 +14,22 @@ function toParams(searchParams: SearchParams) {
     else if (value) params.set(key, value);
   });
   return params;
+}
+
+function paginationItems(currentPage: number, totalPages: number) {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  const pages = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+  const validPages = Array.from(pages)
+    .filter((page) => page >= 1 && page <= totalPages)
+    .sort((a, b) => a - b);
+
+  return validPages.flatMap<(number | "ellipsis")>((page, index) => {
+    const previousPage = validPages[index - 1];
+    return previousPage && page - previousPage > 1 ? ["ellipsis", page] : [page];
+  });
 }
 
 export function ProductListingPage({
@@ -32,14 +49,27 @@ export function ProductListingPage({
 }) {
   const params = toParams(searchParams);
   const sort = (params.get("sort") as SortKey) || "default";
-  const count = Number(params.get("count") ?? 12);
-  const page = Number(params.get("page") ?? 1);
   const filtered = sortProducts(products.filter((product) => productMatchesFilters(product, params)), sort);
-  const visible = filtered.slice(0, Math.max(1, page) * count);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PRODUCTS_PER_PAGE));
+  const requestedPage = Number(params.get("page") ?? 1);
+  const page = Number.isInteger(requestedPage)
+    ? Math.min(Math.max(requestedPage, 1), totalPages)
+    : 1;
+  const pageStart = (page - 1) * PRODUCTS_PER_PAGE;
+  const visible = filtered.slice(pageStart, pageStart + PRODUCTS_PER_PAGE);
   const filters = uniqueAttributeValues(
     products,
     filterMode === "jewellery" ? jewelleryFilterNames : gemstoneFilterNames
   );
+  const pageHref = (targetPage: number) => {
+    const nextParams = new URLSearchParams(params);
+    nextParams.delete("count");
+    if (targetPage === 1) nextParams.delete("page");
+    else nextParams.set("page", String(targetPage));
+    const query = nextParams.toString();
+    return query ? `?${query}` : "?";
+  };
+  const pages = paginationItems(page, totalPages);
 
   return (
     <section className="container-shell py-14">
@@ -52,20 +82,22 @@ export function ProductListingPage({
       </div>
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-y border-[#ddcfbf] py-4">
         <p className="text-sm text-mink">
-          Showing {visible.length} of {filtered.length} products
+          {filtered.length > 0
+            ? `Showing ${pageStart + 1}-${pageStart + visible.length} of ${filtered.length} products`
+            : "Showing 0 products"}
         </p>
         <form className="flex flex-wrap gap-3 text-sm" action="">
+          {Array.from(params.entries())
+            .filter(([key]) => !["sort", "page", "count"].includes(key))
+            .map(([key, value]) => (
+              <input key={key} name={key} type="hidden" value={value} />
+            ))}
           <select className="border border-[#d9cbbb] bg-transparent px-3 py-2" name="sort" defaultValue={sort}>
             <option value="default">Default sorting</option>
             <option value="popularity">Sort by popularity</option>
             <option value="latest">Sort by latest</option>
             <option value="price-asc">Sort by price low to high</option>
             <option value="price-desc">Sort by price high to low</option>
-          </select>
-          <select className="border border-[#d9cbbb] bg-transparent px-3 py-2" name="count" defaultValue={String(count)}>
-            <option value="12">12</option>
-            <option value="15">15</option>
-            <option value="30">30</option>
           </select>
           <button className="border border-ink px-4 py-2 text-xs uppercase tracking-[0.16em]" type="submit">
             Apply
@@ -76,13 +108,47 @@ export function ProductListingPage({
         <ProductFilters filters={filters} mode={filterMode} />
         <div>
           <ProductGrid products={visible} />
-          {visible.length < filtered.length ? (
-            <a
-              className="mx-auto mt-12 flex w-fit border border-ink px-6 py-3 text-xs uppercase tracking-[0.18em]"
-              href={`?${new URLSearchParams({ ...Object.fromEntries(params), page: String(page + 1), count: String(count) })}`}
-            >
-              Load more
-            </a>
+          {filtered.length > PRODUCTS_PER_PAGE ? (
+            <nav className="mt-12 flex flex-wrap items-center justify-center gap-2" aria-label="Product pagination">
+              {page > 1 ? (
+                <a
+                  className="inline-flex min-h-10 items-center border border-[#d9cbbb] px-4 text-xs uppercase tracking-[0.14em] transition hover:border-ink"
+                  href={pageHref(page - 1)}
+                  rel="prev"
+                >
+                  Previous
+                </a>
+              ) : null}
+              {pages.map((item, index) =>
+                item === "ellipsis" ? (
+                  <span className="inline-flex min-h-10 min-w-10 items-center justify-center text-mink" key={`ellipsis-${index}`}>
+                    &hellip;
+                  </span>
+                ) : (
+                  <a
+                    aria-current={item === page ? "page" : undefined}
+                    className={`inline-flex min-h-10 min-w-10 items-center justify-center border text-sm transition ${
+                      item === page
+                        ? "border-ink bg-ink text-white"
+                        : "border-[#d9cbbb] text-ink hover:border-ink"
+                    }`}
+                    href={pageHref(item)}
+                    key={item}
+                  >
+                    {item}
+                  </a>
+                )
+              )}
+              {page < totalPages ? (
+                <a
+                  className="inline-flex min-h-10 items-center border border-[#d9cbbb] px-4 text-xs uppercase tracking-[0.14em] transition hover:border-ink"
+                  href={pageHref(page + 1)}
+                  rel="next"
+                >
+                  Next
+                </a>
+              ) : null}
+            </nav>
           ) : null}
         </div>
       </div>

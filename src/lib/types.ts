@@ -7,6 +7,7 @@ export type Product = {
   id: string;
   slug: string;
   name: string;
+  lotSize?: number;
   sku: string;
   categories: string[];
   tags: string[];

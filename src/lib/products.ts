@@ -9,6 +9,7 @@ type RawProduct = {
   hidden?: boolean;
   slug?: string;
   name?: string;
+  lotSize?: number;
   sku?: string;
   short?: string;
   description?: string;
@@ -83,6 +84,7 @@ function normalizeProduct(product: RawProduct): Product {
     id: String(product.id ?? slug),
     slug,
     name: product.name ?? "Untitled product",
+    lotSize: product.lotSize,
     sku: product.sku ?? "",
     categories: (product.categories ?? []).map(normalizeCategoryPath),
     tags: product.tags ?? [],
