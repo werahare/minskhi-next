@@ -44,6 +44,7 @@ function MinskhiCertificationsPage() {
   const certificationRequests = [
     "GIA (Gemological Institute of America)",
     "Gubelin Gem Lab",
+    "SWISS Gemmological Institute (SSEF)",
     "Other preferred laboratories upon request"
   ];
 
@@ -51,7 +52,6 @@ function MinskhiCertificationsPage() {
     <section className="minskhi-certifications-page">
       <div className="minskhi-certifications-container">
         <header className="minskhi-certifications-hero">
-          <span className="minskhi-eyebrow">Minskhi</span>
           <h1>The Minskhi Standard</h1>
           <h2>Authenticity Backed by Credibility</h2>
           <p>
@@ -63,7 +63,7 @@ function MinskhiCertificationsPage() {
         <section className="minskhi-certifications-intro">
           <h3>Assurance You Can Trust</h3>
           <p>
-            A majority of our gemstones are certified by internationally recognised
+            All of our gemstones are certified by internationally recognised
             and reputable gemmological laboratories, including our trusted certification
             partner, Gemological Institute of Colombo (GIC).
           </p>
@@ -74,55 +74,29 @@ function MinskhiCertificationsPage() {
           </p>
         </section>
 
-        <div className="minskhi-certifications-grid">
-          <section className="minskhi-certifications-card">
-            <span className="minskhi-card-kicker">Independent Verification</span>
-            <h3>Why Certification Matters</h3>
-            <ul className="minskhi-certifications-list">
-              {certificationBenefits.map((benefit) => (
-                <li key={benefit}>{benefit}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="minskhi-certifications-card minskhi-certifications-certificate">
-            <span className="minskhi-card-kicker">Gemstone Certificate</span>
-            <h3>Recognised Certification Partners</h3>
-            <p>
-              Our gemstones are certified by world-renowned laboratories, trusted for
-              their precision, integrity, and global recognition.
-            </p>
-            <strong>Gemological Institute of Colombo (GIC)</strong>
-          </section>
-        </div>
-
-        <section className="minskhi-certifications-card minskhi-certifications-wide">
-          <h3>Detailed Assurance</h3>
-          <p>
-            Each certification provides a detailed assurance of authenticity, quality,
-            and the unique characteristics of every gemstone offering complete confidence
-            in your investment.
-          </p>
+        <section className="minskhi-certifications-card">
+          <span className="minskhi-card-kicker">Independent Verification</span>
+          <h3>Why Certification Matters</h3>
+          <ul className="minskhi-certifications-list">
+            {certificationBenefits.map((benefit) => (
+              <li key={benefit}>{benefit}</li>
+            ))}
+          </ul>
         </section>
 
-        <div className="minskhi-certifications-grid">
-          <section className="minskhi-certifications-card">
-            <h3>Personalised Certification Requests</h3>
-            <p>
-              For clients who seek additional assurance or specific laboratory preferences,
-              we offer bespoke certification services through internationally recognised
-              institutions, including:
-            </p>
-          </section>
-
-          <section className="minskhi-certifications-card">
-            <ul className="minskhi-certifications-list">
-              {certificationRequests.map((request) => (
-                <li key={request}>{request}</li>
-              ))}
-            </ul>
-          </section>
-        </div>
+        <section className="minskhi-certifications-card minskhi-certifications-wide">
+          <h3>Personalised Certification Requests</h3>
+          <p>
+            For clients who seek additional assurance or specific laboratory preferences,
+            we offer bespoke certification services through internationally recognised
+            institutions, including:
+          </p>
+          <ul className="minskhi-certifications-list">
+            {certificationRequests.map((request) => (
+              <li key={request}>{request}</li>
+            ))}
+          </ul>
+        </section>
 
         <section className="minskhi-certifications-cta">
           <h3>Additional Certification</h3>

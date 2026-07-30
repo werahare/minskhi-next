@@ -676,7 +676,7 @@
   {
     "id": "1388",
     "slug": "1-15-ct-unheated-blue-sapphire",
-    "name": "1.15 ct. Unheated Blue Sapphire",
+    "name": "1.15 ct. Unheated Deep Royal Blue Sapphire",
     "sku": "220811",
     "categories": [
       "Gemstones > Sapphire"
@@ -705,15 +705,15 @@
     "attributes": [
       {
         "name": "Gem Type",
-        "value": "Blue Sapphire Unheated"
+        "value": "Sapphire"
       },
       {
         "name": "Treatment",
-        "value": "Heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
-        "value": "Blue"
+        "value": "Deep Royal Blue"
       },
       {
         "name": "Carat / Weight",
@@ -1500,7 +1500,7 @@
   {
     "id": "1404",
     "slug": "1-07-ct-blue-sapphires",
-    "name": "1.07 ct. Blue Sapphires",
+    "name": "1.07 ct. Royal Blue Sapphire",
     "sku": "220808",
     "categories": [
       "Gemstones > Sapphire"
@@ -1537,7 +1537,7 @@
       },
       {
         "name": "Colour",
-        "value": "Blue"
+        "value": "Royal Blue"
       },
       {
         "name": "Shape / Cut",
@@ -1563,6 +1563,7 @@
   },
   {
     "id": "1405",
+    "hidden": true,
     "slug": "1-07-ct-blue-sapphires",
     "name": "1.07 ct. Blue Sapphires",
     "sku": "220810",
@@ -1628,7 +1629,7 @@
   {
     "id": "1406",
     "slug": "0-38-ct-blue-sapphires",
-    "name": "0.38 ct. Blue Sapphires",
+    "name": "0.38 ct. Blue Sapphire",
     "sku": "220906",
     "categories": [
       "Gemstones > Sapphire"
@@ -1756,7 +1757,7 @@
   {
     "id": "1408",
     "slug": "0-39-ct-blue-sapphires",
-    "name": "0.39 ct.  Blue Sapphires",
+    "name": "0.39 ct. Blue Sapphire",
     "sku": "220916",
     "categories": [
       "Gemstones > Sapphire"
@@ -1785,7 +1786,7 @@
     "attributes": [
       {
         "name": "Gem Type",
-        "value": "Blue Sapphires"
+        "value": "Sapphire"
       },
       {
         "name": "Treatment",
@@ -1880,7 +1881,7 @@
   {
     "id": "1410",
     "slug": "2-10ct-blue-sapphire",
-    "name": "2.10ct. Blue Sapphire",
+    "name": "2.10 ct. Royal Blue Sapphire",
     "sku": "221026",
     "categories": [
       "Gemstones > Sapphire"
@@ -1917,7 +1918,7 @@
       },
       {
         "name": "Colour",
-        "value": "Blue"
+        "value": "Royal Blue"
       },
       {
         "name": "Shape / Cut",
@@ -2000,7 +2001,7 @@
   {
     "id": "1412",
     "slug": "1-15-ct-blue-sapphires",
-    "name": "1.15 ct. Blue Sapphires",
+    "name": "1.15 ct. Blue Sapphire",
     "sku": "222537",
     "categories": [
       "Gemstones > Sapphire"
@@ -2249,7 +2250,7 @@
     "id": "1416",
     "slug": "1-2-ct-garnet",
     "name": "1.2 ct. Garnet",
-    "sku": "222443",
+    "sku": "223028",
     "categories": [
       "Gemstones > Sapphire"
     ],
@@ -2934,7 +2935,7 @@
   {
     "id": "1432",
     "slug": "0-74-ct-pink-sapphires",
-    "name": "0.74 ct. Pink Sapphires",
+    "name": "0.74 ct. Pair of Pink Sapphires",
     "sku": "220910",
     "categories": [
       "Gemstones > Sapphire"
@@ -3056,7 +3057,7 @@
   {
     "id": "1434",
     "slug": "2-07-ct-pink-sapphires",
-    "name": "2.07 ct. Pink Sapphires",
+    "name": "2.07 ct. Lot of 4 Pink Sapphires",
     "sku": "222551",
     "categories": [
       "Gemstones > Sapphire"
@@ -3288,7 +3289,7 @@
   {
     "id": "1439",
     "slug": "0-92ct-unheated-pink-sapphires",
-    "name": "0.92ct. Unheated Pink Sapphires",
+    "name": "0.92 ct. Unheated Pink Sapphires",
     "sku": "220918",
     "categories": [
       "Gemstones > Sapphire"
@@ -3352,7 +3353,7 @@
   {
     "id": "1440",
     "slug": "1-46-ct-unheated-pink-sapphires",
-    "name": "1.46 ct. Unheated Pink Sapphires",
+    "name": "1.46 ct. Pair of Unheated Pink Sapphires",
     "sku": "222385",
     "categories": [
       "Gemstones > Sapphire"
@@ -3412,7 +3413,7 @@
   {
     "id": "1441",
     "slug": "1-11-ct-unheated-pink-sapphires",
-    "name": "1.11 ct. Unheated Pink Sapphires",
+    "name": "1.11 ct. Pair of Unheated Pink Sapphires",
     "sku": "222386",
     "categories": [
       "Gemstones > Sapphire"
@@ -3472,7 +3473,7 @@
   {
     "id": "1442",
     "slug": "0-97-ct-unheated-pink-sapphires",
-    "name": "0.97 ct. Unheated Pink Sapphires",
+    "name": "0.97 ct. Pair of Unheated Pink Sapphires",
     "sku": "222387",
     "categories": [
       "Gemstones > Sapphire"
@@ -3786,7 +3787,7 @@
   {
     "id": "1447",
     "slug": "1-73-ct-unhetaed-pink-sapphires",
-    "name": "1.73 ct. Unhetaed Pink Sapphires",
+    "name": "1.73 ct. Lot of 3 Unheated Pink Sapphires",
     "sku": "222549",
     "categories": [
       "Gemstones > Sapphire"
@@ -3825,11 +3826,11 @@
       },
       {
         "name": "Shape / Cut",
-        "value": "Pearl / Mixed"
+        "value": "Pear / Mixed"
       },
       {
         "name": "Carat / Weight",
-        "value": "2-3"
+        "value": "1-2"
       },
       {
         "name": "Transparency",
@@ -4016,7 +4017,7 @@
   {
     "id": "1453",
     "slug": "0-82-ct-unheated-purple-sapphires",
-    "name": "0.82 ct. Unheated Purple Sapphires",
+    "name": "0.82 ct. Unheated Lavender Sapphire",
     "sku": "220915",
     "categories": [
       "Gemstones > Sapphire"
@@ -4053,7 +4054,7 @@
       },
       {
         "name": "Colour",
-        "value": "Purple"
+        "value": "Lavender"
       },
       {
         "name": "Shape / Cut",
@@ -4080,7 +4081,7 @@
   {
     "id": "1454",
     "slug": "0-95-ct-unheated-purple-violetish-sapphires",
-    "name": "0.95 ct. Unheated Purple Violetish Sapphires",
+    "name": "0.95 ct. Unheated Purple Violetish Sapphire",
     "sku": "220917",
     "categories": [
       "Gemstones > Sapphire"
@@ -4140,7 +4141,7 @@
   {
     "id": "1455",
     "slug": "0-50-ct-unheated-purple-violetish-sapphires",
-    "name": "0.50 ct. Unheated Purple Violetish Sapphires",
+    "name": "0.50 ct. Unheated Violetish Purple Sapphire",
     "sku": "222388",
     "categories": [
       "Gemstones > Sapphire"
@@ -4200,7 +4201,7 @@
   {
     "id": "1456",
     "slug": "2-73-ct-unheated-purple-sapphiresm",
-    "name": "2.73 ct. Unheated Purple Sapphiresm",
+    "name": "2.73 ct. Lot of 3 Unheated Violet, Violetish Purple and Purplish Violet Sapphires",
     "sku": "222553",
     "categories": [
       "Gemstones > Sapphire"
@@ -4234,6 +4235,10 @@
       {
         "name": "Treatment",
         "value": "unheated"
+      },
+      {
+        "name": "Colour",
+        "value": "Violet, Violetish Purple and Purplish Violet"
       },
       {
         "name": "Shape / Cut",
@@ -4508,7 +4513,7 @@
   {
     "id": "1462",
     "slug": "5-06-ct-spinel",
-    "name": "5.06 ct. Spinel",
+    "name": "5.06 ct. Lot of 13 Spinels",
     "sku": "222175",
     "categories": [
       "Gemstones > Sapphire"
@@ -5173,7 +5178,7 @@
       },
       {
         "name": "Carat / Weight",
-        "value": "0-1"
+        "value": "1-2"
       },
       {
         "name": "Transparency",
@@ -5233,7 +5238,7 @@
       },
       {
         "name": "Shape / Cut",
-        "value": "Mixed"
+        "value": "Pinnacle"
       },
       {
         "name": "Carat / Weight",
@@ -5364,7 +5369,7 @@
   {
     "id": "1478",
     "slug": "0-46-ct-yellow-sapphires",
-    "name": "0.46 ct. Yellow Sapphires",
+    "name": "0.89 ct. Pair of Yellow Sapphires",
     "sku": "220908",
     "categories": [
       "Gemstones > Sapphire"
@@ -5424,7 +5429,7 @@
   {
     "id": "1479",
     "slug": "1-04-ct-yellow-sapphires",
-    "name": "1.04 ct. Yellow Sapphires",
+    "name": "1.04 ct. Pair of Yellow Sapphires",
     "sku": "220909",
     "categories": [
       "Gemstones > Sapphire"
@@ -6380,7 +6385,7 @@
   {
     "id": "2458",
     "slug": "12-56-ct-blue-sapphires",
-    "name": "12.56 ct. Blue Sapphires",
+    "name": "12.56 ct. Blue Sapphire",
     "sku": "",
     "categories": [
       "Gemstones > Sapphire"
@@ -6446,7 +6451,7 @@
   {
     "id": "2463",
     "slug": "12-77-ct-blue-sapphires",
-    "name": "12.77 ct. Blue Sapphires",
+    "name": "12.77 ct. Blue Sapphire",
     "sku": "",
     "categories": [
       "Gemstones > Sapphire"
@@ -6672,7 +6677,7 @@
   {
     "id": "2489",
     "slug": "6-41-ct-corundum-ruby",
-    "name": "6.41 ct.  Corundum Ruby",
+    "name": "6.41 ct. Ruby",
     "sku": "",
     "categories": [
       "Gemstones > Ruby"
@@ -6868,7 +6873,7 @@
   {
     "id": "2509",
     "slug": "3-72ct-blue-corundum-sapphire",
-    "name": "3.72ct.  Blue corundum  Sapphire",
+    "name": "3.72 ct. Blue Sapphire",
     "sku": "",
     "categories": [
       "Jewellery",
@@ -6928,7 +6933,7 @@
   {
     "id": "2514",
     "slug": "1-88-ct-blue-corundum-sapphire",
-    "name": "1.88 ct.  Blue Corundum Sapphire",
+    "name": "1.88 ct. Blue Sapphire",
     "sku": "",
     "categories": [
       "Gemstones > Sapphire"
@@ -7308,7 +7313,7 @@
     "id": "3136",
     "slug": "0-62-ct-unheated-pink-sapphire",
     "name": "0.62 ct. Unheated Pink Sapphire",
-    "sku": "",
+    "sku": "216974",
     "categories": [
       "Gemstones > Sapphire"
     ],
@@ -7440,7 +7445,7 @@
     "id": "3155",
     "slug": "0-54-ct-unheated-pink-sapphire",
     "name": "0.54 ct. Unheated Pink Sapphire",
-    "sku": "",
+    "sku": "216972",
     "categories": [
       "Gemstones > Sapphire"
     ],
@@ -7692,6 +7697,7 @@
   },
   {
     "id": "3353",
+    "hidden": true,
     "slug": "0-62-ct-unheated-pink-sapphire",
     "name": "0.62 ct. Unheated Pink Sapphire",
     "sku": "",
@@ -7758,6 +7764,7 @@
   },
   {
     "id": "3420",
+    "hidden": true,
     "slug": "citrine",
     "name": "Citrine",
     "sku": "",
@@ -7797,6 +7804,7 @@
   },
   {
     "id": "3429",
+    "hidden": true,
     "slug": "citrine",
     "name": "Citrine",
     "sku": "",
@@ -8767,8 +8775,8 @@
   {
     "id": "3697",
     "slug": "2-5-ct-multi-coloured-sapphires",
-    "name": "2.5 ct. Multi Coloured sapphires",
-    "sku": "",
+    "name": "2.50 ct. Lot of 10 Multi Coloured Sapphires",
+    "sku": "220929",
     "categories": [
       "Gemstones > Sapphire"
     ],
@@ -9306,7 +9314,7 @@
   {
     "id": "20260711-007",
     "slug": "3-01-ct-hot-pink-sapphire-heated",
-    "name": "3.01 ct. Hot Pink Sapphire Heated",
+    "name": "3.01 ct. Hot Pink Sapphire",
     "sku": "20260711-007",
     "categories": [
       "Gemstones > Sapphire"
@@ -9480,7 +9488,7 @@
   {
     "id": "20260711-010",
     "slug": "3-50-ct-lavender-sapphire-heated",
-    "name": "3.50 ct. Lavender Sapphire Heated",
+    "name": "3.50 ct. Lavender Sapphire",
     "sku": "20260711-010",
     "categories": [
       "Gemstones > Sapphire"
@@ -10054,7 +10062,7 @@
   {
     "id": "20260711-020",
     "slug": "6-06-ct-blue-sapphire-heated",
-    "name": "6.06 ct. Blue Sapphire Heated",
+    "name": "6.06 ct. Blue Sapphire",
     "sku": "20260711-020",
     "categories": [
       "Gemstones > Sapphire"
@@ -10422,7 +10430,7 @@
   {
     "id": "20260711-026",
     "slug": "7-48-ct-blue-sapphire-heated",
-    "name": "7.48 ct. Blue Sapphire Heated",
+    "name": "7.48 ct. Blue Sapphire",
     "sku": "20260711-026",
     "categories": [
       "Gemstones > Sapphire"

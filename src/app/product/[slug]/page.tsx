@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductInfo } from "@/components/product/ProductInfo";
+import { ProductCertificationCare } from "@/components/product/ProductCertificationCare";
 import { RelatedProducts } from "@/components/product/RelatedProducts";
 import { getProductBySlug, getRelatedProducts, products } from "@/lib/products";
 import { getProductVideos } from "@/lib/product-videos";
@@ -69,7 +70,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <section className="container-shell py-10">
         <Breadcrumbs items={[{ label: "Collection", href: "/collection" }, { label: product.name }]} />
         <div className="mt-8 grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <ProductGallery images={product.galleryImages} videos={videos} name={product.name} />
+          <div>
+            <ProductGallery images={product.galleryImages} videos={videos} name={product.name} />
+            <ProductCertificationCare />
+          </div>
           <ProductInfo product={product} />
         </div>
       </section>

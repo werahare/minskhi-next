@@ -6,6 +6,7 @@ import { normalizeAttributeLabel } from "./filters";
 
 type RawProduct = {
   id?: string | number;
+  hidden?: boolean;
   slug?: string;
   name?: string;
   sku?: string;
@@ -42,6 +43,17 @@ function normalizeCategoryPath(category: string) {
   return parts.join(" > ");
 }
 
+function isNaturallyUnheatedGemType(value: string) {
+  const gemType = value.trim().toLowerCase();
+  return (
+    gemType === "aquamarine" ||
+    gemType === "beryl" ||
+    gemType === "spinel" ||
+    /(?:^|\s)garnet$/.test(gemType) ||
+    /(?:^|\s)quartz$/.test(gemType)
+  );
+}
+
 function normalizeProduct(product: RawProduct): Product {
   const images = (
     product.images ??
@@ -49,6 +61,23 @@ function normalizeProduct(product: RawProduct): Product {
     (product.mainImage ? [product.mainImage] : [])
   ).filter(Boolean);
   const slug = product.slug ?? "";
+  const attributes = (product.attributes ?? [])
+    .filter((attribute) => attribute.name && attribute.value)
+    .map((attribute) => ({
+      name: String(attribute.name),
+      value: String(attribute.value)
+    }));
+  const gemType = attributes.find(
+    (attribute) => attribute.name.trim().toLowerCase() === "gem type"
+  )?.value;
+
+  if (gemType && isNaturallyUnheatedGemType(gemType)) {
+    const treatment = attributes.find(
+      (attribute) => normalizeAttributeLabel(attribute.name) === "Treatment"
+    );
+    if (treatment) treatment.value = "Unheated";
+    else attributes.push({ name: "Treatment", value: "Unheated" });
+  }
 
   return {
     id: String(product.id ?? slug),
@@ -64,12 +93,7 @@ function normalizeProduct(product: RawProduct): Product {
     description: product.description ?? "",
     mainImage: images[0] ?? fallbackProductImage,
     galleryImages: images,
-    attributes: (product.attributes ?? [])
-      .filter((attribute) => attribute.name && attribute.value)
-      .map((attribute) => ({
-        name: String(attribute.name),
-        value: String(attribute.value)
-      })),
+    attributes,
     stockStatus: product.metadata?.stock || "Available for enquiry",
     dateCreated: product.dateCreated ?? "",
     relatedProductIds: [],
@@ -89,6 +113,7 @@ function hasVisibleProductImage(product: RawProduct) {
 }
 
 export const products: Product[] = (rawProducts as RawProduct[])
+  .filter((product) => !product.hidden)
   // Hide placeholder-image products until their real images are added.
   .filter(hasVisibleProductImage)
   .map(normalizeProduct);

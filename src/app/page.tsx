@@ -37,7 +37,6 @@ export default function HomePage() {
           loop
           muted
           playsInline
-          poster="/wp-content/uploads/revslider/video-media/Slider_1.jpeg"
           className="absolute inset-0 h-full w-full object-cover object-center"
         >
           <source src="/wp-content/uploads/2026/03/Slider.mp4" type="video/mp4" />

@@ -23,7 +23,7 @@ export function ProductGallery({
   videos?: string[];
   name: string;
 }) {
-  const safeImages = images.length ? images : ["/assets/fallback-product.svg"];
+  const safeImages = images.length ? images : videos.length ? [] : ["/assets/fallback-product.svg"];
   const media: GalleryMedia[] = [
     ...safeImages.map((src) => ({ type: "image" as const, src })),
     ...videos.map((src) => ({ type: "video" as const, src }))

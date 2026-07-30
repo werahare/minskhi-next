@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import type { Product } from "@/lib/types";
 import { AddToEnquiryButton } from "@/components/enquiry/AddToEnquiryButton";
@@ -22,49 +21,31 @@ export function ProductInfo({ product }: { product: Product }) {
       ) : (
         <p className="mt-5 text-sm uppercase tracking-[0.18em] text-mink">Price on enquiry</p>
       )}
-      <div className="mt-8 flex flex-wrap items-center gap-3">
-        <label className="text-sm uppercase tracking-[0.14em] text-mink" htmlFor="quantity">
-          Quantity
-        </label>
-        <input
-          id="quantity"
-          className="h-12 w-20 border border-[#d5c6b6] bg-transparent px-3 text-center"
-          min={1}
-          defaultValue={1}
-          type="number"
-        />
-        <AddToEnquiryButton slug={product.slug} className="min-w-[220px]" />
-        <WishlistButton
-          slug={product.slug}
-          label
-          className="min-h-12 px-5 text-xs uppercase tracking-[0.12em]"
-        />
+      <div className="mt-8">
+        <div className="flex items-center gap-3">
+          <label className="text-sm uppercase tracking-[0.14em] text-mink" htmlFor="quantity">
+            Quantity
+          </label>
+          <input
+            id="quantity"
+            className="h-12 w-20 border border-[#d5c6b6] bg-transparent px-3 text-center"
+            min={1}
+            defaultValue={1}
+            type="number"
+          />
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-3">
+          <AddToEnquiryButton slug={product.slug} className="min-h-12 px-3" />
+          <WishlistButton
+            slug={product.slug}
+            label
+            className="min-h-12 px-3 text-xs uppercase tracking-[0.12em]"
+          />
+        </div>
       </div>
       <section className="mt-16 border-t border-[#ddcfbf] pt-8">
         <h2 className="mb-5 font-serif text-3xl">Additional information</h2>
         <ProductAttributeTable product={product} />
-      </section>
-      <section className="mt-8 border border-[#ddcfbf] bg-[#fbfaf8] p-6">
-        <h2 className="font-serif text-2xl text-ink">Certification, warranty and care</h2>
-        <div className="mt-5 grid gap-5 text-sm leading-7 text-mink">
-          <p>
-            All Minskhi pieces are accompanied by certification from recognised independent
-            gemmological laboratories, ensuring authenticity and quality. For more details, please
-            visit our{" "}
-            <Link className="text-[#092E2B] underline underline-offset-4" href="/minskhi-certifications">
-              Certification page
-            </Link>
-            .
-          </p>
-          <p>
-            Each product is also backed by a Minskhi warranty, reflecting our commitment to
-            craftsmanship and long-term value.
-          </p>
-          <p>
-            To preserve the beauty and brilliance of your gemstone, we provide detailed care guidance
-            with every purchase, helping you protect and maintain your piece for generations.
-          </p>
-        </div>
       </section>
       <div className="mt-8 border-t border-[#ddcfbf] pt-6 text-sm leading-7 text-mink">
         <p>
