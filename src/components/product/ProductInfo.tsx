@@ -10,18 +10,14 @@ export function ProductInfo({ product }: { product: Product }) {
   return (
     <div className="lg:pl-8">
       <p className="text-xs uppercase tracking-[0.22em] text-gold">{category}</p>
-      {product.lotSize ? (
-        <p
-          className="mt-3 inline-flex items-center gap-2 border border-[#ddcfbf] bg-[#fbfaf8] px-3 py-2"
-          aria-label={`Lot of ${product.lotSize}`}
-        >
-          <span className="text-[9px] uppercase tracking-[0.16em] text-gold">Lot of</span>
-          <strong className="text-[18px] font-medium leading-none text-ink">{product.lotSize}</strong>
-        </p>
-      ) : null}
       <h1 className="minskhi-product-name mt-3 font-serif text-4xl leading-tight md:text-5xl">
         {product.name}
       </h1>
+      {product.lotSize ? (
+        <p className="mt-2 text-[10px] uppercase tracking-[0.16em] text-gold">
+          Lot of <span className="font-semibold text-ink">{product.lotSize}</span>
+        </p>
+      ) : null}
       <p className="mt-4 text-sm text-mink">
         {product.sku ? `SKU ${product.sku}` : "SKU available on enquiry"}
       </p>
