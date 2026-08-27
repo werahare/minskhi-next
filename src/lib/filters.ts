@@ -17,6 +17,13 @@ export const jewelleryFilterNames = [
   "Treatment"
 ];
 
+export const singleValueFilterNames = new Set([
+  "gem type",
+  "shape / cut",
+  "colour",
+  "treatment"
+]);
+
 const caratWeightBuckets = ["0-1", "1-2", "2-3", "3-4", "4-5", "5 +"];
 
 function getCaratWeightValue(value: string): number | null {
@@ -127,13 +134,20 @@ export function productMatchesFilters(product: Product, params: URLSearchParams)
     return false;
   }
 
-  for (const [key, value] of params.entries()) {
-    if (["q", "sort", "count", "page", "price_min", "price_max"].includes(key) || !value) continue;
-    const requestedValues = value.split(",").map((part) => part.toLowerCase());
+  for (const key of new Set(params.keys())) {
+    if (["q", "sort", "count", "page", "price_min", "price_max"].includes(key)) continue;
+    const normalizedKey = normalizeAttributeLabel(key).toLowerCase();
+    const rawValues = params.getAll(key).filter(Boolean);
+    if (!rawValues.length) continue;
+    const requestedValues = (
+      singleValueFilterNames.has(normalizedKey)
+        ? rawValues
+        : rawValues.flatMap((value) => value.split(","))
+    ).map((part) => part.toLowerCase());
     const matched = product.attributes.some((attribute) => {
       const normalizedLabel = normalizeAttributeLabel(attribute.name);
       const label = normalizedLabel.toLowerCase();
-      if (label !== key.toLowerCase()) return false;
+      if (label !== normalizedKey) return false;
       if (label === "carat / weight") {
         const bucket = getCaratWeightBucket(attribute.value);
         return bucket ? requestedValues.includes(bucket.toLowerCase()) : false;

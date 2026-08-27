@@ -44,15 +44,16 @@ function normalizeCategoryPath(category: string) {
   return parts.join(" > ");
 }
 
-function isNaturallyUnheatedGemType(value: string) {
-  const gemType = value.trim().toLowerCase();
-  return (
-    gemType === "aquamarine" ||
-    gemType === "beryl" ||
-    gemType === "spinel" ||
-    /(?:^|\s)garnet$/.test(gemType) ||
-    /(?:^|\s)quartz$/.test(gemType)
-  );
+function normalizeGemType(value: string) {
+  const gemType = value.trim().replace(/\s+/g, " ").toLowerCase();
+  if (
+    gemType === "blue sapphire" ||
+    gemType === "blue sapphire unheated" ||
+    gemType === "blue sapphires unheated"
+  ) {
+    return "Blue Sapphire";
+  }
+  return value;
 }
 
 function normalizeProduct(product: RawProduct): Product {
@@ -66,13 +67,13 @@ function normalizeProduct(product: RawProduct): Product {
     .filter((attribute) => attribute.name && attribute.value)
     .map((attribute) => ({
       name: String(attribute.name),
-      value: String(attribute.value)
+      value:
+        String(attribute.name).trim().toLowerCase() === "gem type"
+          ? normalizeGemType(String(attribute.value))
+          : String(attribute.value)
     }));
-  const gemType = attributes.find(
-    (attribute) => attribute.name.trim().toLowerCase() === "gem type"
-  )?.value;
 
-  if (gemType && isNaturallyUnheatedGemType(gemType)) {
+  if (/\bunheated\b/i.test(product.name ?? "")) {
     const treatment = attributes.find(
       (attribute) => normalizeAttributeLabel(attribute.name) === "Treatment"
     );

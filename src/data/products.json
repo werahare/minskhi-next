@@ -66,7 +66,7 @@
   {
     "id": "1378",
     "slug": "5-97-ct-aquamarine-blue",
-    "name": "5.97 ct. Aquamarine Blue",
+    "name": "5.97 ct. Blue Aquamarine",
     "sku": "222187",
     "categories": [
       "Gemstones > Aquamarine"
@@ -114,6 +114,10 @@
       {
         "name": "Treatment",
         "value": "Heated"
+      },
+      {
+        "name": "Measurement",
+        "value": "11.77 x 9.78 x 6.58 mm"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -124,7 +128,7 @@
   {
     "id": "1379",
     "slug": "5-42-ct-aquamarine-blue",
-    "name": "5.42 ct. Aquamarine Blue",
+    "name": "5.42 ct. Blue Aquamarine",
     "sku": "222409",
     "categories": [
       "Gemstones > Aquamarine"
@@ -300,7 +304,7 @@
   {
     "id": "1382",
     "slug": "2-21-ct-beryl",
-    "name": "2.21 ct. Beryl",
+    "name": "2.21 ct. Yellow Beryl",
     "sku": "222178",
     "categories": [
       "Gemstones > Sapphire"
@@ -872,7 +876,7 @@
   {
     "id": "1391",
     "slug": "0-91-ct-unheated-blue-sapphire",
-    "name": "0.91 ct. Unheated Blue Sapphire",
+    "name": "0.91 ct. Blue Sapphire",
     "sku": "220914",
     "categories": [
       "Gemstones > Sapphire"
@@ -1563,9 +1567,8 @@
   },
   {
     "id": "1405",
-    "hidden": true,
-    "slug": "1-07-ct-blue-sapphires",
-    "name": "1.07 ct. Blue Sapphires",
+    "slug": "1-07-ct-blue-sapphire-220810",
+    "name": "1.07 ct. Blue Sapphire",
     "sku": "220810",
     "categories": [
       "Gemstones > Sapphire"
@@ -1594,7 +1597,7 @@
     "attributes": [
       {
         "name": "Gem Type",
-        "value": "Blue Sapphires"
+        "value": "Blue Sapphire"
       },
       {
         "name": "Treatment",
@@ -1618,7 +1621,7 @@
       },
       {
         "name": "Carat / Weight",
-        "value": "1-2"
+        "value": "1.07 ct"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -1945,7 +1948,7 @@
   {
     "id": "1411",
     "slug": "2-73-ct-unheated-blue-sapphires",
-    "name": "2.73 ct. Unheated Blue Sapphires",
+    "name": "2.73 ct. Blue Sapphire",
     "sku": "222533",
     "categories": [
       "Gemstones > Sapphire"
@@ -1978,7 +1981,7 @@
       },
       {
         "name": "Treatment",
-        "value": "unheated"
+        "value": "Heated"
       },
       {
         "name": "Colour",
@@ -2250,7 +2253,7 @@
     "id": "1416",
     "slug": "1-2-ct-garnet",
     "name": "1.2 ct. Garnet",
-    "sku": "223028",
+    "sku": "222443",
     "categories": [
       "Gemstones > Sapphire"
     ],
@@ -2477,62 +2480,6 @@
     "dateCreated": "",
     "relatedProductIds": [],
     "originalWooCommerceUrl": "https://minskhi.com/product/garnet-id-klm0003-m/"
-  },
-  {
-    "id": "1421",
-    "slug": "1-2-ct-garnet",
-    "name": "1.2 ct. Garnet",
-    "sku": "NON1014",
-    "categories": [
-      "Gemstones > Sapphire"
-    ],
-    "tags": [],
-    "price": "0",
-    "regularPrice": "0",
-    "salePrice": "",
-    "shortDescription": "",
-    "description": "",
-    "mainImage": "/wp-content/uploads/2026/02/1112023001-21.jpg",
-    "galleryImages": [
-      "/wp-content/uploads/2026/02/1112023001-21.jpg",
-      "/wp-content/uploads/2026/02/1112023049-18.jpg",
-      "/wp-content/uploads/2026/02/1112023073-18.jpg",
-      "/wp-content/uploads/2026/02/1112023097-18.jpg",
-      "/wp-content/uploads/2026/02/1112023121-15.jpg"
-    ],
-    "images": [
-      "/wp-content/uploads/2026/02/1112023001-21.jpg",
-      "/wp-content/uploads/2026/02/1112023049-18.jpg",
-      "/wp-content/uploads/2026/02/1112023073-18.jpg",
-      "/wp-content/uploads/2026/02/1112023097-18.jpg",
-      "/wp-content/uploads/2026/02/1112023121-15.jpg"
-    ],
-    "attributes": [
-      {
-        "name": "Gem Type",
-        "value": "Garnet"
-      },
-      {
-        "name": "Treatment",
-        "value": "heated"
-      },
-      {
-        "name": "Colour",
-        "value": "Orangish Pink"
-      },
-      {
-        "name": "Shape / Cut",
-        "value": "Round / Mixed"
-      },
-      {
-        "name": "Transparency",
-        "value": "Transparent"
-      }
-    ],
-    "stockStatus": "Available for enquiry",
-    "dateCreated": "",
-    "relatedProductIds": [],
-    "originalWooCommerceUrl": "https://minskhi.com/product/1-2-ct-garnet/"
   },
   {
     "id": "1422",
@@ -3151,7 +3098,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -3447,7 +3394,7 @@
       },
       {
         "name": "Treatment",
-        "value": "Heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4203,7 +4150,7 @@
   {
     "id": "1456",
     "slug": "2-73-ct-unheated-purple-sapphiresm",
-    "name": "2.73 ct. Unheated Violet, Violetish Purple and Purplish Violet Sapphires",
+    "name": "2.73 ct. Unheated Violet Purple Sapphire",
     "lotSize": 3,
     "sku": "222553",
     "categories": [
@@ -4424,7 +4371,7 @@
   {
     "id": "1460",
     "slug": "0-53-ct-unheated-ruby",
-    "name": "0.53 ct. Unheated Ruby",
+    "name": "0.53 ct. Ruby",
     "sku": "220919",
     "categories": [
       "Gemstones > Sapphire"
@@ -4516,7 +4463,7 @@
   {
     "id": "1462",
     "slug": "5-06-ct-spinel",
-    "name": "5.06 ct. Spinels",
+    "name": "5.06 ct. Spinel",
     "lotSize": 13,
     "sku": "222175",
     "categories": [
@@ -5242,7 +5189,7 @@
       },
       {
         "name": "Shape / Cut",
-        "value": "Pinnacle"
+        "value": "Mixed"
       },
       {
         "name": "Carat / Weight",

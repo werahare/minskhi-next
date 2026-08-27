@@ -2,13 +2,12 @@
 
 import React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { singleValueFilterNames } from "@/lib/filters";
 
 type FilterGroup = {
   name: string;
   values: string[];
 };
-
-const dropdownFilterNames = new Set(["gem type", "shape / cut", "colour", "treatment"]);
 
 export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "gemstones" | "jewellery" }) {
   const router = useRouter();
@@ -28,11 +27,16 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
 
   function toggleValue(key: string, value: string) {
     const params = new URLSearchParams(searchParams.toString());
-    const current = new Set((params.get(key) ?? "").split(",").filter(Boolean));
+    const existingValues = params.getAll(key);
+    const current = new Set(
+      existingValues.length > 1
+        ? existingValues
+        : (existingValues[0] ?? "").split(",").filter(Boolean)
+    );
     if (current.has(value)) current.delete(value);
     else current.add(value);
-    if (current.size) params.set(key, Array.from(current).join(","));
-    else params.delete(key);
+    params.delete(key);
+    current.forEach((selected) => params.append(key, selected));
     params.set("page", "1");
     router.push(`${pathname}?${params.toString()}`);
   }
@@ -65,8 +69,8 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
 
       {filters.map((group) => {
         const key = group.name;
-        const isDropdown = dropdownFilterNames.has(group.name.toLowerCase());
-        const selectedValue = (searchParams.get(group.name) ?? "").split(",").filter(Boolean)[0] ?? "";
+        const isDropdown = singleValueFilterNames.has(group.name.toLowerCase());
+        const selectedValue = searchParams.get(group.name) ?? "";
 
         if (isDropdown) {
           return (
@@ -96,7 +100,12 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
             <div className="mb-3 text-xs uppercase tracking-[0.18em] text-ink">{key}</div>
             <div className="flex flex-wrap gap-3">
               {group.values.map((value) => {
-                const selected = (searchParams.get(group.name) ?? "").split(",").includes(value);
+                const selectedValues = searchParams.getAll(group.name);
+                const selected = (
+                  selectedValues.length > 1
+                    ? selectedValues
+                    : (selectedValues[0] ?? "").split(",").filter(Boolean)
+                ).includes(value);
                 const baseClasses =
                   "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm shadow-sm transition-transform duration-150";
                 const selectedClasses = selected ? "bg-ink text-white scale-105" : "bg-porcelain text-ink hover:scale-105";

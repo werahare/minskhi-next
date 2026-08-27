@@ -10,7 +10,7 @@ const PRODUCTS_PER_PAGE = 9;
 function toParams(searchParams: SearchParams) {
   const params = new URLSearchParams();
   Object.entries(searchParams).forEach(([key, value]) => {
-    if (Array.isArray(value)) params.set(key, value.join(","));
+    if (Array.isArray(value)) value.forEach((item) => params.append(key, item));
     else if (value) params.set(key, value);
   });
   return params;

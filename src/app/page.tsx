@@ -82,25 +82,25 @@ export default function HomePage() {
               title: "MINSKHI",
               subtitle: "COLLECTION",
               href: "/collection",
-              image: "/wp-content/uploads/2026/04/9c4c20a5-43da-456a-a8e8-1b7b7a14e8a0.jpg"
+              image: "/wp-content/uploads/2026/08/signature-minskhi-collection.png"
             },
             {
               title: "ROYAL WEDDING",
               subtitle: "COLLECTION",
               href: "/collection",
-              image: "/wp-content/uploads/2026/03/86766706-49a4-40b9-887f-4146ef2a9b84.jpg"
+              image: "/wp-content/uploads/2026/08/signature-wedding-collection.png"
             },
             {
               title: "RAINBOW",
               subtitle: "COLLECTION",
               href: "/collection",
-              image: "/wp-content/uploads/2026/03/ac6e170e-6130-4ac2-9fd4-47c2199c19cf.jpg"
+              image: "/wp-content/uploads/2026/08/signature-rainbow-collection.png"
             },
             {
               title: "MENS",
               subtitle: "COLLECTION",
               href: "/collection",
-              image: "/wp-content/uploads/2026/04/eb59c115-b36f-42f7-9288-66d6cf0ea5ae.jpg"
+              image: "/wp-content/uploads/2026/08/signature-mens-collection.png"
             }
           ].map((item) => (
             <Link href={item.href} key={item.title} className="group mx-auto w-full max-w-[255px] text-center">
