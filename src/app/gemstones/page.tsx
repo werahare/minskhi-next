@@ -12,6 +12,7 @@ export default async function GemstonesPage({
   return (
     <ProductListingPage
       title="Gemstones"
+      eyebrow=""
       description="Explore rare coloured gemstones selected for their beauty, character, and enduring value."
       products={getProductsByCategory("gemstones")}
       searchParams={await searchParams}
