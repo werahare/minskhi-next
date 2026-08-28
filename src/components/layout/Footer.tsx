@@ -60,6 +60,8 @@ export function Footer() {
               className="grid h-[45px] w-[45px] place-items-center rounded-full border border-white/20 text-[20px] transition hover:border-[#092E2B] hover:bg-[#092E2B]"
               href={siteConfig.facebook}
               aria-label="Facebook"
+              rel="noreferrer"
+              target="_blank"
             >
               f
             </Link>
@@ -67,6 +69,8 @@ export function Footer() {
               className="grid h-[45px] w-[45px] place-items-center rounded-full border border-white/20 transition hover:border-[#092E2B] hover:bg-[#092E2B]"
               href={siteConfig.instagram}
               aria-label="Instagram"
+              rel="noreferrer"
+              target="_blank"
             >
               <InstagramIcon />
             </Link>

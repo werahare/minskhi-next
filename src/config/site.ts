@@ -11,8 +11,8 @@ export const siteConfig = {
     "kalanameewella@minskhi.com",
     "marymeewella@minskhi.com"
   ],
-  facebook: "https://www.facebook.com/minskhi",
-  instagram: "https://www.instagram.com/minskhi",
+  facebook: "https://www.facebook.com/profile.php?id=61588465946828",
+  instagram: "https://www.instagram.com/minskhi_melbourne/",
   showPrices: false,
   abn: "22159318494"
 } as const;
