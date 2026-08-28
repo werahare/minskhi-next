@@ -133,7 +133,7 @@ export default function HomePage() {
 
       <section className="container-shell py-20">
         <h2 className="mb-10 font-serif text-4xl uppercase text-[rgb(9_46_43/var(--tw-bg-opacity,1))]">Our blog</h2>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {journalPosts.map((post) => (
             <JournalCard post={post} key={post.slug} />
           ))}

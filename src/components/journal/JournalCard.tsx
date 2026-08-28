@@ -16,7 +16,7 @@ export function JournalCard({ post }: { post: JournalPost }) {
       </Link>
       <div className="px-1 pb-1 pt-6">
       <p className="text-[11px] uppercase tracking-[0.2em] text-gold">{post.date}</p>
-      <h2 className="mt-3 font-serif !text-[20px] leading-tight text-[rgb(9_46_43/var(--tw-bg-opacity,1))] md:!text-[22px]">
+      <h2 className="mt-3 font-serif !text-[16px] leading-snug text-[rgb(9_46_43/var(--tw-bg-opacity,1))] md:!text-[17px]">
         <Link className="transition hover:text-gold" href={`/journal/${post.slug}`}>{post.title}</Link>
       </h2>
       <p className="mt-3 text-sm leading-7 text-mink">{post.excerpt}</p>

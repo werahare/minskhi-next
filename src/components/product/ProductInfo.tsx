@@ -26,27 +26,13 @@ export function ProductInfo({ product }: { product: Product }) {
       ) : (
         <p className="mt-5 text-sm uppercase tracking-[0.18em] text-mink">Price on enquiry</p>
       )}
-      <div className="mt-8">
-        <div className="flex items-center gap-3">
-          <label className="text-sm uppercase tracking-[0.14em] text-mink" htmlFor="quantity">
-            Quantity
-          </label>
-          <input
-            id="quantity"
-            className="h-12 w-20 border border-[#d5c6b6] bg-transparent px-3 text-center"
-            min={1}
-            defaultValue={1}
-            type="number"
-          />
-        </div>
-        <div className="mt-3 grid grid-cols-2 gap-3">
-          <AddToEnquiryButton slug={product.slug} className="min-h-12 px-3" />
-          <WishlistButton
-            slug={product.slug}
-            label
-            className="min-h-12 px-3 text-xs uppercase tracking-[0.12em]"
-          />
-        </div>
+      <div className="mt-8 grid grid-cols-2 gap-3">
+        <AddToEnquiryButton slug={product.slug} className="min-h-12 px-3" />
+        <WishlistButton
+          slug={product.slug}
+          label
+          className="min-h-12 px-3 text-xs uppercase tracking-[0.12em]"
+        />
       </div>
       <section className="mt-16 border-t border-[#ddcfbf] pt-8">
         <h2 className="mb-5 font-serif text-3xl">Additional information</h2>

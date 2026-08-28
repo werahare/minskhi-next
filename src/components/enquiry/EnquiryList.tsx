@@ -10,12 +10,66 @@ import { siteConfig } from "@/config/site";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PhoneCountryFields } from "@/components/ui/PhoneCountryFields";
 import { countryFlag, defaultCountry } from "@/lib/countries";
+import { formatAttributeValue, normalizeAttributeLabel } from "@/lib/filters";
+
+const enquiryDetailPriority = [
+  "Gem Type",
+  "Material",
+  "Shape / Cut",
+  "Colour",
+  "Treatment",
+  "Measurement",
+  "Size",
+  "Transparency",
+  "Certification",
+  "Carat / Weight"
+];
+
+function getEnquiryProductDetails(product: Product, limit: number) {
+  const details = new Map<string, string>();
+
+  product.attributes.forEach((attribute) => {
+    const name = normalizeAttributeLabel(attribute.name);
+    const value = formatAttributeValue(attribute.value);
+    if (name && value && !details.has(name)) details.set(name, value);
+  });
+
+  return Array.from(details.entries())
+    .sort(([nameA], [nameB]) => {
+      const priorityA = enquiryDetailPriority.indexOf(nameA);
+      const priorityB = enquiryDetailPriority.indexOf(nameB);
+      return (priorityA === -1 ? enquiryDetailPriority.length : priorityA) -
+        (priorityB === -1 ? enquiryDetailPriority.length : priorityB);
+    })
+    .slice(0, limit)
+    .map(([name, value]) => ({ name, value }));
+}
+
+function EnquiryProductDetails({ product, compact = false }: { product: Product; compact?: boolean }) {
+  const details = getEnquiryProductDetails(product, compact ? 2 : 4);
+
+  return (
+    <div className={compact ? "mt-2" : "mt-4"}>
+      {details.length ? (
+        <dl className="grid grid-cols-2 gap-x-4 gap-y-3">
+          {details.map((detail) => (
+            <div className="min-w-0" key={detail.name}>
+              <dt className="text-[9px] uppercase tracking-[0.14em] text-mink/70">{detail.name}</dt>
+              <dd className="mt-1 break-words text-xs font-medium leading-5 text-ink">{detail.value}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : null}
+    </div>
+  );
+}
 
 export function EnquiryList({ products }: { products: Product[] }) {
   const [items, setItems] = useState<EnquiryItem[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
+  const [productPendingRemoval, setProductPendingRemoval] = useState<Product | null>(null);
   const [enquiryDetails, setEnquiryDetails] = useState<EnquiryDetails>({
     name: "",
     email: "",
@@ -57,12 +111,10 @@ export function EnquiryList({ products }: { products: Product[] }) {
     persist(items.filter((entry) => entry.slug !== slug));
   }
 
-  function updateQuantity(slug: string, quantity: number) {
-    persist(
-      items.map((entry) =>
-        entry.slug === slug ? { ...entry, quantity: Math.max(1, quantity) } : entry
-      )
-    );
+  function confirmItemRemoval() {
+    if (!productPendingRemoval) return;
+    removeItem(productPendingRemoval.slug);
+    setProductPendingRemoval(null);
   }
 
   function clearList() {
@@ -156,7 +208,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
                     <h3 className="font-serif text-xl">Products in your enquiry</h3>
                     <div className="mt-4 max-h-[48vh] overflow-auto pr-0 sm:pr-2">
                       <ul className="space-y-3 text-sm leading-6 text-mink">
-                        {selected.map(({ item, product }, index) => (
+                        {selected.map(({ product }, index) => (
                           <li key={product.slug} className="grid grid-cols-[56px_minmax(0,1fr)] gap-3 rounded-[10px] border border-[#d5c6b6] bg-white p-2.5 sm:flex sm:items-center sm:p-3">
                             <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-sm bg-linen sm:h-16 sm:w-16">
                               <Image src={productImage(product.mainImage)} alt={product.name} fill sizes="64px" className="object-cover" />
@@ -164,8 +216,8 @@ export function EnquiryList({ products }: { products: Product[] }) {
                             <div className="min-w-0 flex-1">
                               <p className="text-[12px] font-semibold leading-snug sm:text-sm">{index + 1}. {product.name}</p>
                               <p className="mt-1 text-[11px] leading-tight text-mink sm:text-xs">SKU: {product.sku || "N/A"}</p>
+                              <EnquiryProductDetails compact product={product} />
                             </div>
-                            <div className="col-span-2 text-sm text-mink sm:col-span-1">Qty: {item.quantity}</div>
                           </li>
                         ))}
                       </ul>
@@ -238,7 +290,7 @@ export function EnquiryList({ products }: { products: Product[] }) {
                       <h3 className="font-serif text-xl">Products in your enquiry</h3>
                       <div className="mt-4 pr-0 sm:pr-2">
                         <ul className="space-y-3 text-sm leading-6 text-mink">
-                          {selected.map(({ item, product }, index) => (
+                          {selected.map(({ product }, index) => (
                             <li key={product.slug} className="grid grid-cols-[56px_minmax(0,1fr)] gap-3 rounded-[10px] border border-[#d5c6b6] bg-white p-2.5 sm:flex sm:items-center sm:p-3">
                               <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-sm bg-linen sm:h-16 sm:w-16">
                                 <Image src={productImage(product.mainImage)} alt={product.name} fill sizes="64px" className="object-cover" />
@@ -246,42 +298,13 @@ export function EnquiryList({ products }: { products: Product[] }) {
                               <div className="min-w-0 flex-1">
                                 <p className="text-[12px] font-semibold leading-snug sm:text-sm">{index + 1}. {product.name}</p>
                                 <p className="mt-1 text-[11px] leading-tight text-mink sm:text-xs">SKU: {product.sku || "N/A"}</p>
+                                <EnquiryProductDetails compact product={product} />
                               </div>
                               <div className="col-span-2 flex items-center justify-between gap-2 sm:col-span-1 sm:flex-col sm:items-end">
-                                <div className="inline-flex items-center overflow-hidden rounded-full border border-[#d5c6b6] bg-white">
-                                  <button
-                                    aria-label={`Decrease quantity for ${product.name}`}
-                                    className="flex h-7 w-7 items-center justify-center text-mink transition hover:bg-[#092E2B] hover:text-white sm:h-8 sm:w-8"
-                                    onClick={() => updateQuantity(product.slug, item.quantity - 1)}
-                                    type="button"
-                                  >
-                                    <svg aria-hidden="true" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
-                                      <path d="M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                                    </svg>
-                                  </button>
-                                  <input
-                                    aria-label={`Quantity for ${product.name}`}
-                                    className="h-7 w-8 border-x border-[#d5c6b6] bg-transparent text-center text-xs outline-none sm:h-8 sm:w-10 sm:text-sm"
-                                    min={1}
-                                    onChange={(event) => updateQuantity(product.slug, Number(event.target.value) || 1)}
-                                    type="number"
-                                    value={item.quantity}
-                                  />
-                                  <button
-                                    aria-label={`Increase quantity for ${product.name}`}
-                                    className="flex h-7 w-7 items-center justify-center text-mink transition hover:bg-[#092E2B] hover:text-white sm:h-8 sm:w-8"
-                                    onClick={() => updateQuantity(product.slug, item.quantity + 1)}
-                                    type="button"
-                                  >
-                                    <svg aria-hidden="true" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
-                                      <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                                    </svg>
-                                  </button>
-                                </div>
                                 <button
                                   aria-label={`Remove ${product.name}`}
                                   className="inline-flex items-center gap-1.5 rounded-full border border-[#d5c6b6] px-2.5 py-1.5 text-[9px] uppercase text-mink transition hover:border-[#092E2B] hover:bg-[#092E2B] hover:text-white sm:gap-2 sm:px-3 sm:text-[10px]"
-                                  onClick={() => removeItem(product.slug)}
+                                  onClick={() => setProductPendingRemoval(product)}
                                   type="button"
                                 >
                                   <svg aria-hidden="true" className="h-3 w-3 sm:h-3.5 sm:w-3.5" viewBox="0 0 24 24" fill="none">
@@ -299,6 +322,59 @@ export function EnquiryList({ products }: { products: Product[] }) {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      ) : null}
+      {productPendingRemoval ? (
+        <div
+          aria-labelledby="remove-product-title"
+          aria-modal="true"
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 p-4 backdrop-blur-md"
+          role="dialog"
+        >
+          <div className="w-full max-w-[520px] overflow-hidden rounded-[14px] border border-[#ddcfbf] bg-white shadow-2xl">
+            <div className="border-b border-[#ddcfbf] px-6 py-5 sm:px-7 sm:py-6">
+              <p className="text-xs uppercase tracking-[0.16em] text-mink">Confirmation</p>
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-ink" id="remove-product-title">
+                Remove this item?
+              </h2>
+            </div>
+            <div className="bg-[#fbfaf8] px-6 py-5 sm:px-7 sm:py-6">
+              <div className="flex items-center gap-4 border border-[#d9cbbb] bg-white p-4">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden bg-linen">
+                  <Image
+                    src={productImage(productPendingRemoval.mainImage)}
+                    alt=""
+                    fill
+                    sizes="80px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <p className="font-semibold leading-snug text-ink">{productPendingRemoval.name}</p>
+                  <p className="mt-1.5 text-xs text-mink">SKU: {productPendingRemoval.sku || "N/A"}</p>
+                  <p className="mt-2 text-xs leading-5 text-mink">
+                    This product will be removed from your enquiry list.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3 border-t border-[#ddcfbf] bg-white px-6 py-5 sm:px-7 sm:py-6">
+              <button
+                className="inline-flex h-12 items-center justify-center bg-[#092E2B] px-4 text-xs font-semibold uppercase tracking-[0.1em] text-white transition hover:bg-[#082e2b]"
+                onClick={confirmItemRemoval}
+                type="button"
+              >
+                Yes, remove
+              </button>
+              <button
+                className="inline-flex h-12 items-center justify-center border border-[#092E2B] bg-white px-4 text-xs font-semibold uppercase tracking-[0.1em] text-[#092E2B] transition hover:bg-[#092E2B] hover:text-white"
+                onClick={() => setProductPendingRemoval(null)}
+                type="button"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       ) : null}
@@ -336,44 +412,37 @@ export function EnquiryList({ products }: { products: Product[] }) {
         </div>
       ) : null}
       <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
-      <div className="space-y-5">
-        {selected.map(({ item, product }) => (
-          <div className="grid gap-4 border border-[#ddcfbf] bg-porcelain p-4 sm:grid-cols-[120px_1fr_auto]" key={product.slug}>
+      <div className="grid grid-cols-2 items-stretch gap-3 sm:gap-5">
+        {selected.map(({ product }) => (
+          <article className="flex min-w-0 flex-col border border-[#ddcfbf] bg-porcelain p-2.5 sm:p-4" key={product.slug}>
             <Link className="relative aspect-square overflow-hidden bg-linen" href={`/product/${product.slug}`}>
-              <Image src={productImage(product.mainImage)} alt={product.name} fill sizes="140px" className="object-cover" />
+              <Image
+                src={productImage(product.mainImage)}
+                alt={product.name}
+                fill
+                sizes="(max-width: 639px) 42vw, (max-width: 1023px) 44vw, 320px"
+                className="object-cover"
+              />
             </Link>
-            <div>
-              <h2 className="minskhi-product-name font-serif text-2xl">
+            <div className="flex-1 pt-3 sm:pt-4">
+              <h2 className="minskhi-product-name font-serif font-semibold">
                 <Link href={`/product/${product.slug}`}>{product.name}</Link>
               </h2>
-              <p className="mt-2 text-sm text-mink">SKU: {product.sku || "N/A"}</p>
-              <label className="mt-4 inline-flex items-center gap-3 text-sm text-mink">
-                Quantity
-                <input
-                  className="h-10 w-20 border border-[#d5c6b6] bg-transparent px-2 text-center"
-                  min={1}
-                  onChange={(event) =>
-                    persist(
-                      items.map((entry) =>
-                        entry.slug === item.slug
-                          ? { ...entry, quantity: Number(event.target.value) || 1 }
-                          : entry
-                      )
-                    )
-                  }
-                  type="number"
-                  value={item.quantity}
-                />
-              </label>
+              <p className="mt-1.5 text-[10px] text-mink sm:text-xs">SKU: {product.sku || "N/A"}</p>
+              <EnquiryProductDetails product={product} />
             </div>
             <button
-              className="self-start text-xs uppercase text-mink"
-              onClick={() => persist(items.filter((entry) => entry.slug !== item.slug))}
+              aria-label={`Remove ${product.name} from enquiry list`}
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-sm border border-[#092E2B] bg-[#092E2B] px-3 py-2.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#082e2b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#092E2B]/30 focus-visible:ring-offset-2 sm:text-[10px]"
+              onClick={() => setProductPendingRemoval(product)}
               type="button"
             >
-              Remove
+              <svg aria-hidden="true" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
+                <path d="M6 7h12M10 11v6M14 11v6M9 7l1-2h4l1 2M8 7l1 13h6l1-13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span>Remove</span>
             </button>
-          </div>
+          </article>
         ))}
       </div>
       <aside className="h-fit border border-[#ddcfbf] bg-porcelain p-6">
