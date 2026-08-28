@@ -9,6 +9,30 @@ export type JournalPost = {
 
 export const journalPosts: JournalPost[] = [
   {
+    slug: "beyond-the-blue-sapphire-sri-lankas-most-remarkable-gemstones",
+    title: "Beyond the Blue Sapphire: Sri Lanka’s Most Remarkable Gemstones",
+    excerpt:
+      "Discover the extraordinary gemstones that showcase Sri Lanka’s unmatched geological diversity, scientific significance, and enduring gemmological heritage.",
+    image: "/wp-content/uploads/2026/03/4.894-ct.-Cushion-Cut-Padparadscha.jpeg",
+    date: "August 28, 2026",
+    content: [
+      "Minskhi Journal",
+      "Sri Lanka • Gemstones • Gemmology",
+      "Sri Lanka has long been celebrated as the \"Island of Gems,\" renowned worldwide for its exceptional blue sapphires. Yet beyond this iconic gemstone lies an extraordinary collection of rare and scientifically significant treasures that have shaped the nation's reputation as one of the world's greatest gemstone-producing regions. From gemstones first discovered on the island to varieties regarded as the finest of their kind, Sri Lanka's mineral wealth extends far beyond the blue sapphire.",
+      "More Than a Sapphire Nation",
+      "While blue sapphires have become synonymous with Sri Lanka, the island's ancient geological history has produced more than seventy gemstone varieties. This remarkable diversity reflects millions of years of geological processes and positions Sri Lanka among the most gemmologically important countries in the world.",
+      "Four Gems That Define Sri Lanka’s Legacy",
+      "The Padparadscha Sapphire, Chrysoberyl Cat's Eye, Sinhalite, and Serendibite each represent a unique chapter in Sri Lanka's gemstone story. Together, they embody exceptional rarity, natural beauty, scientific discovery, and the country's enduring contribution to global gemmology.",
+      "Rarity Meets Scientific Significance",
+      "Some of Sri Lanka's most remarkable gemstones are prized not only for their beauty but also for their importance to mineralogical science. Sinhalite and Serendibite were first identified on the island, permanently linking Sri Lanka to two of the world's rarest and most significant gemstone discoveries.",
+      "A Heritage Worth Preserving",
+      "As demand for ethically sourced gemstones continues to grow, preserving Sri Lanka's geological heritage has become increasingly important. Responsible mining, scientific research, education, and environmental stewardship will ensure that future generations continue to benefit from the island's extraordinary natural treasures.",
+      "The Enduring Legacy of the Island of Gems",
+      "Sri Lanka's gemstones are more than valuable minerals, they are symbols of history, discovery, craftsmanship, and national identity. For over two thousand years, they have connected the island to global trade, royal collections, and scientific advancement, reinforcing Sri Lanka's position as one of the world's most remarkable gemstone-producing nations.",
+      "Beyond the blue sapphire lies a story of exceptional diversity, rare discoveries, and geological wonder. Together, these extraordinary gemstones demonstrate why Sri Lanka's legacy as the \"Island of Gems\" continues to inspire collectors, gemmologists, and jewellery lovers around the world."
+    ]
+  },
+  {
     slug: "beyond-diamonds-why-coloured-gemstones-define-modern-luxury",
     title: "Beyond Diamonds: Why Coloured Gemstones Define Modern Luxury",
     excerpt:

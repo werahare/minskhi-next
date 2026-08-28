@@ -24,7 +24,12 @@ const journalSubheadings = new Set([
   "Key priorities for reform",
   "Institutional transformation matters",
   "Education and industry collaboration",
-  "Reform as stewardship, not criticism"
+  "Reform as stewardship, not criticism",
+  "More Than a Sapphire Nation",
+  "Four Gems That Define Sri Lanka’s Legacy",
+  "Rarity Meets Scientific Significance",
+  "A Heritage Worth Preserving",
+  "The Enduring Legacy of the Island of Gems"
 ]);
 
 export function generateStaticParams() {
