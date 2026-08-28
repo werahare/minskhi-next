@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 const mobileMediaQuery = "(max-width: 767px)";
-const mobileOpeningEndTime = 2.75;
+const mobileOpeningEndTime = 5.75;
 
 export function HomeHeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
