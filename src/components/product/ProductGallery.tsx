@@ -58,8 +58,8 @@ export function ProductGallery({
         <div className="mt-4 grid grid-cols-5 gap-3">
           {media.slice(0, 12).map((item) => (
             <button
-              className={`relative aspect-square overflow-hidden border ${
-                active.src === item.src ? "border-ink" : "border-transparent"
+              className={`relative aspect-square overflow-hidden rounded-sm border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#092E2B]/35 focus-visible:ring-offset-2 ${
+                active.src === item.src ? "border-[#092E2B]" : "border-[#e4d8ca] hover:border-[#092E2B]"
               }`}
               key={item.src}
               onClick={() => setActive(item)}
@@ -67,11 +67,15 @@ export function ProductGallery({
               aria-label={item.type === "video" ? `Play ${name} video` : `View ${name} image`}
             >
               {item.type === "video" ? (
-                <span className="group/video flex h-full w-full flex-col items-center justify-center gap-2 bg-[rgb(9_46_43/var(--tw-bg-opacity,1))] text-white">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/10 shadow-[0_10px_28px_rgba(0,0,0,0.2)] transition group-hover/video:bg-white group-hover/video:text-[rgb(9_46_43/var(--tw-bg-opacity,1))]">
-                    <span className="ml-0.5 block h-0 w-0 border-y-[7px] border-l-[11px] border-y-transparent border-l-current" />
+                <span className="group/video flex h-full w-full flex-col items-center justify-center gap-1 bg-[linear-gradient(145deg,#10443f_0%,#082e2b_58%,#051f1d_100%)] text-white sm:gap-1.5">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/70 bg-white/10 shadow-[0_6px_18px_rgba(0,0,0,0.24)] transition duration-300 group-hover/video:scale-105 group-hover/video:border-white group-hover/video:bg-white group-hover/video:text-[#092E2B] sm:h-9 sm:w-9 lg:h-10 lg:w-10">
+                    <svg aria-hidden="true" className="h-3 w-3 translate-x-px fill-current sm:h-3.5 sm:w-3.5" viewBox="0 0 24 24">
+                      <path d="M8 5.5v13l10-6.5-10-6.5Z" />
+                    </svg>
                   </span>
-                  <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/80">Video</span>
+                  <span className="text-[7px] font-semibold uppercase leading-none tracking-[0.14em] text-white/85 sm:text-[8px] lg:text-[9px]">
+                    Video
+                  </span>
                 </span>
               ) : (
                 <Image src={productImage(item.src)} alt="" fill sizes="120px" className="object-cover" />
