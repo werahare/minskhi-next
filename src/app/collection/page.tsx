@@ -12,6 +12,7 @@ export default async function CollectionPage({
   return (
     <ProductListingPage
       title="Collection"
+      eyebrow=""
       description="Browse the full Minskhi product catalogue. Add selected pieces to your enquiry list for private follow-up."
       products={products}
       searchParams={await searchParams}

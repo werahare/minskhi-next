@@ -27,6 +27,14 @@ function decodeHtml(value: string) {
     .trim();
 }
 
+function policyId(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 function extractPolicySections(): PolicySection[] {
   const source = fs.readFileSync(path.join(process.cwd(), "src/content/wp/policies.html"), "utf8");
   const sections: PolicySection[] = [];
@@ -68,6 +76,7 @@ export default function PoliciesPage() {
           {sections.map((section, index) => (
             <details
               className="policy-item group"
+              id={policyId(section.title)}
               key={section.title}
               open={index === 0}
             >

@@ -30,7 +30,24 @@ function cleanImportedHtml(value: string) {
 function getWordPressPageContent(fileName: string) {
   const source = fs.readFileSync(path.join(process.cwd(), "src/content/wp", fileName), "utf8");
   const match = source.match(/<section class="minskhi[\s\S]*?<\/style>/);
-  return match ? cleanImportedHtml(match[0]) : "";
+  const html = match ? cleanImportedHtml(match[0]) : "";
+
+  if (fileName !== "website-terms-of-service.html") return html;
+
+  return html
+    .replace("<h1>Website Terms of Service</h1>", "<h1 data-keep-page-title-size>Website Terms of Service</h1>")
+    .replace(
+      '<div class="mt-card mt-small-card"><h3>Privacy Policy</h3></div>',
+      '<a class="mt-card mt-small-card" href="/policies#privacy-policy"><h3>Privacy Policy</h3></a>'
+    )
+    .replace(
+      '<div class="mt-card mt-small-card"><h3>Refunds, Returns &amp; Exchanges Policy</h3></div>',
+      '<a class="mt-card mt-small-card" href="/policies#refunds-returns-and-exchanges-policy"><h3>Refunds, Returns &amp; Exchanges Policy</h3></a>'
+    )
+    .replace(
+      '<div class="mt-card mt-small-card"><h3>Promotional Terms &amp; Conditions</h3></div>',
+      '<a class="mt-card mt-small-card" href="/policies#promotional-terms-and-conditions"><h3>Promotional Terms &amp; Conditions</h3></a>'
+    );
 }
 
 function MinskhiCertificationsPage() {

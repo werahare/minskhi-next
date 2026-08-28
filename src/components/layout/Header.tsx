@@ -55,7 +55,7 @@ export function Header() {
       <div
         className={
           isHome
-            ? "mx-auto grid min-h-[58px] w-full max-w-[1640px] grid-cols-[44px_minmax(0,1fr)_44px] items-start gap-3 px-6 pt-4 sm:px-12 lg:min-h-[126px] lg:grid-cols-[260px_1fr_220px] lg:gap-8 lg:px-20 lg:pt-9 xl:px-[100px]"
+            ? "mx-auto grid min-h-[64px] w-full max-w-[1640px] grid-cols-[44px_minmax(0,1fr)_44px] items-start gap-3 px-5 pt-4 sm:px-12 lg:min-h-[126px] lg:grid-cols-[260px_1fr_220px] lg:gap-8 lg:px-20 lg:pt-9 xl:px-[100px]"
             : "minskhi-main-header-inner"
         }
       >
@@ -68,14 +68,14 @@ export function Header() {
           <span className={isHome ? "block h-px w-7 bg-white" : "block h-px w-7 bg-ink"} />
           <span className={isHome ? "mt-2 block h-px w-7 bg-white" : "mt-2 block h-px w-7 bg-ink"} />
         </button>
-        <Link href="/" className={isHome ? "justify-self-start" : "justify-self-center lg:justify-self-start"}>
+        <Link href="/" className={isHome ? "justify-self-center" : "justify-self-center lg:justify-self-start"}>
           <Image
             src="/assets/brand/minskhi-logo.png"
             alt="Minskhi"
             width={3431}
             height={657}
             priority
-            className={isHome ? "h-auto w-[132px] sm:w-[156px] lg:w-[230px]" : "h-auto w-[132px] sm:w-[156px] lg:w-[220px]"}
+            className={isHome ? "h-auto w-[148px] sm:w-[156px] lg:w-[230px]" : "h-auto w-[132px] sm:w-[156px] lg:w-[220px]"}
           />
         </Link>
         <nav

@@ -14,8 +14,8 @@ const config: Config = {
         sage: "#7f8a72"
       },
       fontFamily: {
-        body: ["Noto Sans Elymaic", "sans-serif"],
-        serif: ["Playfair Display", "Georgia", "serif"]
+        body: ["Montserrat", "sans-serif"],
+        serif: ["Montserrat", "sans-serif"]
       },
       boxShadow: {
         soft: "0 24px 70px rgba(32, 28, 24, 0.08)"

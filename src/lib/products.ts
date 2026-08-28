@@ -44,7 +44,36 @@ function normalizeCategoryPath(category: string) {
   return parts.join(" > ");
 }
 
-function normalizeGemType(value: string) {
+function inferGemTypeFromName(name: string) {
+  const rules: Array<[RegExp, string]> = [
+    [/\bstar sapphire\b/i, "Star Sapphire"],
+    [/\bblue sapphires?\b/i, "Blue Sapphire"],
+    [/\bpink sapphires?\b/i, "Pink Sapphires"],
+    [/\bpadparadscha\b/i, "Padparadscha"],
+    [/\baquamarine\b/i, "Aquamarine"],
+    [/\bchrysoberyl\b/i, "Chrysoberyl"],
+    [/\brutile quartz\b/i, "Rutile Quartz"],
+    [/\brutile\b/i, "Rutile"],
+    [/\btourmaline\b/i, "Tourmaline"],
+    [/\bmoonstone\b/i, "Moonstone"],
+    [/\bcitrine\b/i, "Citrine"],
+    [/\bgarnet\b/i, "Garnet"],
+    [/\bspinel\b/i, "Spinel"],
+    [/\bzircon\b/i, "Zircon"],
+    [/\btopaz\b/i, "Topaz"],
+    [/\bberyl\b/i, "Beryl"],
+    [/\bquartz\b/i, "Quartz"],
+    [/\bruby\b/i, "Ruby"],
+    [/\bsapphires?\b/i, "Sapphire"]
+  ];
+
+  return rules.find(([pattern]) => pattern.test(name))?.[1] ?? null;
+}
+
+function normalizeGemType(value: string, productName: string) {
+  const inferredGemType = inferGemTypeFromName(productName);
+  if (inferredGemType) return inferredGemType;
+
   const gemType = value.trim().replace(/\s+/g, " ").toLowerCase();
   if (
     gemType === "blue sapphire" ||
@@ -56,6 +85,29 @@ function normalizeGemType(value: string) {
   return value;
 }
 
+function normalizeProductName(value: string) {
+  const collapsed = value
+    .trim()
+    .replace(/\s+/g, " ")
+    .replace(/\bGreeen\b/gi, "Green")
+    .replace(/\bSapphire\b/gi, "Sapphire")
+    .replace(/\bSapphires\b/gi, "Sapphires");
+  const weightedName = collapsed.match(/^(\d+(?:\.\d+)?)\s*ct\.?\s+(.+)$/i);
+  if (!weightedName) return collapsed;
+
+  const carat = Number(weightedName[1]).toFixed(2);
+  let productName = weightedName[2];
+  const trailingTreatment = productName.match(/\s+(Unheated|Heated|Natural)$/i);
+  if (trailingTreatment) {
+    const treatment = `${trailingTreatment[1][0].toUpperCase()}${trailingTreatment[1]
+      .slice(1)
+      .toLowerCase()}`;
+    productName = `${treatment} ${productName.slice(0, trailingTreatment.index).trim()}`;
+  }
+
+  return `${carat} ct. ${productName}`;
+}
+
 function normalizeProduct(product: RawProduct): Product {
   const images = (
     product.images ??
@@ -63,17 +115,26 @@ function normalizeProduct(product: RawProduct): Product {
     (product.mainImage ? [product.mainImage] : [])
   ).filter(Boolean);
   const slug = product.slug ?? "";
+  const name = normalizeProductName(product.name ?? "Untitled product");
   const attributes = (product.attributes ?? [])
     .filter((attribute) => attribute.name && attribute.value)
     .map((attribute) => ({
       name: String(attribute.name),
       value:
         String(attribute.name).trim().toLowerCase() === "gem type"
-          ? normalizeGemType(String(attribute.value))
+          ? normalizeGemType(String(attribute.value), name)
           : String(attribute.value)
     }));
 
-  if (/\bunheated\b/i.test(product.name ?? "")) {
+  const inferredGemType = inferGemTypeFromName(name);
+  if (
+    inferredGemType &&
+    !attributes.some((attribute) => attribute.name.trim().toLowerCase() === "gem type")
+  ) {
+    attributes.push({ name: "Gem Type", value: inferredGemType });
+  }
+
+  if (/\bunheated\b/i.test(name)) {
     const treatment = attributes.find(
       (attribute) => normalizeAttributeLabel(attribute.name) === "Treatment"
     );
@@ -84,7 +145,7 @@ function normalizeProduct(product: RawProduct): Product {
   return {
     id: String(product.id ?? slug),
     slug,
-    name: product.name ?? "Untitled product",
+    name,
     lotSize: product.lotSize,
     sku: product.sku ?? "",
     categories: (product.categories ?? []).map(normalizeCategoryPath),

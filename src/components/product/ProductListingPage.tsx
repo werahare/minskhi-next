@@ -50,13 +50,19 @@ export function ProductListingPage({
   const params = toParams(searchParams);
   const sort = (params.get("sort") as SortKey) || "default";
   const filtered = sortProducts(products.filter((product) => productMatchesFilters(product, params)), sort);
-  const totalPages = Math.max(1, Math.ceil(filtered.length / PRODUCTS_PER_PAGE));
+  const showAllGemTypeMatches = params
+    .getAll("Gem Type")
+    .some((value) => value.trim().length > 0);
+  const pageSize = showAllGemTypeMatches
+    ? Math.max(filtered.length, 1)
+    : PRODUCTS_PER_PAGE;
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const requestedPage = Number(params.get("page") ?? 1);
   const page = Number.isInteger(requestedPage)
     ? Math.min(Math.max(requestedPage, 1), totalPages)
     : 1;
-  const pageStart = (page - 1) * PRODUCTS_PER_PAGE;
-  const visible = filtered.slice(pageStart, pageStart + PRODUCTS_PER_PAGE);
+  const pageStart = (page - 1) * pageSize;
+  const visible = filtered.slice(pageStart, pageStart + pageSize);
   const filters = uniqueAttributeValues(
     products,
     filterMode === "jewellery" ? jewelleryFilterNames : gemstoneFilterNames
@@ -74,8 +80,10 @@ export function ProductListingPage({
   return (
     <section className="container-shell py-14">
       <div className="mb-10 text-center">
-        <p className="text-xs uppercase tracking-[0.2em] text-gold">{eyebrow}</p>
-        <h1 className="mt-3 font-serif text-4xl font-semibold uppercase tracking-[0.03em] text-[rgb(9_46_43/var(--tw-bg-opacity,1))]">
+        {eyebrow ? (
+          <p className="text-xs uppercase tracking-[0.2em] text-gold">{eyebrow}</p>
+        ) : null}
+        <h1 className={`${eyebrow ? "mt-3 " : ""}font-serif text-4xl font-semibold uppercase tracking-[0.03em] text-[rgb(9_46_43/var(--tw-bg-opacity,1))]`}>
           {title}
         </h1>
         <p className="mx-auto mt-4 max-w-4xl text-sm leading-7 text-mink">{description}</p>
@@ -108,7 +116,7 @@ export function ProductListingPage({
         <ProductFilters filters={filters} mode={filterMode} />
         <div>
           <ProductGrid products={visible} />
-          {filtered.length > PRODUCTS_PER_PAGE ? (
+          {totalPages > 1 ? (
             <nav className="mt-12 flex flex-wrap items-center justify-center gap-2" aria-label="Product pagination">
               {page > 1 ? (
                 <a

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HomeHeroVideo } from "@/components/home/HomeHeroVideo";
 import { JournalCard } from "@/components/journal/JournalCard";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { journalPosts } from "@/content/journal/posts";
@@ -31,33 +32,25 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative min-h-[312px] overflow-hidden bg-white text-white md:min-h-[867px] md:bg-ink">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        >
-          <source src="/wp-content/uploads/2026/03/Slider.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-white/70 md:bg-black/5" />
-        <div className="relative hidden min-h-[867px] items-center justify-center px-6 pb-6 pt-[120px] text-center md:flex">
-          <div className="mx-auto mt-[-34px] max-w-[980px]">
-            <h1 className="minskhi-home-hero-title text-[58px] font-normal uppercase leading-[0.98] tracking-[0.055em] text-white md:text-[88px] xl:text-[98px]">
+      <section className="relative h-[100svh] min-h-[100svh] overflow-hidden bg-ink text-white md:h-auto md:min-h-[867px]">
+        <HomeHeroVideo />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.28)_0%,rgba(0,0,0,0.02)_42%,rgba(0,0,0,0.12)_100%)] md:bg-black/5" />
+        <div className="absolute inset-0 z-10 flex items-center justify-center px-5 pt-14 text-center md:relative md:min-h-[867px] md:px-6 md:pb-6 md:pt-[120px]">
+          <div className="mx-auto w-full max-w-[360px] md:mt-[-34px] md:max-w-[980px]">
+            <h1 className="minskhi-home-hero-title text-[44px] font-normal uppercase leading-[0.98] tracking-[0.045em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.28)] md:text-[88px] md:tracking-[0.055em] md:drop-shadow-none xl:text-[98px]">
               Sapphire
               <br />
               House of
               <br />
               Australia
             </h1>
-            <p className="mx-auto mt-[22px] max-w-[940px] text-[18px] leading-[1.45] text-white">
+            <p className="mx-auto mt-5 max-w-[350px] text-[13px] leading-[1.55] text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] md:mt-[22px] md:max-w-[940px] md:text-[18px] md:leading-[1.45] md:drop-shadow-none">
               Discover rare Ceylon and globally ethically sourced sapphires, and exceptional coloured
               gemstones celebrated for their colour, brilliance, and timeless value.
             </p>
             <Link
               href="/shop-2"
-              className="mt-[38px] inline-flex min-h-[70px] min-w-[193px] items-center justify-center bg-white px-10 text-[16px] font-semibold uppercase text-black transition hover:bg-coral hover:text-white"
+              className="mt-6 inline-flex min-h-[46px] min-w-[146px] items-center justify-center bg-white px-7 text-[12px] font-semibold uppercase text-black transition hover:bg-coral hover:text-white md:mt-[38px] md:min-h-[70px] md:min-w-[193px] md:px-10 md:text-[16px]"
             >
               Shop now
             </Link>
@@ -65,8 +58,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container-shell overflow-hidden py-11 md:py-16">
-        <h2 className="mb-8 whitespace-nowrap text-center font-serif text-[34px] uppercase leading-none text-[rgb(9_46_43/var(--tw-bg-opacity,1))] md:mb-10 md:text-4xl">Latest discoveries</h2>
+      <section className="container-shell overflow-hidden py-10 md:py-16">
+        <h2 className="mb-7 whitespace-nowrap text-center font-serif text-[34px] uppercase leading-none text-[rgb(9_46_43/var(--tw-bg-opacity,1))] md:mb-10 md:text-4xl">Latest discoveries</h2>
         <ProductGrid products={latest} desktopColumns={4} />
       </section>
 

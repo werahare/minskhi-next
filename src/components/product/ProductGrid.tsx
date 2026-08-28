@@ -23,7 +23,7 @@ export function ProductGrid({
   const desktopGridClass = desktopColumns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3";
 
   return (
-    <div className={`grid gap-x-7 gap-y-12 sm:grid-cols-2 ${desktopGridClass}`}>
+    <div className={`grid grid-cols-2 gap-x-2 gap-y-6 sm:gap-x-7 sm:gap-y-12 ${desktopGridClass}`}>
       {products.map((product) => (
         <ProductCard product={product} key={product.id} />
       ))}
