@@ -2,11 +2,7 @@ export const staticPages = {
   "our-story": {
     title: "Our Story",
     body: [
-      "Minskhi is a gemstone and jewellery house shaped by Sri Lankan heritage, Australian presence, and a deep respect for rare natural colour.",
-      "Our work begins with the stone. Each gemstone is considered for its origin, beauty, character, treatment history, and long-term meaning before it becomes part of the Minskhi collection.",
-      "From Ceylon sapphires to exceptional coloured gemstones sourced through trusted channels, Minskhi brings together gem knowledge, ethical consideration, and refined design for clients seeking pieces with substance.",
-      "At our Chadstone location in Melbourne, clients can explore loose gemstones, signature jewellery, and bespoke possibilities through a personal consultation process.",
-      "Minskhi exists for collectors and jewellery lovers who value authenticity, rarity, craftsmanship, and quiet luxury."
+      "Minskhi was founded on a single principle: that a fine gemstone is not merchandise, but inheritance - a fragment of the earth's own history, given form and light, and entrusted to those who will carry it forward."
     ]
   },
   "website-terms-of-service": {

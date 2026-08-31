@@ -139,20 +139,32 @@
     "salePrice": "",
     "shortDescription": "",
     "description": "",
-    "mainImage": "/wp-content/uploads/2026/02/1112023001-1.jpg",
+    "mainImage": "/assets/products/222409/hero.avif",
     "galleryImages": [
-      "/wp-content/uploads/2026/02/1112023001-1.jpg",
-      "/wp-content/uploads/2026/02/1112023025-1.jpg",
-      "/wp-content/uploads/2026/02/1112023049-1.jpg",
-      "/wp-content/uploads/2026/02/1112023073-1.jpg",
-      "/wp-content/uploads/2026/02/1112023097-1.jpg"
+      "/assets/products/222409/hero.avif",
+      "/assets/products/222409/1112023001.jpg",
+      "/assets/products/222409/1112023025.jpg",
+      "/assets/products/222409/1112023049.jpg",
+      "/assets/products/222409/1112023073.jpg",
+      "/assets/products/222409/1112023097.jpg",
+      "/assets/products/222409/1112023121.jpg",
+      "/assets/products/222409/1112023145.jpg",
+      "/assets/products/222409/1112023169.jpg",
+      "/assets/products/222409/1112023193.jpg",
+      "/assets/products/222409/1112023217.jpg"
     ],
     "images": [
-      "/wp-content/uploads/2026/02/1112023001-1.jpg",
-      "/wp-content/uploads/2026/02/1112023025-1.jpg",
-      "/wp-content/uploads/2026/02/1112023049-1.jpg",
-      "/wp-content/uploads/2026/02/1112023073-1.jpg",
-      "/wp-content/uploads/2026/02/1112023097-1.jpg"
+      "/assets/products/222409/hero.avif",
+      "/assets/products/222409/1112023001.jpg",
+      "/assets/products/222409/1112023025.jpg",
+      "/assets/products/222409/1112023049.jpg",
+      "/assets/products/222409/1112023073.jpg",
+      "/assets/products/222409/1112023097.jpg",
+      "/assets/products/222409/1112023121.jpg",
+      "/assets/products/222409/1112023145.jpg",
+      "/assets/products/222409/1112023169.jpg",
+      "/assets/products/222409/1112023193.jpg",
+      "/assets/products/222409/1112023217.jpg"
     ],
     "attributes": [
       {
@@ -7586,7 +7598,7 @@
     "id": "3323",
     "slug": "0-69-ct-unheated-pink-sapphire",
     "name": "0.69 ct. Unheated Pink Sapphire",
-    "sku": "",
+    "sku": "224388",
     "categories": [
       "Gemstones > Sapphire"
     ],
@@ -7596,24 +7608,30 @@
     "salePrice": "",
     "shortDescription": "",
     "description": "",
-    "mainImage": "/wp-content/uploads/2026/03/1112023001-10.jpg",
+    "mainImage": "/assets/products/224388/1112023001.jpg",
     "galleryImages": [
-      "/wp-content/uploads/2026/03/1112023001-10.jpg",
-      "/wp-content/uploads/2026/03/1112023025-6.jpg",
-      "/wp-content/uploads/2026/03/1112023049-10.jpg",
-      "/wp-content/uploads/2026/03/1112023073-9.jpg",
-      "/wp-content/uploads/2026/03/1112023097-10.jpg",
-      "/wp-content/uploads/2026/03/1112023121-10.jpg",
-      "/wp-content/uploads/2026/03/1112023145-5.jpg"
+      "/assets/products/224388/1112023001.jpg",
+      "/assets/products/224388/1112023025.jpg",
+      "/assets/products/224388/1112023049.jpg",
+      "/assets/products/224388/1112023073.jpg",
+      "/assets/products/224388/1112023097.jpg",
+      "/assets/products/224388/1112023121.jpg",
+      "/assets/products/224388/1112023145.jpg",
+      "/assets/products/224388/1112023169.jpg",
+      "/assets/products/224388/1112023193.jpg",
+      "/assets/products/224388/1112023217.jpg"
     ],
     "images": [
-      "/wp-content/uploads/2026/03/1112023001-10.jpg",
-      "/wp-content/uploads/2026/03/1112023025-6.jpg",
-      "/wp-content/uploads/2026/03/1112023049-10.jpg",
-      "/wp-content/uploads/2026/03/1112023073-9.jpg",
-      "/wp-content/uploads/2026/03/1112023097-10.jpg",
-      "/wp-content/uploads/2026/03/1112023121-10.jpg",
-      "/wp-content/uploads/2026/03/1112023145-5.jpg"
+      "/assets/products/224388/1112023001.jpg",
+      "/assets/products/224388/1112023025.jpg",
+      "/assets/products/224388/1112023049.jpg",
+      "/assets/products/224388/1112023073.jpg",
+      "/assets/products/224388/1112023097.jpg",
+      "/assets/products/224388/1112023121.jpg",
+      "/assets/products/224388/1112023145.jpg",
+      "/assets/products/224388/1112023169.jpg",
+      "/assets/products/224388/1112023193.jpg",
+      "/assets/products/224388/1112023217.jpg"
     ],
     "attributes": [
       {
@@ -7622,7 +7640,11 @@
       },
       {
         "name": "Treatment",
-        "value": "unheated"
+        "value": "Unheated"
+      },
+      {
+        "name": "Colour",
+        "value": "Pink"
       },
       {
         "name": "Shape / Cut",
@@ -7630,7 +7652,7 @@
       },
       {
         "name": "Carat / Weight",
-        "value": "0-1"
+        "value": "0.69 ct"
       },
       {
         "name": "Transparency",
@@ -7648,10 +7670,9 @@
   },
   {
     "id": "3353",
-    "hidden": true,
-    "slug": "0-62-ct-unheated-pink-sapphire",
+    "slug": "0-62-ct-unheated-pink-sapphire-224389",
     "name": "0.62 ct. Unheated Pink Sapphire",
-    "sku": "",
+    "sku": "224389",
     "categories": [
       "Gemstones > Sapphire"
     ],
@@ -7661,22 +7682,30 @@
     "salePrice": "",
     "shortDescription": "",
     "description": "",
-    "mainImage": "/wp-content/uploads/2026/03/1112023001-11.jpg",
+    "mainImage": "/assets/products/224389/1112023001.jpg",
     "galleryImages": [
-      "/wp-content/uploads/2026/03/1112023001-11.jpg",
-      "/wp-content/uploads/2026/03/1112023025-7.jpg",
-      "/wp-content/uploads/2026/03/1112023049-11.jpg",
-      "/wp-content/uploads/2026/03/1112023073-10.jpg",
-      "/wp-content/uploads/2026/03/1112023097-11.jpg",
-      "/wp-content/uploads/2026/03/1112023121-11.jpg"
+      "/assets/products/224389/1112023001.jpg",
+      "/assets/products/224389/1112023025.jpg",
+      "/assets/products/224389/1112023049.jpg",
+      "/assets/products/224389/1112023073.jpg",
+      "/assets/products/224389/1112023097.jpg",
+      "/assets/products/224389/1112023121.jpg",
+      "/assets/products/224389/1112023145.jpg",
+      "/assets/products/224389/1112023169.jpg",
+      "/assets/products/224389/1112023193.jpg",
+      "/assets/products/224389/1112023217.jpg"
     ],
     "images": [
-      "/wp-content/uploads/2026/03/1112023001-11.jpg",
-      "/wp-content/uploads/2026/03/1112023025-7.jpg",
-      "/wp-content/uploads/2026/03/1112023049-11.jpg",
-      "/wp-content/uploads/2026/03/1112023073-10.jpg",
-      "/wp-content/uploads/2026/03/1112023097-11.jpg",
-      "/wp-content/uploads/2026/03/1112023121-11.jpg"
+      "/assets/products/224389/1112023001.jpg",
+      "/assets/products/224389/1112023025.jpg",
+      "/assets/products/224389/1112023049.jpg",
+      "/assets/products/224389/1112023073.jpg",
+      "/assets/products/224389/1112023097.jpg",
+      "/assets/products/224389/1112023121.jpg",
+      "/assets/products/224389/1112023145.jpg",
+      "/assets/products/224389/1112023169.jpg",
+      "/assets/products/224389/1112023193.jpg",
+      "/assets/products/224389/1112023217.jpg"
     ],
     "attributes": [
       {
@@ -7685,11 +7714,11 @@
       },
       {
         "name": "Treatment",
-        "value": "unheated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
-        "value": "Pink"
+        "value": "Violetish Pink"
       },
       {
         "name": "Shape / Cut",
@@ -7697,7 +7726,7 @@
       },
       {
         "name": "Carat / Weight",
-        "value": "0-1"
+        "value": "0.62 ct"
       },
       {
         "name": "Transparency",
@@ -7711,7 +7740,7 @@
     "stockStatus": "Available for enquiry",
     "dateCreated": "",
     "relatedProductIds": [],
-    "originalWooCommerceUrl": "https://minskhi.com/product/0-62-ct-unheated-pink-sapphire/"
+    "originalWooCommerceUrl": ""
   },
   {
     "id": "3420",
@@ -7795,6 +7824,7 @@
   },
   {
     "id": "3438",
+    "hidden": true,
     "slug": "4-73-ct-red-garnet",
     "name": "4.73 ct. Red Garnet",
     "sku": "",
@@ -7902,6 +7932,7 @@
   },
   {
     "id": "3457",
+    "hidden": true,
     "slug": "9-21-ct-blue-topaz",
     "name": "9.21 ct. Blue Topaz",
     "sku": "",
@@ -8019,6 +8050,7 @@
   },
   {
     "id": "3484",
+    "hidden": true,
     "slug": "3-37-ct-white-topaz",
     "name": "3.37 ct. White Topaz",
     "sku": "",
@@ -8058,6 +8090,7 @@
   },
   {
     "id": "3493",
+    "hidden": true,
     "slug": "2-52-ct-white-topaz",
     "name": "2.52 ct. White Topaz",
     "sku": "",
@@ -8947,6 +8980,7 @@
   },
   {
     "id": "20260711-002",
+    "hidden": true,
     "slug": "2-19-ct-white-topaz-natural",
     "name": "2.19 ct. White Topaz Natural",
     "sku": "20260711-002",
@@ -10908,5 +10942,77 @@
     "dateCreated": "2026-07-11",
     "relatedProductIds": [],
     "originalWooCommerceUrl": "https://minskhi.com/product/34-25-ct-citrine-natural/"
+  },
+  {
+    "id": "220806",
+    "slug": "0-58-ct-blue-sapphire",
+    "name": "0.58 ct. Blue Sapphire",
+    "sku": "220806",
+    "categories": [
+      "Gemstones > Sapphire"
+    ],
+    "tags": [],
+    "price": "0",
+    "regularPrice": "0",
+    "salePrice": "",
+    "shortDescription": "",
+    "description": "",
+    "mainImage": "/assets/products/220806/01.jpg",
+    "galleryImages": [
+      "/assets/products/220806/01.jpg",
+      "/assets/products/220806/02.jpg",
+      "/assets/products/220806/03.jpg",
+      "/assets/products/220806/04.jpg",
+      "/assets/products/220806/05.jpg",
+      "/assets/products/220806/06.jpg",
+      "/assets/products/220806/07.jpg",
+      "/assets/products/220806/08.jpg",
+      "/assets/products/220806/09.jpg",
+      "/assets/products/220806/10.jpg",
+      "/assets/products/220806/11.jpg"
+    ],
+    "images": [
+      "/assets/products/220806/01.jpg",
+      "/assets/products/220806/02.jpg",
+      "/assets/products/220806/03.jpg",
+      "/assets/products/220806/04.jpg",
+      "/assets/products/220806/05.jpg",
+      "/assets/products/220806/06.jpg",
+      "/assets/products/220806/07.jpg",
+      "/assets/products/220806/08.jpg",
+      "/assets/products/220806/09.jpg",
+      "/assets/products/220806/10.jpg",
+      "/assets/products/220806/11.jpg"
+    ],
+    "attributes": [
+      {
+        "name": "Gem Type",
+        "value": "Sapphire"
+      },
+      {
+        "name": "Treatment",
+        "value": "Heated"
+      },
+      {
+        "name": "Colour",
+        "value": "Blue"
+      },
+      {
+        "name": "Shape / Cut",
+        "value": "Round / Brilliant Cut"
+      },
+      {
+        "name": "Carat / Weight",
+        "value": "0.58 ct"
+      },
+      {
+        "name": "Transparency",
+        "value": "Transparent"
+      }
+    ],
+    "stockStatus": "Available for enquiry",
+    "dateCreated": "2026-08-31",
+    "relatedProductIds": [],
+    "originalWooCommerceUrl": ""
   }
 ]

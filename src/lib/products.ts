@@ -108,6 +108,32 @@ function normalizeProductName(value: string) {
   return `${carat} ct. ${productName}`;
 }
 
+const unheatedGemTypes = new Set([
+  "aquamarine",
+  "beryl",
+  "garnet",
+  "quartz",
+  "rutile quartz",
+  "spinel",
+  "zircon"
+]);
+
+function requiresUnheatedTreatment(gemType: string) {
+  return unheatedGemTypes.has(gemType.trim().toLowerCase());
+}
+
+function ensureUnheatedProductName(name: string) {
+  if (/\bunheated\b/i.test(name)) return name;
+  if (/\b(?:heated|natural)\b/i.test(name)) {
+    return name.replace(/\b(?:heated|natural)\b/i, "Unheated");
+  }
+
+  const weightedName = name.match(/^(\d+(?:\.\d+)?)\s*ct\.\s+(.+)$/i);
+  return weightedName
+    ? `${weightedName[1]} ct. Unheated ${weightedName[2]}`
+    : `Unheated ${name}`;
+}
+
 function normalizeProduct(product: RawProduct): Product {
   const images = (
     product.images ??
@@ -115,7 +141,7 @@ function normalizeProduct(product: RawProduct): Product {
     (product.mainImage ? [product.mainImage] : [])
   ).filter(Boolean);
   const slug = product.slug ?? "";
-  const name = normalizeProductName(product.name ?? "Untitled product");
+  let name = normalizeProductName(product.name ?? "Untitled product");
   const attributes = (product.attributes ?? [])
     .filter((attribute) => attribute.name && attribute.value)
     .map((attribute) => ({
@@ -140,6 +166,18 @@ function normalizeProduct(product: RawProduct): Product {
     );
     if (treatment) treatment.value = "Unheated";
     else attributes.push({ name: "Treatment", value: "Unheated" });
+  }
+
+  const gemType = attributes.find(
+    (attribute) => attribute.name.trim().toLowerCase() === "gem type"
+  )?.value;
+  if (gemType && requiresUnheatedTreatment(gemType)) {
+    const treatment = attributes.find(
+      (attribute) => normalizeAttributeLabel(attribute.name) === "Treatment"
+    );
+    if (treatment) treatment.value = "Unheated";
+    else attributes.push({ name: "Treatment", value: "Unheated" });
+    name = ensureUnheatedProductName(name);
   }
 
   return {
@@ -186,34 +224,27 @@ export function getProductBySlug(slug: string) {
   return products.find((product) => product.slug === slug);
 }
 
-export function getProductsByCategory(category: "gemstones" | "jewellery" | "minerals") {
-  const key = category.toLowerCase();
-  if (key === "minerals") {
-    return products.filter((product) =>
-      product.categories.some((item) => {
-        const lower = item.toLowerCase();
-        return lower.includes("mineral") || lower.includes("carving");
-      })
-    );
-  }
-  if (key === "gemstones") {
-    return products.filter((product) =>
-      product.categories.some((item) => {
-        const lower = item.toLowerCase();
-        return lower.includes("gemstone") && !lower.includes("carving");
-      })
-    );
-  }
-  return products.filter((product) =>
-    product.categories.some((item) => item.toLowerCase().includes(key.slice(0, -1)))
-  );
-}
-
 function isMineralProduct(product: Product) {
   return product.categories.some((item) => {
     const lower = item.toLowerCase();
     return lower.includes("mineral") || lower.includes("carving");
   });
+}
+
+export function getProductsByCategory(category: "gemstones" | "jewellery" | "minerals") {
+  const key = category.toLowerCase();
+  if (key === "minerals") {
+    return products.filter(isMineralProduct);
+  }
+  if (key === "gemstones") {
+    return products.filter((product) =>
+      !isMineralProduct(product) &&
+      product.categories.some((item) => item.toLowerCase().includes("gemstone"))
+    );
+  }
+  return products.filter((product) =>
+    product.categories.some((item) => item.toLowerCase().includes(key.slice(0, -1)))
+  );
 }
 
 export function getRelatedProducts(product: Product, count = 4) {

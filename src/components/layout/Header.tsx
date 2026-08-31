@@ -127,7 +127,7 @@ export function Header() {
           <Link href="/contact" aria-label="Account" className="transition hover:opacity-70">
             <UserIcon />
           </Link>
-          <Link href="/shop-2" aria-label="Search" className="transition hover:opacity-70">
+          <Link href="/gemstones" aria-label="Search gemstones" className="transition hover:opacity-70">
             <SearchIcon />
           </Link>
           <Link href="/wishlist" aria-label="Wishlist" className="relative transition hover:opacity-70">

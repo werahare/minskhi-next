@@ -13,7 +13,7 @@ export const journalPosts: JournalPost[] = [
     title: "Beyond the Blue Sapphire: Sri Lanka’s Most Remarkable Gemstones",
     excerpt:
       "Discover the extraordinary gemstones that showcase Sri Lanka’s unmatched geological diversity, scientific significance, and enduring gemmological heritage.",
-    image: "/wp-content/uploads/2026/03/4.894-ct.-Cushion-Cut-Padparadscha.jpeg",
+    image: "/assets/journal/beyond-the-blue-sapphire.png",
     date: "August 28, 2026",
     content: [
       "Minskhi Journal",

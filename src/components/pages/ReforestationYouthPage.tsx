@@ -72,7 +72,7 @@ const partners = [
   },
   {
     name: "Gem and Greenery Association",
-    image: "/wp-content/uploads/2026/03/logo_main-dark-theme-e1773949954761.png"
+    image: "/assets/partners/gem-and-greenery-association.jpg"
   },
   {
     name: "Nunawading Lapidary Club",
