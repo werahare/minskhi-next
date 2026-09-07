@@ -1,4 +1,4 @@
-import { formatAttributeValue, normalizeAttributeLabel } from "@/lib/filters";
+import { formatAttributeValue, isSapphire, normalizeAttributeLabel } from "@/lib/filters";
 import type { Product } from "@/lib/types";
 
 export function ProductAttributeTable({ product }: { product: Product }) {
@@ -7,7 +7,8 @@ export function ProductAttributeTable({ product }: { product: Product }) {
       name: normalizeAttributeLabel(attribute.name),
       value: formatAttributeValue(attribute.value)
     }))
-    .filter((attribute) => attribute.name !== "Carat / Weight");
+    .filter((attribute) => attribute.name !== "Carat / Weight" &&
+      !(isSapphire(product) && attribute.name === "Treatment"));
 
   return (
     <div className="overflow-hidden border border-[#ddcfbf]">

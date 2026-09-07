@@ -12,6 +12,7 @@ export default async function MineralsPage({
   return (
     <ProductListingPage
       title="Minerals"
+      enableTreatmentFilter={false}
       description="Explore Minskhi mineral carvings and collectible stone pieces selected from the product catalogue."
       products={getProductsByCategory("minerals")}
       searchParams={await searchParams}

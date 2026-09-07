@@ -2,7 +2,7 @@ import rawProducts from "@/data/products.json";
 import { siteConfig } from "@/config/site";
 import type { Product, SortKey } from "./types";
 import { fallbackProductImage } from "./images";
-import { normalizeAttributeLabel } from "./filters";
+import { isSapphire, normalizeAttributeLabel } from "./filters";
 
 type RawProduct = {
   id?: string | number;
@@ -108,20 +108,6 @@ function normalizeProductName(value: string) {
   return `${carat} ct. ${productName}`;
 }
 
-const unheatedGemTypes = new Set([
-  "aquamarine",
-  "beryl",
-  "garnet",
-  "quartz",
-  "rutile quartz",
-  "spinel",
-  "zircon"
-]);
-
-function requiresUnheatedTreatment(gemType: string) {
-  return unheatedGemTypes.has(gemType.trim().toLowerCase());
-}
-
 function ensureUnheatedProductName(name: string) {
   if (/\bunheated\b/i.test(name)) return name;
   if (/\b(?:heated|natural)\b/i.test(name)) {
@@ -160,7 +146,7 @@ function normalizeProduct(product: RawProduct): Product {
     attributes.push({ name: "Gem Type", value: inferredGemType });
   }
 
-  if (/\bunheated\b/i.test(name)) {
+  if (/\bun[\s-]?heated\b/i.test(name)) {
     const treatment = attributes.find(
       (attribute) => normalizeAttributeLabel(attribute.name) === "Treatment"
     );
@@ -168,15 +154,13 @@ function normalizeProduct(product: RawProduct): Product {
     else attributes.push({ name: "Treatment", value: "Unheated" });
   }
 
-  const gemType = attributes.find(
-    (attribute) => attribute.name.trim().toLowerCase() === "gem type"
+  // Treatment stays in the attributes for filtering and product details.
+  // Only unheated sapphires include a treatment label in their display name.
+  const treatment = attributes.find(
+    (attribute) => normalizeAttributeLabel(attribute.name) === "Treatment"
   )?.value;
-  if (gemType && requiresUnheatedTreatment(gemType)) {
-    const treatment = attributes.find(
-      (attribute) => normalizeAttributeLabel(attribute.name) === "Treatment"
-    );
-    if (treatment) treatment.value = "Unheated";
-    else attributes.push({ name: "Treatment", value: "Unheated" });
+  name = name.replace(/\b(?:un[\s-]?heated|heated)\b/gi, "").replace(/\s+/g, " ").trim();
+  if (isSapphire({ attributes }) && /^un[\s-]?heated$/i.test(treatment?.trim() ?? "")) {
     name = ensureUnheatedProductName(name);
   }
 

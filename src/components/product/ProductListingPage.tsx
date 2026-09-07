@@ -1,6 +1,6 @@
 import { ProductFilters } from "@/components/filters/ProductFilters";
 import { ProductGrid } from "@/components/product/ProductGrid";
-import { gemstoneFilterNames, jewelleryFilterNames, productMatchesFilters, uniqueAttributeValues } from "@/lib/filters";
+import { gemstoneFilterNames, isSapphire, jewelleryFilterNames, productMatchesFilters, uniqueAttributeValues } from "@/lib/filters";
 import { sortProducts } from "@/lib/products";
 import type { Product, SortKey } from "@/lib/types";
 
@@ -38,7 +38,8 @@ export function ProductListingPage({
   description,
   products,
   searchParams,
-  filterMode = "gemstones"
+  filterMode = "gemstones",
+  enableTreatmentFilter = true
 }: {
   title: string;
   eyebrow?: string;
@@ -46,10 +47,17 @@ export function ProductListingPage({
   products: Product[];
   searchParams: SearchParams;
   filterMode?: "gemstones" | "jewellery";
+  enableTreatmentFilter?: boolean;
 }) {
   const params = toParams(searchParams);
+  if (!enableTreatmentFilter) {
+    for (const key of Array.from(params.keys())) {
+      if (key.toLowerCase().includes("treat")) params.delete(key);
+    }
+  }
   const sort = (params.get("sort") as SortKey) || "default";
-  const filtered = sortProducts(products.filter((product) => productMatchesFilters(product, params)), sort);
+  const includeNonSapphireTreatment = filterMode === "jewellery";
+  const filtered = sortProducts(products.filter((product) => productMatchesFilters(product, params, includeNonSapphireTreatment)), sort);
   const showAllGemTypeMatches = params
     .getAll("Gem Type")
     .some((value) => value.trim().length > 0);
@@ -63,10 +71,22 @@ export function ProductListingPage({
     : 1;
   const pageStart = (page - 1) * pageSize;
   const visible = filtered.slice(pageStart, pageStart + pageSize);
+  const gemTypeParams = new URLSearchParams();
+  params.getAll("Gem Type").forEach((value) => gemTypeParams.append("Gem Type", value));
+  const showTreatmentFilter = enableTreatmentFilter && products.some(
+    (product) => (includeNonSapphireTreatment || isSapphire(product)) && productMatchesFilters(product, gemTypeParams)
+  );
   const filters = uniqueAttributeValues(
     products,
-    filterMode === "jewellery" ? jewelleryFilterNames : gemstoneFilterNames
-  );
+    filterMode === "jewellery" ? jewelleryFilterNames : gemstoneFilterNames,
+    includeNonSapphireTreatment
+  ).filter((group) => group.name !== "Treatment" || showTreatmentFilter);
+  const treatmentIndex = filters.findIndex((group) => group.name === "Treatment");
+  if (treatmentIndex !== -1) {
+    const [treatmentFilter] = filters.splice(treatmentIndex, 1);
+    const gemTypeIndex = filters.findIndex((group) => group.name === "Gem Type");
+    filters.splice(gemTypeIndex + 1, 0, treatmentFilter);
+  }
   const pageHref = (targetPage: number) => {
     const nextParams = new URLSearchParams(params);
     nextParams.delete("count");

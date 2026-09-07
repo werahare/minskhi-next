@@ -143,7 +143,9 @@ function OurStoryPage() {
         <section className="minskhi-story-intro">
           <p>
             Minskhi was founded on a single principle: that a fine gemstone is not
-            merchandise, but inheritance - a fragment of the earth&apos;s own history,
+            merchandise, but inheritance -
+            <br />
+            a fragment of the earth&apos;s own history,
             given form and light, and entrusted to those who will carry it forward.
           </p>
           <p>

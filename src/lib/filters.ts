@@ -1,5 +1,12 @@
 import type { Product } from "./types";
 
+export function isSapphire(product: Pick<Product, "attributes">) {
+  return product.attributes.some(
+    (attribute) => attribute.name.trim().toLowerCase() === "gem type" &&
+      /\b(?:sapphires?|padparadscha)\b/i.test(attribute.value)
+  );
+}
+
 export const gemstoneFilterNames = [
   "Colour",
   "Carat / Weight",
@@ -43,7 +50,7 @@ function getCaratWeightBucket(value: string): string | null {
   return "5 +";
 }
 
-export function uniqueAttributeValues(products: Product[], attributeNames: string[]) {
+export function uniqueAttributeValues(products: Product[], attributeNames: string[], includeNonSapphireTreatment = false) {
   // Normalize the allowed attribute names so variants map to the same group
   const allowedNormalized = new Set(attributeNames.map((name) => normalizeAttributeLabel(name).toLowerCase()));
   const groups = new Map<string, Map<string, string>>();
@@ -51,6 +58,7 @@ export function uniqueAttributeValues(products: Product[], attributeNames: strin
   products.forEach((product) => {
     product.attributes.forEach((attribute) => {
       const normalizedLabel = normalizeAttributeLabel(attribute.name);
+      if (normalizedLabel === "Treatment" && !includeNonSapphireTreatment && !isSapphire(product)) return;
       if (!allowedNormalized.has(normalizedLabel.toLowerCase())) return;
       const key = normalizedLabel; // canonical label
       const valueMap = groups.get(key) ?? new Map<string, string>();
@@ -60,7 +68,10 @@ export function uniqueAttributeValues(products: Product[], attributeNames: strin
       } else {
         const normVal = normalizeValueForKey(attribute.value, attribute.name);
         // store the first-seen display value for this normalized key
-        if (!valueMap.has(normVal)) valueMap.set(normVal, formatAttributeValue(attribute.value));
+        const displayValue = key.toLowerCase() === "colour" && normVal === "violet"
+          ? "Violet"
+          : formatAttributeValue(attribute.value);
+        if (!valueMap.has(normVal)) valueMap.set(normVal, displayValue);
       }
       groups.set(key, valueMap);
     });
@@ -114,6 +125,9 @@ function normalizeValueForKey(value: string, keyLabel: string) {
   v = v.replace(/\s*\/\s*/g, "/");
   // lower for comparison
   v = v.toLowerCase();
+  if (keyLabel.trim().toLowerCase() === "colour" && /\bviolet(?:ish)?\b/.test(v)) {
+    return "violet";
+  }
   // some keys need special handling
   if (keyLabel.toLowerCase().includes("treat")) {
     if (v === "heated") return "heated";
@@ -128,7 +142,7 @@ function normalizeValueForKey(value: string, keyLabel: string) {
   return v;
 }
 
-export function productMatchesFilters(product: Product, params: URLSearchParams) {
+export function productMatchesFilters(product: Product, params: URLSearchParams, includeNonSapphireTreatment = false) {
   const query = params.get("q")?.toLowerCase().trim();
   if (query && !`${product.name} ${product.sku}`.toLowerCase().includes(query)) {
     return false;
@@ -139,6 +153,7 @@ export function productMatchesFilters(product: Product, params: URLSearchParams)
     const normalizedKey = normalizeAttributeLabel(key).toLowerCase();
     const rawValues = params.getAll(key).filter(Boolean);
     if (!rawValues.length) continue;
+    if (normalizedKey === "treatment" && !includeNonSapphireTreatment && !isSapphire(product)) return false;
     const requestedValues = (
       singleValueFilterNames.has(normalizedKey)
         ? rawValues

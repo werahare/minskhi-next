@@ -718,6 +718,7 @@ textarea {
   font-family: "Montserrat", sans-serif;
   font-size: clamp(14px, 1.12vw, 15px);
   line-height: 1.78;
+  text-align: justify;
 }
 
 .minskhi-story-image {

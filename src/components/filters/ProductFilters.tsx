@@ -23,6 +23,7 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
     } else {
       params.set(key, value);
     }
+    if (key === "Gem Type") params.delete("Treatment");
     router.push(`${pathname}?${params.toString()}`);
   }
 
@@ -98,7 +99,7 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
             return (
               <div key={key} className="border-t border-[#f0e9df] pt-4">
                 <label className="mb-3 block text-xs uppercase tracking-[0.18em] text-ink" htmlFor={`filter-${key}`}>
-                  {key}
+                  {key === "Treatment" ? "Heated" : key}
                 </label>
                 <select
                   id={`filter-${key}`}
@@ -141,6 +142,7 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
                       blue: "#2563eb",
                       green: "#16a34a",
                       purple: "#7c3aed",
+                      violet: "#8b5cf6",
                       grey: "#9ca3af",
                       beige: "#f5e9dc",
                       yellow: "#f59e0b",
