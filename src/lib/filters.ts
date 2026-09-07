@@ -1,10 +1,16 @@
 import type { Product } from "./types";
 
-export const colourFilterValues = ["Green", "Blue", "Pink", "Orange", "Yellow"];
+export const colourFilterValues = [
+  "Bi colour", "Blue", "Black", "Brown", "Green", "Lavendra", "Multi colour",
+  "Orange", "Purple", "Pink", "Red", "Violet", "White", "Yellow"
+];
 
 export function getColourFilterValues(value: string) {
-  // Match base colour words, not modifiers such as "yellowish" in "Yellowish Green".
-  const words: string[] = value.toLowerCase().match(/[a-z]+/g) ?? [];
+  const normalized = value.toLowerCase().replace(/[-\s]+/g, " ").trim();
+  if (/\bbi colou?r\b/.test(normalized)) return ["Bi colour"];
+  if (/\bmulti colou?r\b/.test(normalized)) return ["Multi colour"];
+  if (/\b(?:lavender|lavendra)\b/.test(normalized)) return ["Lavendra"];
+  const words: string[] = normalized.match(/[a-z]+/g) ?? [];
   return colourFilterValues.filter((colour) => words.includes(colour.toLowerCase()));
 }
 
@@ -97,7 +103,7 @@ export function uniqueAttributeValues(products: Product[], attributeNames: strin
       name === "Carat / Weight"
         ? caratWeightBuckets
         : name.toLowerCase() === "colour"
-        ? colourFilterValues.filter((colour) => values.has(colour))
+        ? colourFilterValues
         : Array.from(values.values()).sort((a, b) => a.localeCompare(b)).slice(0, 40)
   }));
 }

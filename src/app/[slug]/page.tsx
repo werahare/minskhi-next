@@ -171,22 +171,14 @@ function OurStoryPage() {
             <p>
               Minskhi is led by Kalana Meewella and Mary Meewella, whose partnership
               joins two forms of knowledge rarely found within a single house.
-            </p>
-            <p>
               Kalana Meewella&apos;s family has been gem merchants for over five decades,
               working directly at origin across Sri Lanka&apos;s historic sapphire regions,
               in relationships measured in years rather than transactions.
-            </p>
-            <p>
               Mary Meewella&apos;s training in gemmology follows the curriculum of the
               Gemmological Association of Great Britain, bringing scientific discipline
               to a trade too often guided by instinct alone.
-            </p>
-            <p>
               Between them, no stone is judged from a single vantage point. Each is
               considered for its beauty, and for its truth.
-            </p>
-            <p>
               It was this shared devotion to gemstones - one rooted in inheritance, the
               other in study - that first brought Kalana and Mary together. Minskhi
               followed, not as a plan, but as its natural consequence.
