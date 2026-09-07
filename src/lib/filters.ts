@@ -15,7 +15,8 @@ export function getColourFilterValues(value: string) {
 }
 
 export function normalizeGemTypeFilterValue(value: string) {
-  return /\b(?:sapphires?|padparadscha)\b/i.test(value) ? "Sapphire" : value;
+  if (/\bpadparadscha\b/i.test(value)) return "Padparadscha";
+  return /\bsapphires?\b/i.test(value) ? "Sapphire" : value;
 }
 
 export function isSapphire(product: Pick<Product, "attributes">) {
