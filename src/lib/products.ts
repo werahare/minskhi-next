@@ -155,12 +155,15 @@ function normalizeProduct(product: RawProduct): Product {
   }
 
   // Treatment stays in the attributes for filtering and product details.
-  // Only unheated sapphires include a treatment label in their display name.
+  // Padparadscha names omit treatment; other unheated sapphires retain it.
   const treatment = attributes.find(
     (attribute) => normalizeAttributeLabel(attribute.name) === "Treatment"
   )?.value;
   name = name.replace(/\b(?:un[\s-]?heated|heated)\b/gi, "").replace(/\s+/g, " ").trim();
-  if (isSapphire({ attributes }) && /^un[\s-]?heated$/i.test(treatment?.trim() ?? "")) {
+  const isPadparadscha = /\bpadparadscha\b/i.test(name) || attributes.some(
+    (attribute) => attribute.name.trim().toLowerCase() === "gem type" && /\bpadparadscha\b/i.test(attribute.value)
+  );
+  if (!isPadparadscha && isSapphire({ attributes }) && /^un[\s-]?heated$/i.test(treatment?.trim() ?? "")) {
     name = ensureUnheatedProductName(name);
   }
 

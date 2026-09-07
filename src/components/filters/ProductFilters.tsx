@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { singleValueFilterNames } from "@/lib/filters";
+import { getColourFilterValues, normalizeGemTypeFilterValue, singleValueFilterNames } from "@/lib/filters";
 
 type FilterGroup = {
   name: string;
@@ -93,7 +93,12 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
         {filters.map((group) => {
           const key = group.name;
           const isDropdown = singleValueFilterNames.has(group.name.toLowerCase());
-          const selectedValue = searchParams.get(group.name) ?? "";
+          const rawSelectedValue = searchParams.get(group.name) ?? "";
+          const selectedValue = key.toLowerCase() === "gem type"
+            ? normalizeGemTypeFilterValue(rawSelectedValue)
+            : key.toLowerCase() === "colour"
+            ? getColourFilterValues(rawSelectedValue)[0] ?? ""
+            : rawSelectedValue;
 
           if (isDropdown) {
             return (
@@ -146,6 +151,7 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
                       grey: "#9ca3af",
                       beige: "#f5e9dc",
                       yellow: "#f59e0b",
+                      orange: "#f97316",
                       pink: "#ec4899",
                       brown: "#8b5a2b"
                     };

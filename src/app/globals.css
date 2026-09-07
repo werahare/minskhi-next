@@ -719,6 +719,8 @@ textarea {
   font-size: clamp(14px, 1.12vw, 15px);
   line-height: 1.78;
   text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
 }
 
 .minskhi-story-image {

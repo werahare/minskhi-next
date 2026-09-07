@@ -1,5 +1,17 @@
 import type { Product } from "./types";
 
+export const colourFilterValues = ["Green", "Blue", "Pink", "Orange", "Yellow"];
+
+export function getColourFilterValues(value: string) {
+  // Match base colour words, not modifiers such as "yellowish" in "Yellowish Green".
+  const words: string[] = value.toLowerCase().match(/[a-z]+/g) ?? [];
+  return colourFilterValues.filter((colour) => words.includes(colour.toLowerCase()));
+}
+
+export function normalizeGemTypeFilterValue(value: string) {
+  return /\b(?:sapphires?|padparadscha)\b/i.test(value) ? "Sapphire" : value;
+}
+
 export function isSapphire(product: Pick<Product, "attributes">) {
   return product.attributes.some(
     (attribute) => attribute.name.trim().toLowerCase() === "gem type" &&
@@ -65,11 +77,13 @@ export function uniqueAttributeValues(products: Product[], attributeNames: strin
       if (key === "Carat / Weight") {
         const bucket = getCaratWeightBucket(attribute.value);
         if (bucket) valueMap.set(bucket, bucket);
+      } else if (key.toLowerCase() === "colour") {
+        getColourFilterValues(attribute.value).forEach((colour) => valueMap.set(colour, colour));
       } else {
         const normVal = normalizeValueForKey(attribute.value, attribute.name);
         // store the first-seen display value for this normalized key
-        const displayValue = key.toLowerCase() === "colour" && normVal === "violet"
-          ? "Violet"
+        const displayValue = key.toLowerCase() === "gem type"
+          ? normalizeGemTypeFilterValue(formatAttributeValue(attribute.value))
           : formatAttributeValue(attribute.value);
         if (!valueMap.has(normVal)) valueMap.set(normVal, displayValue);
       }
@@ -82,6 +96,8 @@ export function uniqueAttributeValues(products: Product[], attributeNames: strin
     values:
       name === "Carat / Weight"
         ? caratWeightBuckets
+        : name.toLowerCase() === "colour"
+        ? colourFilterValues.filter((colour) => values.has(colour))
         : Array.from(values.values()).sort((a, b) => a.localeCompare(b)).slice(0, 40)
   }));
 }
@@ -125,8 +141,8 @@ function normalizeValueForKey(value: string, keyLabel: string) {
   v = v.replace(/\s*\/\s*/g, "/");
   // lower for comparison
   v = v.toLowerCase();
-  if (keyLabel.trim().toLowerCase() === "colour" && /\bviolet(?:ish)?\b/.test(v)) {
-    return "violet";
+  if (keyLabel.trim().toLowerCase() === "gem type") {
+    return normalizeGemTypeFilterValue(v).toLowerCase();
   }
   // some keys need special handling
   if (keyLabel.toLowerCase().includes("treat")) {
@@ -163,6 +179,15 @@ export function productMatchesFilters(product: Product, params: URLSearchParams,
       const normalizedLabel = normalizeAttributeLabel(attribute.name);
       const label = normalizedLabel.toLowerCase();
       if (label !== normalizedKey) return false;
+      if (label === "colour") {
+        const colours = getColourFilterValues(attribute.value);
+        return requestedValues.some((value) => {
+          const requestedColours = getColourFilterValues(value);
+          return requestedColours.length
+            ? requestedColours.some((colour) => colours.includes(colour))
+            : normalizeValueForKey(value, attribute.name) === normalizeValueForKey(attribute.value, attribute.name);
+        });
+      }
       if (label === "carat / weight") {
         const bucket = getCaratWeightBucket(attribute.value);
         return bucket ? requestedValues.includes(bucket.toLowerCase()) : false;
