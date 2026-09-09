@@ -23,7 +23,7 @@ export default function HomePage() {
   const latest = [
     "1-03-ct-pink-sapphire",
     "1-85-ct-garnet",
-    "1-06-ct-unheated-blue-sapphire",
+    "0-87-ct-unheated-blue-sapphire",
     "6-26-ct-yellow-beryl"
   ]
     .map((slug) => getProductBySlug(slug))
