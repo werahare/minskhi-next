@@ -14,6 +14,7 @@ export default async function MineralsPage({
       title="Minerals"
       enableTreatmentFilter={false}
       description="Explore Minskhi mineral carvings and collectible stone pieces selected from the product catalogue."
+      filterMode="minerals"
       products={getProductsByCategory("minerals")}
       searchParams={await searchParams}
     />

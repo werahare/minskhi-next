@@ -1194,70 +1194,6 @@
     "originalWooCommerceUrl": "https://minskhi.com/product/1-78-ct-unheated-blue-sapphire/"
   },
   {
-    "id": "1396",
-    "slug": "1-06-ct-unheated-blue-sapphire",
-    "name": "1.06 ct. Unheated Blue Sapphire",
-    "sku": "222542",
-    "categories": [
-      "Gemstones > Sapphire"
-    ],
-    "tags": [],
-    "price": "0",
-    "regularPrice": "0",
-    "salePrice": "",
-    "shortDescription": "",
-    "description": "",
-    "mainImage": "/wp-content/uploads/2026/02/1112023001-16.jpg",
-    "galleryImages": [
-      "/wp-content/uploads/2026/02/1112023001-16.jpg",
-      "/wp-content/uploads/2026/02/1112023049-13.jpg",
-      "/wp-content/uploads/2026/02/1112023073-13.jpg",
-      "/wp-content/uploads/2026/02/1112023097-13.jpg",
-      "/wp-content/uploads/2026/02/1112023121-10.jpg"
-    ],
-    "images": [
-      "/wp-content/uploads/2026/02/1112023001-16.jpg",
-      "/wp-content/uploads/2026/02/1112023049-13.jpg",
-      "/wp-content/uploads/2026/02/1112023073-13.jpg",
-      "/wp-content/uploads/2026/02/1112023097-13.jpg",
-      "/wp-content/uploads/2026/02/1112023121-10.jpg"
-    ],
-    "attributes": [
-      {
-        "name": "Gem Type",
-        "value": "Sapphire"
-      },
-      {
-        "name": "Treatment",
-        "value": "unheated"
-      },
-      {
-        "name": "Colour",
-        "value": "Blue"
-      },
-      {
-        "name": "Shape / Cut",
-        "value": "Round / Mixed"
-      },
-      {
-        "name": "Carat / Weight",
-        "value": "1-2"
-      },
-      {
-        "name": "Transparency",
-        "value": "Transparent"
-      },
-      {
-        "name": "Measurement",
-        "value": "5.27 x 5.36 x 4.61 mm"
-      }
-    ],
-    "stockStatus": "Available for enquiry",
-    "dateCreated": "",
-    "relatedProductIds": [],
-    "originalWooCommerceUrl": "https://minskhi.com/product/1-06-ct-unheated-blue-sapphire/"
-  },
-  {
     "id": "1397",
     "slug": "0-62-ct-unheated-blue-sapphire-id-223027",
     "name": "0.62 ct. Unheated Blue Sapphire (ID 223027)",
@@ -5777,7 +5713,7 @@
   {
     "id": "2277",
     "slug": "night-fury-dragon-medium-black-onyx",
-    "name": "Night Fury Dragon - Medium - Black Onyx",
+    "name": "Night Fury Dragon - Medium - Black Obsidian",
     "sku": "MIN-NIGHT-FURY-DRAGON-MEDIUM-BLACK-ONYX",
     "categories": [
       "Gemstones > Sapphire"
@@ -5786,8 +5722,8 @@
     "price": "50",
     "regularPrice": "50",
     "salePrice": "",
-    "shortDescription": "Black Onyx • Medium • 5.5cm x 4.5cm x 4.5cm",
-    "description": "Material: Black Onyx\\nSize: Medium\\nMeasurements (H×W×D): 5.5cm x 4.5cm x 4.5cm",
+    "shortDescription": "Black Obsidian • Medium • 5.5cm x 4.5cm x 4.5cm",
+    "description": "Material: Black Obsidian\\nSize: Medium\\nMeasurements (H×W×D): 5.5cm x 4.5cm x 4.5cm",
     "mainImage": "",
     "galleryImages": [],
     "images": [],
@@ -5798,7 +5734,7 @@
       },
       {
         "name": "Material",
-        "value": "Black Onyx"
+        "value": "Black Obsidian"
       },
       {
         "name": "Measurement",
@@ -5813,7 +5749,7 @@
   {
     "id": "2278",
     "slug": "night-fury-dragon-small-black-onyx",
-    "name": "Night Fury Dragon - Small - Black Onyx",
+    "name": "Night Fury Dragon - Small - Black Obsidian",
     "sku": "MIN-NIGHT-FURY-DRAGON-SMALL-BLACK-ONYX",
     "categories": [
       "Gemstones > Sapphire"
@@ -5822,8 +5758,8 @@
     "price": "20",
     "regularPrice": "20",
     "salePrice": "",
-    "shortDescription": "Black Onyx • Small • 3.5cm x 3cm x 2.5cm",
-    "description": "Material: Black Onyx\\nSize: Small\\nMeasurements (H×W×D): 3.5cm x 3cm x 2.5cm",
+    "shortDescription": "Black Obsidian • Small • 3.5cm x 3cm x 2.5cm",
+    "description": "Material: Black Obsidian\\nSize: Small\\nMeasurements (H×W×D): 3.5cm x 3cm x 2.5cm",
     "mainImage": "",
     "galleryImages": [],
     "images": [],
@@ -5834,7 +5770,7 @@
       },
       {
         "name": "Material",
-        "value": "Black Onyx"
+        "value": "Black Obsidian"
       },
       {
         "name": "Measurement",
@@ -6137,7 +6073,7 @@
   {
     "id": "2287",
     "slug": "miners-cave-small-clear-quartz-blue-stone",
-    "name": "Miners Cave - Small - Clear Quartz - Blue Stone",
+    "name": "Miners Cave - Small - Clear Quartz",
     "sku": "MIN-MINERS-CAVE-SMALL-CLEAR-QUARTZ-BLUE-STONE",
     "categories": [
       "Gemstones > Sapphire"
@@ -6146,8 +6082,8 @@
     "price": "0",
     "regularPrice": "0",
     "salePrice": "",
-    "shortDescription": "Clear Quartz - Blue Stone • Small • 4cm x 5cm x 4cm",
-    "description": "Material: Clear Quartz - Blue Stone\r\\nSize: Small\r\\nMeasurements (H×W×D): 4cm x 5cm x 4cm",
+    "shortDescription": "Clear Quartz • Small • 4cm x 5cm x 4cm",
+    "description": "Material: Clear Quartz\r\\nSize: Small\r\\nMeasurements (H×W×D): 4cm x 5cm x 4cm",
     "mainImage": "",
     "galleryImages": [],
     "images": [],
@@ -6158,7 +6094,7 @@
       },
       {
         "name": "Material",
-        "value": "Clear Quartz - Blue Stone"
+        "value": "Clear Quartz"
       },
       {
         "name": "Measurement",
@@ -6173,7 +6109,7 @@
   {
     "id": "2288",
     "slug": "miners-cave-small-clear-quartz-rose-quartz",
-    "name": "Miners Cave - Small - Clear Quartz - Rose Quartz",
+    "name": "Miners Cave - Small - Clear Quartz",
     "sku": "MIN-MINERS-CAVE-SMALL-CLEAR-QUARTZ-ROSE-QUARTZ",
     "categories": [
       "Gemstones > Sapphire"
@@ -6182,8 +6118,8 @@
     "price": "0",
     "regularPrice": "0",
     "salePrice": "",
-    "shortDescription": "Clear Quartz - Rose Quartz • Small • 4cm x 4.5cm x 4.5cm",
-    "description": "Material: Clear Quartz - Rose Quartz\r\\nSize: Small\r\\nMeasurements (H×W×D): 4cm x 4.5cm x 4.5cm",
+    "shortDescription": "Clear Quartz • Small • 4cm x 4.5cm x 4.5cm",
+    "description": "Material: Clear Quartz\r\\nSize: Small\r\\nMeasurements (H×W×D): 4cm x 4.5cm x 4.5cm",
     "mainImage": "",
     "galleryImages": [],
     "images": [],
@@ -6194,7 +6130,7 @@
       },
       {
         "name": "Material",
-        "value": "Clear Quartz - Rose Quartz"
+        "value": "Clear Quartz"
       },
       {
         "name": "Measurement",
@@ -7973,84 +7909,6 @@
     "originalWooCommerceUrl": "https://minskhi.com/product/9-21-ct-blue-topaz/"
   },
   {
-    "id": "3466",
-    "slug": "6-88-ct-blue-topaz",
-    "name": "6.88 ct. Blue Topaz",
-    "sku": "",
-    "categories": [
-      "Gemstones > Topaz"
-    ],
-    "tags": [],
-    "price": "0",
-    "regularPrice": "0",
-    "salePrice": "",
-    "shortDescription": "",
-    "description": "",
-    "mainImage": "/wp-content/uploads/2026/03/1112023001-17.jpg",
-    "galleryImages": [
-      "/wp-content/uploads/2026/03/1112023001-17.jpg",
-      "/wp-content/uploads/2026/03/1112023025-12.jpg",
-      "/wp-content/uploads/2026/03/1112023049-16.jpg",
-      "/wp-content/uploads/2026/03/1112023073-15.jpg",
-      "/wp-content/uploads/2026/03/1112023097-16.jpg",
-      "/wp-content/uploads/2026/03/1112023121-17.jpg",
-      "/wp-content/uploads/2026/03/1112023145-10.jpg"
-    ],
-    "images": [
-      "/wp-content/uploads/2026/03/1112023001-17.jpg",
-      "/wp-content/uploads/2026/03/1112023025-12.jpg",
-      "/wp-content/uploads/2026/03/1112023049-16.jpg",
-      "/wp-content/uploads/2026/03/1112023073-15.jpg",
-      "/wp-content/uploads/2026/03/1112023097-16.jpg",
-      "/wp-content/uploads/2026/03/1112023121-17.jpg",
-      "/wp-content/uploads/2026/03/1112023145-10.jpg"
-    ],
-    "attributes": [],
-    "stockStatus": "Available for enquiry",
-    "dateCreated": "",
-    "relatedProductIds": [],
-    "originalWooCommerceUrl": "https://minskhi.com/product/6-88-ct-blue-topaz/"
-  },
-  {
-    "id": "3475",
-    "slug": "3-65-ct-blue-topaz",
-    "name": "3.65 ct. Blue Topaz",
-    "sku": "",
-    "categories": [
-      "Gemstones > Topaz"
-    ],
-    "tags": [],
-    "price": "0",
-    "regularPrice": "0",
-    "salePrice": "",
-    "shortDescription": "",
-    "description": "",
-    "mainImage": "/wp-content/uploads/2026/03/1112023001-18.jpg",
-    "galleryImages": [
-      "/wp-content/uploads/2026/03/1112023001-18.jpg",
-      "/wp-content/uploads/2026/03/1112023025-13.jpg",
-      "/wp-content/uploads/2026/03/1112023049-17.jpg",
-      "/wp-content/uploads/2026/03/1112023073-16.jpg",
-      "/wp-content/uploads/2026/03/1112023097-17.jpg",
-      "/wp-content/uploads/2026/03/1112023121-18.jpg",
-      "/wp-content/uploads/2026/03/1112023145-11.jpg"
-    ],
-    "images": [
-      "/wp-content/uploads/2026/03/1112023001-18.jpg",
-      "/wp-content/uploads/2026/03/1112023025-13.jpg",
-      "/wp-content/uploads/2026/03/1112023049-17.jpg",
-      "/wp-content/uploads/2026/03/1112023073-16.jpg",
-      "/wp-content/uploads/2026/03/1112023097-17.jpg",
-      "/wp-content/uploads/2026/03/1112023121-18.jpg",
-      "/wp-content/uploads/2026/03/1112023145-11.jpg"
-    ],
-    "attributes": [],
-    "stockStatus": "Available for enquiry",
-    "dateCreated": "",
-    "relatedProductIds": [],
-    "originalWooCommerceUrl": "https://minskhi.com/product/3-65-ct-blue-topaz/"
-  },
-  {
     "id": "3484",
     "hidden": true,
     "slug": "3-37-ct-white-topaz",
@@ -8201,7 +8059,7 @@
   {
     "id": "3520",
     "slug": "night-fury-dragon-medium-black-onyx",
-    "name": "Night Fury Dragon - Medium Black Onyx",
+    "name": "Night Fury Dragon - Medium Black Obsidian",
     "sku": "",
     "categories": [
       "Gemstones > Carvings"
@@ -8211,7 +8069,7 @@
     "regularPrice": "0",
     "salePrice": "",
     "shortDescription": "",
-    "description": "Night Fury Dragon carving in Black Onyx (5.5cm x 4.5cm x 4.5cm)",
+    "description": "Night Fury Dragon carving in Black Obsidian (5.5cm x 4.5cm x 4.5cm)",
     "mainImage": "/wp-content/uploads/2026/02/Minaral/black obsidian medium size night fury dragon.jpg",
     "galleryImages": [
       "/wp-content/uploads/2026/02/Minaral/black obsidian medium size night fury dragon.jpg"
@@ -8226,7 +8084,7 @@
       },
       {
         "name": "Material",
-        "value": "Black Onyx"
+        "value": "Black Obsidian"
       },
       {
         "name": "Measurement",
@@ -8241,7 +8099,7 @@
   {
     "id": "3521",
     "slug": "night-fury-dragon-small-black-onyx",
-    "name": "Night Fury Dragon - Small Black Onyx",
+    "name": "Night Fury Dragon - Small Black Obsidian",
     "sku": "",
     "categories": [
       "Gemstones > Carvings"
@@ -8251,7 +8109,7 @@
     "regularPrice": "0",
     "salePrice": "",
     "shortDescription": "",
-    "description": "Night Fury Dragon carving in Black Onyx (3.5cm x 3cm x 2.5cm)",
+    "description": "Night Fury Dragon carving in Black Obsidian (3.5cm x 3cm x 2.5cm)",
     "mainImage": "/wp-content/uploads/2026/02/Minaral/VID-20260210-WA0013.jpg",
     "galleryImages": [
       "/wp-content/uploads/2026/02/Minaral/VID-20260210-WA0013.jpg"
@@ -8266,7 +8124,7 @@
       },
       {
         "name": "Material",
-        "value": "Black Onyx"
+        "value": "Black Obsidian"
       },
       {
         "name": "Measurement",
@@ -8601,7 +8459,7 @@
   {
     "id": "3530",
     "slug": "miners-cave-blue-stone",
-    "name": "Miners Cave - Blue Stone",
+    "name": "Miners Cave - Clear Quartz",
     "sku": "",
     "categories": [
       "Gemstones > Carvings"
@@ -8611,7 +8469,7 @@
     "regularPrice": "0",
     "salePrice": "",
     "shortDescription": "",
-    "description": "Miners Cave Clear Quartz &amp; Blue Stone (4cm x 5cm x 4cm)",
+    "description": "Miners Cave Clear Quartz (4cm x 5cm x 4cm)",
     "mainImage": "/wp-content/uploads/2026/02/Minaral/Miners cave white quartz  - Blue stone.jpg",
     "galleryImages": [
       "/wp-content/uploads/2026/02/Minaral/Miners cave white quartz  - Blue stone.jpg"
@@ -8626,7 +8484,7 @@
       },
       {
         "name": "Material",
-        "value": "Clear Quartz - Blue Stone"
+        "value": "Clear Quartz"
       },
       {
         "name": "Measurement",
@@ -8641,7 +8499,7 @@
   {
     "id": "3531",
     "slug": "miners-cave-rose-quartz",
-    "name": "Miners Cave - Rose Quartz",
+    "name": "Miners Cave - Clear Quartz",
     "sku": "",
     "categories": [
       "Gemstones > Carvings"
@@ -8651,7 +8509,7 @@
     "regularPrice": "0",
     "salePrice": "",
     "shortDescription": "",
-    "description": "Miners Cave Clear Quartz &amp; Rose Quartz (4cm x 4.5cm x 4.5cm)",
+    "description": "Miners Cave Clear Quartz (4cm x 4.5cm x 4.5cm)",
     "mainImage": "/wp-content/uploads/2026/02/Minaral/Miners cave rose quartz - white quartz.jpg",
     "galleryImages": [
       "/wp-content/uploads/2026/02/Minaral/Miners cave rose quartz - white quartz.jpg"
@@ -8666,7 +8524,7 @@
       },
       {
         "name": "Material",
-        "value": "Clear Quartz - Rose Quartz"
+        "value": "Clear Quartz"
       },
       {
         "name": "Measurement",
@@ -10108,7 +9966,7 @@
     "name": "6.18 ct. Black Rutile Natural",
     "sku": "20260711-021",
     "categories": [
-      "Gemstones > Rutile"
+      "Gemstones > Rutile Quartz"
     ],
     "tags": [],
     "price": "0",
@@ -10144,7 +10002,7 @@
     "attributes": [
       {
         "name": "Gem Type",
-        "value": "Rutile"
+        "value": "Rutile Quartz"
       },
       {
         "name": "Treatment",
@@ -10224,7 +10082,7 @@
     "name": "6.64 ct. Black Rutile Natural",
     "sku": "20260711-023",
     "categories": [
-      "Gemstones > Rutile"
+      "Gemstones > Rutile Quartz"
     ],
     "tags": [],
     "price": "0",
@@ -10260,7 +10118,7 @@
     "attributes": [
       {
         "name": "Gem Type",
-        "value": "Rutile"
+        "value": "Rutile Quartz"
       },
       {
         "name": "Treatment",
@@ -10476,7 +10334,7 @@
     "name": "8.59 ct. Black Rutile Natural",
     "sku": "20260711-027",
     "categories": [
-      "Gemstones > Rutile"
+      "Gemstones > Rutile Quartz"
     ],
     "tags": [],
     "price": "0",
@@ -10512,7 +10370,7 @@
     "attributes": [
       {
         "name": "Gem Type",
-        "value": "Rutile"
+        "value": "Rutile Quartz"
       },
       {
         "name": "Treatment",
@@ -10608,7 +10466,7 @@
     "name": "12.00 ct. Black Rutile Natural",
     "sku": "20260711-029",
     "categories": [
-      "Gemstones > Rutile"
+      "Gemstones > Rutile Quartz"
     ],
     "tags": [],
     "price": "0",
@@ -10644,7 +10502,7 @@
     "attributes": [
       {
         "name": "Gem Type",
-        "value": "Rutile"
+        "value": "Rutile Quartz"
       },
       {
         "name": "Treatment",

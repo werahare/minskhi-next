@@ -53,7 +53,7 @@ function inferGemTypeFromName(name: string) {
     [/\baquamarine\b/i, "Aquamarine"],
     [/\bchrysoberyl\b/i, "Chrysoberyl"],
     [/\brutile quartz\b/i, "Rutile Quartz"],
-    [/\brutile\b/i, "Rutile"],
+    [/\brutile\b/i, "Rutile Quartz"],
     [/\btourmaline\b/i, "Tourmaline"],
     [/\bmoonstone\b/i, "Moonstone"],
     [/\bcitrine\b/i, "Citrine"],
@@ -120,6 +120,37 @@ function ensureUnheatedProductName(name: string) {
     : `Unheated ${name}`;
 }
 
+function inferMineralTypes(
+  productName: string,
+  categories: string[],
+  attributes: { name: string; value: string }[]
+) {
+  const isMineral = categories.some((category) =>
+    /\b(?:mineral|carving)s?\b/i.test(category)
+  );
+  if (!isMineral) return [];
+
+  const material = attributes.find(
+    (attribute) => attribute.name.trim().toLowerCase() === "material"
+  )?.value;
+  const source = `${productName} ${material ?? ""}`;
+  const types: string[] = [];
+  const addType = (type: string) => {
+    if (!types.includes(type)) types.push(type);
+  };
+
+  if (/\b(?:black obsidian|black onyx)\b/i.test(source)) addType("Black Obsidian");
+  if (/\byooperlite\b/i.test(source)) addType("Yooperlite");
+  if (/\bclear quartz\b/i.test(source)) addType("Clear Quartz");
+  if (/\bamethyst\b/i.test(source)) addType("Amethyst");
+  if (/\bgreen jade\b/i.test(source)) addType("Green Jade");
+  else if (/\bjade\b/i.test(source)) addType("Jade");
+  if (/\btiger eye\b/i.test(source)) addType("Tiger Eye");
+  if (/\bcarnelian\b/i.test(source)) addType("Carnelian");
+
+  return types;
+}
+
 function normalizeProduct(product: RawProduct): Product {
   const images = (
     product.images ??
@@ -145,6 +176,14 @@ function normalizeProduct(product: RawProduct): Product {
   ) {
     attributes.push({ name: "Gem Type", value: inferredGemType });
   }
+
+  inferMineralTypes(name, product.categories ?? [], attributes).forEach((type) => {
+    if (!attributes.some(
+      (attribute) => attribute.name.trim().toLowerCase() === "type" && attribute.value === type
+    )) {
+      attributes.push({ name: "Type", value: type });
+    }
+  });
 
   if (/\bun[\s-]?heated\b/i.test(name)) {
     const treatment = attributes.find(

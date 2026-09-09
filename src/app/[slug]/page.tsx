@@ -185,39 +185,35 @@ function OurStoryPage() {
             </p>
           </section>
 
-          <section className="minskhi-story-card minskhi-story-wide">
-            <h3>A Singular Focus</h3>
-            <p>
-              Minskhi works only in natural, certified coloured gemstones of investment
-              grade - sapphires and rubies chosen not for their abundance, but for their
-              scarcity.
-            </p>
-            <p>
-              Nothing we offer is produced to meet demand. Each piece exists because it
-              was found, and because it deserved to be kept.
-            </p>
-          </section>
+          <section className="minskhi-story-card minskhi-story-wide minskhi-story-pillars">
+            <div className="minskhi-story-pillar">
+              <h3>A Singular Focus</h3>
+              <p>
+                Minskhi works only in natural, certified coloured gemstones of investment
+                grade - sapphires and rubies chosen not for their abundance, but for their
+                scarcity. Nothing we offer is produced to meet demand. Each piece exists
+                because it was found, and because it deserved to be kept.
+              </p>
+            </div>
 
-          <section className="minskhi-story-card minskhi-story-wide">
-            <h3>Craftsmanship</h3>
-            <p>
-              Every setting is realised by hand, by Australian jewellers and lapidaries
-              whose command of their craft allows the stone, rather than the design, to
-              lead.
-            </p>
-            <p>
-              The result is quiet by intention - jewellery built to be worn for decades,
-              and passed on for longer.
-            </p>
-          </section>
+            <div className="minskhi-story-pillar">
+              <h3>Craftsmanship</h3>
+              <p>
+                Every setting is realised by hand, by Australian jewellers and lapidaries
+                whose command of their craft allows the stone, rather than the design, to
+                lead. The result is quiet by intention - jewellery built to be worn for
+                decades, and passed on for longer.
+              </p>
+            </div>
 
-          <section className="minskhi-story-card minskhi-story-wide">
-            <h3>An Obligation, Not a Position</h3>
-            <p>
-              Minskhi sources directly, deals fairly, and gives back to the land and the
-              people from which every stone is drawn. This is not a position we adopt for
-              effect. It is simply how the work is done.
-            </p>
+            <div className="minskhi-story-pillar">
+              <h3>An Obligation, Not a Position</h3>
+              <p>
+                Minskhi sources directly, deals fairly, and gives back to the land and the
+                people from which every stone is drawn. This is not a position we adopt for
+                effect. It is simply how the work is done.
+              </p>
+            </div>
           </section>
         </article>
 

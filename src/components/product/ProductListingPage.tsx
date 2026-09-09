@@ -1,6 +1,6 @@
 import { ProductFilters } from "@/components/filters/ProductFilters";
 import { ProductGrid } from "@/components/product/ProductGrid";
-import { gemstoneFilterNames, isSapphire, jewelleryFilterNames, productMatchesFilters, uniqueAttributeValues } from "@/lib/filters";
+import { gemstoneFilterNames, isSapphire, jewelleryFilterNames, mineralFilterNames, productMatchesFilters, uniqueAttributeValues } from "@/lib/filters";
 import { sortProducts } from "@/lib/products";
 import type { Product, SortKey } from "@/lib/types";
 
@@ -46,7 +46,7 @@ export function ProductListingPage({
   description: string;
   products: Product[];
   searchParams: SearchParams;
-  filterMode?: "gemstones" | "jewellery";
+  filterMode?: "gemstones" | "jewellery" | "minerals";
   enableTreatmentFilter?: boolean;
 }) {
   const params = toParams(searchParams);
@@ -78,7 +78,11 @@ export function ProductListingPage({
   );
   const filters = uniqueAttributeValues(
     products,
-    filterMode === "jewellery" ? jewelleryFilterNames : gemstoneFilterNames,
+    filterMode === "jewellery"
+      ? jewelleryFilterNames
+      : filterMode === "minerals"
+        ? mineralFilterNames
+        : gemstoneFilterNames,
     includeNonSapphireTreatment
   ).filter((group) => group.name !== "Treatment" || showTreatmentFilter);
   const treatmentIndex = filters.findIndex((group) => group.name === "Treatment");

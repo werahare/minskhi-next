@@ -9,7 +9,7 @@ type FilterGroup = {
   values: string[];
 };
 
-export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "gemstones" | "jewellery" }) {
+export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "gemstones" | "jewellery" | "minerals" }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

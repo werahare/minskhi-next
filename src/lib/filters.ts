@@ -16,6 +16,7 @@ export function getColourFilterValues(value: string) {
 
 export function normalizeGemTypeFilterValue(value: string) {
   if (/\bpadparadscha\b/i.test(value)) return "Padparadscha";
+  if (/^rutile(?:\s+quartz)?$/i.test(value.trim())) return "Rutile Quartz";
   return /\bsapphires?\b/i.test(value) ? "Sapphire" : value;
 }
 
@@ -43,8 +44,11 @@ export const jewelleryFilterNames = [
   "Treatment"
 ];
 
+export const mineralFilterNames = ["Type"];
+
 export const singleValueFilterNames = new Set([
   "gem type",
+  "type",
   "shape / cut",
   "colour",
   "treatment"

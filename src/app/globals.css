@@ -802,6 +802,20 @@ textarea {
   margin-bottom: 22px;
 }
 
+.minskhi-story-pillars {
+  display: grid;
+  gap: 28px;
+}
+
+.minskhi-story-pillar + .minskhi-story-pillar {
+  padding-top: 28px;
+  border-top: 1px solid #eadfce;
+}
+
+.minskhi-story-pillar p {
+  margin-bottom: 0;
+}
+
 .minskhi-story-legacy-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
