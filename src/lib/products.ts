@@ -130,6 +130,11 @@ function inferMineralTypes(
   );
   if (!isMineral) return [];
 
+  const assignedTypes = attributes
+    .filter((attribute) => attribute.name.trim().toLowerCase() === "type")
+    .map((attribute) => attribute.value);
+  if (assignedTypes.length) return assignedTypes;
+
   const material = attributes.find(
     (attribute) => attribute.name.trim().toLowerCase() === "material"
   )?.value;

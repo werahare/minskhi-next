@@ -6037,7 +6037,7 @@
   {
     "id": "2286",
     "slug": "miners-cave-small-clear-quartz-amethyst",
-    "name": "Miners Cave - Small - Clear Quartz - Amethyst",
+    "name": "Miners Cave - Small - Clear Quartz",
     "sku": "MIN-MINERS-CAVE-SMALL-CLEAR-QUARTZ-AMETHYST",
     "categories": [
       "Gemstones > Sapphire"
@@ -6046,8 +6046,8 @@
     "price": "0",
     "regularPrice": "0",
     "salePrice": "",
-    "shortDescription": "Clear Quartz - Amethyst • Small • 4cm x 5.5cm x 4cm",
-    "description": "Material: Clear Quartz - Amethyst\r\\nSize: Small\r\\nMeasurements (H×W×D): 4cm x 5.5cm x 4cm",
+    "shortDescription": "Clear Quartz • Small • 4cm x 5.5cm x 4cm",
+    "description": "Material: Clear Quartz\r\\nSize: Small\r\\nMeasurements (H×W×D): 4cm x 5.5cm x 4cm",
     "mainImage": "",
     "galleryImages": [],
     "images": [],
@@ -6058,7 +6058,7 @@
       },
       {
         "name": "Material",
-        "value": "Clear Quartz - Amethyst"
+        "value": "Clear Quartz"
       },
       {
         "name": "Measurement",
@@ -8062,7 +8062,7 @@
     "name": "Night Fury Dragon - Medium Black Obsidian",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Black Obsidian"
     ],
     "tags": [],
     "price": "0",
@@ -8089,6 +8089,10 @@
       {
         "name": "Measurement",
         "value": "5.5cm x 4.5cm x 4.5cm"
+      },
+      {
+        "name": "Type",
+        "value": "Black Obsidian"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8102,7 +8106,7 @@
     "name": "Night Fury Dragon - Small Black Obsidian",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Black Obsidian"
     ],
     "tags": [],
     "price": "0",
@@ -8129,6 +8133,10 @@
       {
         "name": "Measurement",
         "value": "3.5cm x 3cm x 2.5cm"
+      },
+      {
+        "name": "Type",
+        "value": "Black Obsidian"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8142,7 +8150,7 @@
     "name": "Night Fury Dragon - Medium Yooperlite",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Yooperlite"
     ],
     "tags": [],
     "price": "0",
@@ -8169,6 +8177,10 @@
       {
         "name": "Measurement",
         "value": "5.5cm x 4.5cm x 4.5cm"
+      },
+      {
+        "name": "Type",
+        "value": "Yooperlite"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8182,7 +8194,7 @@
     "name": "Night Fury Dragon - Small Yooperlite",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Yooperlite"
     ],
     "tags": [],
     "price": "0",
@@ -8209,6 +8221,10 @@
       {
         "name": "Measurement",
         "value": "3.5cm x 3cm x 2.5cm"
+      },
+      {
+        "name": "Type",
+        "value": "Yooperlite"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8222,7 +8238,7 @@
     "name": "Red Indian Face - Amethyst",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Amethyst"
     ],
     "tags": [],
     "price": "0",
@@ -8249,6 +8265,10 @@
       {
         "name": "Measurement",
         "value": "9.5cm x 6.5cm x 4cm"
+      },
+      {
+        "name": "Type",
+        "value": "Amethyst"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8262,7 +8282,7 @@
     "name": "Groot - Green Jade",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Jade"
     ],
     "tags": [],
     "price": "0",
@@ -8289,6 +8309,10 @@
       {
         "name": "Measurement",
         "value": "12cm x 10.5cm x 7.5cm"
+      },
+      {
+        "name": "Type",
+        "value": "Jade"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8302,7 +8326,7 @@
     "name": "Miner in the Cave - Amethyst",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Amethyst"
     ],
     "tags": [],
     "price": "0",
@@ -8329,6 +8353,10 @@
       {
         "name": "Measurement",
         "value": "7cm x 6cm x 4cm"
+      },
+      {
+        "name": "Type",
+        "value": "Amethyst"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8342,7 +8370,7 @@
     "name": "Panner in the Cave - Amethyst",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Amethyst"
     ],
     "tags": [],
     "price": "0",
@@ -8369,6 +8397,10 @@
       {
         "name": "Measurement",
         "value": "6cm x 5.5cm x 4.5cm"
+      },
+      {
+        "name": "Type",
+        "value": "Amethyst"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8382,7 +8414,7 @@
     "name": "Miners Cave - Tiger Eye",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Tiger Eye"
     ],
     "tags": [],
     "price": "0",
@@ -8409,6 +8441,10 @@
       {
         "name": "Measurement",
         "value": "4cm x 4.5cm x 4cm"
+      },
+      {
+        "name": "Type",
+        "value": "Tiger Eye"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8422,14 +8458,14 @@
     "name": "Miners Cave - Amethyst",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Amethyst"
     ],
     "tags": [],
     "price": "0",
     "regularPrice": "0",
     "salePrice": "",
     "shortDescription": "",
-    "description": "Miners Cave Clear Quartz &amp; Amethyst (4cm x 5.5cm x 4cm)",
+    "description": "Miners Cave Clear Quartz (4cm x 5.5cm x 4cm)",
     "mainImage": "/wp-content/uploads/2026/02/Minaral/small size miners cave white quartz - amethyst crysta.jpg",
     "galleryImages": [
       "/wp-content/uploads/2026/02/Minaral/small size miners cave white quartz - amethyst crysta.jpg"
@@ -8444,11 +8480,15 @@
       },
       {
         "name": "Material",
-        "value": "Clear Quartz - Amethyst"
+        "value": "Clear Quartz"
       },
       {
         "name": "Measurement",
         "value": "4cm x 5.5cm x 4cm"
+      },
+      {
+        "name": "Type",
+        "value": "Amethyst"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8462,7 +8502,7 @@
     "name": "Miners Cave - Clear Quartz",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Clear Quartz"
     ],
     "tags": [],
     "price": "0",
@@ -8489,6 +8529,10 @@
       {
         "name": "Measurement",
         "value": "4cm x 5cm x 4cm"
+      },
+      {
+        "name": "Type",
+        "value": "Clear Quartz"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8502,7 +8546,7 @@
     "name": "Miners Cave - Clear Quartz",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Clear Quartz"
     ],
     "tags": [],
     "price": "0",
@@ -8529,6 +8573,10 @@
       {
         "name": "Measurement",
         "value": "4cm x 4.5cm x 4.5cm"
+      },
+      {
+        "name": "Type",
+        "value": "Clear Quartz"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8542,7 +8590,7 @@
     "name": "Miners Cave - Jade",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Jade"
     ],
     "tags": [],
     "price": "0",
@@ -8569,6 +8617,10 @@
       {
         "name": "Measurement",
         "value": "4cm x 5cm x 4.5cm"
+      },
+      {
+        "name": "Type",
+        "value": "Jade"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -8582,7 +8634,7 @@
     "name": "Miners Cave - Carnelian",
     "sku": "",
     "categories": [
-      "Gemstones > Carvings"
+      "Minerals > Carnelian"
     ],
     "tags": [],
     "price": "0",
@@ -8609,6 +8661,10 @@
       {
         "name": "Measurement",
         "value": "4cm x 4.5cm x 4cm"
+      },
+      {
+        "name": "Type",
+        "value": "Carnelian"
       }
     ],
     "stockStatus": "Available for enquiry",
