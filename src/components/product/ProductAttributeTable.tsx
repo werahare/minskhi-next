@@ -2,13 +2,17 @@ import { formatAttributeValue, isSapphire, normalizeAttributeLabel } from "@/lib
 import type { Product } from "@/lib/types";
 
 export function ProductAttributeTable({ product }: { product: Product }) {
+  const isPadparadscha = product.attributes.some(
+    (attribute) => attribute.name.trim().toLowerCase() === "gem type" &&
+      /\bpadparadscha\b/i.test(attribute.value)
+  );
   const rows = product.attributes
     .map((attribute) => ({
       name: normalizeAttributeLabel(attribute.name),
       value: formatAttributeValue(attribute.value)
     }))
     .filter((attribute) => attribute.name !== "Carat / Weight" &&
-      !(isSapphire(product) && attribute.name === "Treatment"));
+      !(isSapphire(product) && !isPadparadscha && attribute.name === "Treatment"));
 
   return (
     <div className="overflow-hidden border border-[#ddcfbf]">
