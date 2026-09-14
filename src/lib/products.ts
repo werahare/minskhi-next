@@ -2,7 +2,7 @@ import rawProducts from "@/data/products.json";
 import { siteConfig } from "@/config/site";
 import type { Product, SortKey } from "./types";
 import { fallbackProductImage } from "./images";
-import { isSapphire, normalizeAttributeLabel } from "./filters";
+import { isAlwaysUnheatedGem, isSapphire, normalizeAttributeLabel } from "./filters";
 
 type RawProduct = {
   id?: string | number;
@@ -190,7 +190,7 @@ function normalizeProduct(product: RawProduct): Product {
     }
   });
 
-  if (/\bun[\s-]?heated\b/i.test(name)) {
+  if (isAlwaysUnheatedGem({ attributes }) || /\bun[\s-]?heated\b/i.test(name)) {
     const treatment = attributes.find(
       (attribute) => normalizeAttributeLabel(attribute.name) === "Treatment"
     );

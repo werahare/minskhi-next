@@ -1,6 +1,6 @@
 import { ProductFilters } from "@/components/filters/ProductFilters";
 import { ProductGrid } from "@/components/product/ProductGrid";
-import { gemstoneFilterNames, isSapphire, jewelleryFilterNames, mineralFilterNames, productMatchesFilters, uniqueAttributeValues } from "@/lib/filters";
+import { gemstoneFilterNames, jewelleryFilterNames, mineralFilterNames, productMatchesFilters, supportsTreatmentFilter, uniqueAttributeValues } from "@/lib/filters";
 import { sortProducts } from "@/lib/products";
 import type { Product, SortKey } from "@/lib/types";
 
@@ -74,7 +74,7 @@ export function ProductListingPage({
   const gemTypeParams = new URLSearchParams();
   params.getAll("Gem Type").forEach((value) => gemTypeParams.append("Gem Type", value));
   const showTreatmentFilter = enableTreatmentFilter && products.some(
-    (product) => (includeNonSapphireTreatment || isSapphire(product)) && productMatchesFilters(product, gemTypeParams)
+    (product) => (includeNonSapphireTreatment || supportsTreatmentFilter(product)) && productMatchesFilters(product, gemTypeParams)
   );
   const filters = uniqueAttributeValues(
     products,

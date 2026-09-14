@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./ReforestationYouthPage.module.css";
 
@@ -5,6 +6,21 @@ const pillars = [
   ["R", "Responsibility", "Protecting the land connected to our industry."],
   ["K", "Knowledge", "Preserving gemstone craftsmanship and education."],
   ["C", "Community", "Supporting people, and the futures they build."]
+];
+
+const communityPartners = [
+  {
+    name: "Ratnapura Gem and Greenery Association",
+    logo: "/assets/partners/gem-and-greenery-association.jpg"
+  },
+  {
+    name: "Forest Department of Sri Lanka",
+    logo: "/wp-content/uploads/2026/03/Forest-Department.jpg"
+  },
+  {
+    name: "Nunawading and District Lapidary Club",
+    logo: "/wp-content/uploads/2026/03/images-3.jpg"
+  }
 ];
 
 export function ReforestationYouthPage() {
@@ -55,6 +71,23 @@ export function ReforestationYouthPage() {
           <p className={styles.accent}>An old craft, kept alive by young hands.</p>
         </section>
       </div>
+      <section className={styles.partners} aria-labelledby="community-partners">
+        <h2 id="community-partners" className={styles.partnersTitle}>Community Partners</h2>
+        <ul className={styles.partnerGrid}>
+          {communityPartners.map((partner) => (
+            <li key={partner.name} className={styles.partnerCard}>
+              <span className={styles.partnerLogo}>
+                <Image
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  fill
+                  sizes="96px"
+                />
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
       <section className={styles.closing} aria-labelledby="impact-standard">
         <p className={styles.eyebrow}>The Minskhi Standard</p>
         <h2 id="impact-standard">Luxury should not shine without responsibility.</h2>

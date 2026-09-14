@@ -27,6 +27,28 @@ export function isSapphire(product: Pick<Product, "attributes">) {
   );
 }
 
+const alwaysUnheatedGemTypes = new Set([
+  "aquamarine",
+  "beryl",
+  "garnet",
+  "quartz",
+  "rutile quartz",
+  "spinel",
+  "zircon",
+  "topaz"
+]);
+
+export function isAlwaysUnheatedGem(product: Pick<Product, "attributes">) {
+  return product.attributes.some(
+    (attribute) => attribute.name.trim().toLowerCase() === "gem type" &&
+      alwaysUnheatedGemTypes.has(normalizeGemTypeFilterValue(attribute.value).trim().toLowerCase())
+  );
+}
+
+export function supportsTreatmentFilter(product: Pick<Product, "attributes">) {
+  return isSapphire(product) || isAlwaysUnheatedGem(product);
+}
+
 export const gemstoneFilterNames = [
   "Colour",
   "Carat / Weight",
@@ -81,7 +103,7 @@ export function uniqueAttributeValues(products: Product[], attributeNames: strin
   products.forEach((product) => {
     product.attributes.forEach((attribute) => {
       const normalizedLabel = normalizeAttributeLabel(attribute.name);
-      if (normalizedLabel === "Treatment" && !includeNonSapphireTreatment && !isSapphire(product)) return;
+      if (normalizedLabel === "Treatment" && !includeNonSapphireTreatment && !supportsTreatmentFilter(product)) return;
       if (!allowedNormalized.has(normalizedLabel.toLowerCase())) return;
       const key = normalizedLabel; // canonical label
       const valueMap = groups.get(key) ?? new Map<string, string>();
@@ -180,7 +202,7 @@ export function productMatchesFilters(product: Product, params: URLSearchParams,
     const normalizedKey = normalizeAttributeLabel(key).toLowerCase();
     const rawValues = params.getAll(key).filter(Boolean);
     if (!rawValues.length) continue;
-    if (normalizedKey === "treatment" && !includeNonSapphireTreatment && !isSapphire(product)) return false;
+    if (normalizedKey === "treatment" && !includeNonSapphireTreatment && !supportsTreatmentFilter(product)) return false;
     const requestedValues = (
       singleValueFilterNames.has(normalizedKey)
         ? rawValues

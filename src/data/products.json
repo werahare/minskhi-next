@@ -35,7 +35,7 @@
       },
       {
         "name": "Treatment",
-        "value": "Heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -113,7 +113,7 @@
       },
       {
         "name": "Treatment",
-        "value": "Heated"
+        "value": "Unheated"
       },
       {
         "name": "Measurement",
@@ -173,7 +173,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -241,7 +241,7 @@
       },
       {
         "name": "Treatment",
-        "value": "Heated"
+        "value": "Unheated"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -285,7 +285,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -349,7 +349,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -413,7 +413,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -483,7 +483,7 @@
       },
       {
         "name": "Treatment",
-        "value": "Heated"
+        "value": "Unheated"
       },
       {
         "name": "Shape / Cut",
@@ -543,7 +543,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -2110,7 +2110,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -2174,7 +2174,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Shape / Cut",
@@ -2234,7 +2234,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -2298,7 +2298,7 @@
       },
       {
         "name": "Treatment",
-        "value": "Heated"
+        "value": "Unheated"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -2331,6 +2331,10 @@
       {
         "name": "Certification",
         "value": "Garnet / KLM0001-M / KLM0001-M.jpg"
+      },
+      {
+        "name": "Treatment",
+        "value": "Unheated"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -2374,7 +2378,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -2423,6 +2427,10 @@
       {
         "name": "Certification",
         "value": "Garnet / KLM0003-M / KLM0003-M.jpg"
+      },
+      {
+        "name": "Treatment",
+        "value": "Unheated"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -4193,7 +4201,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4257,7 +4265,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4446,7 +4454,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4506,7 +4514,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4642,7 +4650,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4706,7 +4714,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4770,7 +4778,7 @@
       },
       {
         "name": "Treatment",
-        "value": "Heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4834,7 +4842,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4898,7 +4906,7 @@
       },
       {
         "name": "Treatment",
-        "value": "Heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -4962,7 +4970,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -5023,6 +5031,10 @@
       {
         "name": "Certification",
         "value": "Topaz / 222407 / 222407.jpg"
+      },
+      {
+        "name": "Treatment",
+        "value": "Unheated"
       }
     ],
     "stockStatus": "Available for enquiry",
@@ -5066,7 +5078,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -5130,7 +5142,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -5622,7 +5634,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -5686,7 +5698,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Shape / Cut",
@@ -6396,7 +6408,12 @@
     "images": [
       "/wp-content/uploads/2026/03/3.90-ct.-Heart-Blue-Sapphire.jpeg"
     ],
-    "attributes": [],
+    "attributes": [
+      {
+        "name": "Shape / Cut",
+        "value": "Heart"
+      }
+    ],
     "stockStatus": "Available for enquiry",
     "dateCreated": "",
     "relatedProductIds": [],
@@ -7210,72 +7227,6 @@
     "originalWooCommerceUrl": "https://minskhi.com/product/1-34-ct-green-sapphire/"
   },
   {
-    "id": "3136",
-    "slug": "0-62-ct-unheated-pink-sapphire",
-    "name": "0.62 ct. Unheated Pink Sapphire",
-    "sku": "216974",
-    "categories": [
-      "Gemstones > Sapphire"
-    ],
-    "tags": [],
-    "price": "0",
-    "regularPrice": "0",
-    "salePrice": "",
-    "shortDescription": "",
-    "description": "",
-    "mainImage": "/wp-content/uploads/2026/03/1112023001-5.jpg",
-    "galleryImages": [
-      "/wp-content/uploads/2026/03/1112023001-5.jpg",
-      "/wp-content/uploads/2026/03/1112023025-2.jpg",
-      "/wp-content/uploads/2026/03/1112023049-5.jpg",
-      "/wp-content/uploads/2026/03/1112023073-5.jpg",
-      "/wp-content/uploads/2026/03/1112023097-5.jpg",
-      "/wp-content/uploads/2026/03/1112023121-5.jpg"
-    ],
-    "images": [
-      "/wp-content/uploads/2026/03/1112023001-5.jpg",
-      "/wp-content/uploads/2026/03/1112023025-2.jpg",
-      "/wp-content/uploads/2026/03/1112023049-5.jpg",
-      "/wp-content/uploads/2026/03/1112023073-5.jpg",
-      "/wp-content/uploads/2026/03/1112023097-5.jpg",
-      "/wp-content/uploads/2026/03/1112023121-5.jpg"
-    ],
-    "attributes": [
-      {
-        "name": "Gem Type",
-        "value": "Sapphire"
-      },
-      {
-        "name": "Treatment",
-        "value": "unheated"
-      },
-      {
-        "name": "Colour",
-        "value": "Violetish pink"
-      },
-      {
-        "name": "Shape / Cut",
-        "value": "Rectangular Cushion / Mixed"
-      },
-      {
-        "name": "Carat / Weight",
-        "value": "0-1"
-      },
-      {
-        "name": "Transparency",
-        "value": "Transparent"
-      },
-      {
-        "name": "Measurement",
-        "value": "5.22 x 4.64 x 3.13 mm"
-      }
-    ],
-    "stockStatus": "Available for enquiry",
-    "dateCreated": "",
-    "relatedProductIds": [],
-    "originalWooCommerceUrl": "https://minskhi.com/product/0-62-ct-unheated-pink-sapphire/"
-  },
-  {
     "id": "3145",
     "slug": "0-58-ct-unheated-pink-sapphire",
     "name": "0.58 ct. Unheated Pink Sapphire",
@@ -7800,7 +7751,7 @@
       },
       {
         "name": "Treatment",
-        "value": "heated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
@@ -8028,7 +7979,7 @@
       },
       {
         "name": "Treatment",
-        "value": "unheated"
+        "value": "Unheated"
       },
       {
         "name": "Colour",
