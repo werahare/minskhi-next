@@ -23,7 +23,7 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
     } else {
       params.set(key, value);
     }
-    if (key === "Gem Type") params.delete("Treatment");
+    if (key === "Treatment") params.delete("Gem Type");
     router.push(`${pathname}?${params.toString()}`);
   }
 
@@ -104,7 +104,7 @@ export function ProductFilters({ filters }: { filters: FilterGroup[]; mode?: "ge
             return (
               <div key={key} className="border-t border-[#f0e9df] pt-4">
                 <label className="mb-3 block text-xs uppercase tracking-[0.18em] text-ink" htmlFor={`filter-${key}`}>
-                  {key === "Treatment" ? "Heated" : key}
+                  {key}
                 </label>
                 <select
                   id={`filter-${key}`}

@@ -30,13 +30,18 @@ export function isSapphire(product: Pick<Product, "attributes">) {
 const alwaysUnheatedGemTypes = new Set([
   "aquamarine",
   "beryl",
+  "citrine",
   "garnet",
+  "moonstone",
   "quartz",
   "rutile quartz",
   "spinel",
+  "tourmaline",
   "zircon",
   "topaz"
 ]);
+
+const treatmentFilterGemTypes = new Set(["ruby"]);
 
 export function isAlwaysUnheatedGem(product: Pick<Product, "attributes">) {
   return product.attributes.some(
@@ -46,7 +51,10 @@ export function isAlwaysUnheatedGem(product: Pick<Product, "attributes">) {
 }
 
 export function supportsTreatmentFilter(product: Pick<Product, "attributes">) {
-  return isSapphire(product) || isAlwaysUnheatedGem(product);
+  return isSapphire(product) || isAlwaysUnheatedGem(product) || product.attributes.some(
+    (attribute) => attribute.name.trim().toLowerCase() === "gem type" &&
+      treatmentFilterGemTypes.has(normalizeGemTypeFilterValue(attribute.value).trim().toLowerCase())
+  );
 }
 
 export const gemstoneFilterNames = [
