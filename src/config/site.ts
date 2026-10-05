@@ -13,6 +13,7 @@ export const siteConfig = {
   ],
   facebook: "https://www.facebook.com/profile.php?id=61588465946828",
   instagram: "https://www.instagram.com/minskhi_melbourne/",
-  showPrices: false,
+  showPrices: true,
+  currency: "AUD",
   abn: "22159318494"
 } as const;

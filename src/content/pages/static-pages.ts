@@ -29,9 +29,9 @@ export const staticPages = {
   faq: {
     title: "FAQ",
     body: [
-      "Do you sell online? Minskhi uses an enquiry-led process so product details and availability can be confirmed personally.",
+      "Do you sell online? Selected products with a listed price can be purchased online. Other products remain available through private enquiry.",
       "Can I book a consultation? Yes. Use the consultation page to request a video, phone, or email appointment.",
-      "Are prices shown? Prices are hidden by default and confirmed through direct enquiry."
+      "Are prices shown? Online prices are displayed for selected products. Products without a listed price remain available through direct enquiry."
     ]
   },
   "reforestation-and-youth-support": {

@@ -31,3 +31,8 @@ export type EnquiryItem = {
   slug: string;
   quantity: number;
 };
+
+export type CartItem = {
+  slug: string;
+  quantity: number;
+};

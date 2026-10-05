@@ -3,6 +3,8 @@ import type { Product } from "@/lib/types";
 import { AddToEnquiryButton } from "@/components/enquiry/AddToEnquiryButton";
 import { WishlistButton } from "@/components/wishlist/WishlistButton";
 import { ProductAttributeTable } from "@/components/product/ProductAttributeTable";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { formatPrice, hasPrice } from "@/lib/products";
 
 export function ProductInfo({ product }: { product: Product }) {
   const category = product.categories[0]?.replace(">", "/") ?? "Minskhi collection";
@@ -21,13 +23,17 @@ export function ProductInfo({ product }: { product: Product }) {
       <p className="mt-4 text-sm text-mink">
         {product.sku ? `SKU ${product.sku}` : "SKU available on enquiry"}
       </p>
-      {siteConfig.showPrices && product.price ? (
-        <p className="mt-5 text-xl">${product.price}</p>
+      {siteConfig.showPrices && hasPrice(product) ? (
+        <p className="mt-5 text-xl font-medium">{formatPrice(product)}</p>
       ) : (
         <p className="mt-5 text-sm uppercase tracking-[0.18em] text-mink">Price on enquiry</p>
       )}
       <div className="mt-8 grid grid-cols-2 gap-3">
-        <AddToEnquiryButton slug={product.slug} className="min-h-12 px-3" />
+        {hasPrice(product) ? (
+          <AddToCartButton slug={product.slug} className="min-h-12 px-3" />
+        ) : (
+          <AddToEnquiryButton slug={product.slug} className="min-h-12 px-3" />
+        )}
         <WishlistButton
           slug={product.slug}
           label

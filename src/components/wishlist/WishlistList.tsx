@@ -4,10 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { AddToEnquiryButton } from "@/components/enquiry/AddToEnquiryButton";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { productImage } from "@/lib/images";
 import { readWishlistItems, writeWishlistItems } from "@/lib/wishlist";
 import type { Product } from "@/lib/types";
+import { formatPrice, hasPrice } from "@/lib/products";
 
 export function WishlistList({ products }: { products: Product[] }) {
   const [slugs, setSlugs] = useState<string[]>([]);
@@ -74,9 +76,21 @@ export function WishlistList({ products }: { products: Product[] }) {
                   </Link>
                 </h2>
                 <p className="mt-3 text-sm text-mink">{product.sku ? `SKU ${product.sku}` : "SKU available on enquiry"}</p>
+                {product.lotSize ? (
+                  <p className="mt-2 text-[10px] uppercase tracking-[0.14em] text-gold">
+                    Complete lot of {product.lotSize} stones
+                  </p>
+                ) : null}
+                {hasPrice(product) ? (
+                  <p className="mt-3 text-base font-medium text-ink">{formatPrice(product)}</p>
+                ) : null}
               </div>
               <div className="flex flex-wrap gap-3">
-                <AddToEnquiryButton slug={product.slug} className="min-w-[190px]" />
+                {hasPrice(product) ? (
+                  <AddToCartButton slug={product.slug} className="min-w-[190px]" />
+                ) : (
+                  <AddToEnquiryButton slug={product.slug} className="min-w-[190px]" />
+                )}
                 <button
                   className="border border-[#ddcfbf] px-5 py-3 text-xs uppercase tracking-[0.12em] text-mink transition hover:border-[#092E2B] hover:text-[#092E2B]"
                   onClick={() => remove(product.slug)}

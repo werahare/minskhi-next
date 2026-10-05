@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { getAttribute } from "@/lib/products";
+import { formatPrice, getAttribute, hasPrice } from "@/lib/products";
 import { fallbackProductImage, productImage } from "@/lib/images";
 import { getProductVideos } from "@/lib/product-videos";
 import type { Product } from "@/lib/types";
 import { AddToEnquiryButton } from "@/components/enquiry/AddToEnquiryButton";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { WishlistButton } from "@/components/wishlist/WishlistButton";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -62,13 +63,20 @@ export function ProductCard({ product }: { product: Product }) {
             Lot of <span className="font-semibold text-[#111]">{product.lotSize}</span>
           </p>
         ) : null}
-        {siteConfig.showPrices && product.price ? (
-          <p className="mt-2 text-sm">${product.price}</p>
+        {siteConfig.showPrices && hasPrice(product) ? (
+          <p className="mt-2 text-sm font-medium text-ink">{formatPrice(product)}</p>
         ) : null}
-        <AddToEnquiryButton
-          slug={product.slug}
-          className="mt-3 w-full !px-1 !py-2 !text-[8px] !tracking-[0.04em] hover:border-coral hover:bg-coral sm:mt-4 sm:!px-5 sm:!py-3 sm:!text-xs sm:!tracking-[0.12em]"
-        />
+        {hasPrice(product) ? (
+          <AddToCartButton
+            slug={product.slug}
+            className="mt-3 w-full !px-1 !py-2 !text-[8px] !tracking-[0.04em] hover:border-coral hover:bg-coral sm:mt-4 sm:!px-5 sm:!py-3 sm:!text-xs sm:!tracking-[0.12em]"
+          />
+        ) : (
+          <AddToEnquiryButton
+            slug={product.slug}
+            className="mt-3 w-full !px-1 !py-2 !text-[8px] !tracking-[0.04em] hover:border-coral hover:bg-coral sm:mt-4 sm:!px-5 sm:!py-3 sm:!text-xs sm:!tracking-[0.12em]"
+          />
+        )}
       </div>
     </article>
   );

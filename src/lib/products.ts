@@ -309,6 +309,18 @@ export function parsePrice(product: Product) {
   return Number.isFinite(price) ? price : 0;
 }
 
+export function hasPrice(product: Product) {
+  return parsePrice(product) > 0;
+}
+
+export function formatPrice(product: Product) {
+  return new Intl.NumberFormat("en-AU", {
+    style: "currency",
+    currency: siteConfig.currency,
+    maximumFractionDigits: 2
+  }).format(parsePrice(product));
+}
+
 export function sortProducts(input: Product[], sort: SortKey) {
   const list = [...input];
   if (sort === "latest") {

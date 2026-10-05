@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { readEnquiryItems } from "@/lib/enquiry";
 import { readWishlistItems } from "@/lib/wishlist";
+import { readCartItems } from "@/lib/cart";
 import { AnnouncementBar } from "./AnnouncementBar";
 
 const navItems = [
@@ -15,12 +16,15 @@ const navItems = [
   { label: "Jewellery", href: "/jewellery" },
   { label: "Minerals", href: "/minerals" },
   { label: "Book a consultation", href: "/book-a-consultation" },
-  { label: "Journal", href: "/journal" }
+  { label: "Journal", href: "/journal" },
+  { label: "Shopping cart", href: "/cart" },
+  { label: "Enquiry list", href: "/enquiry-list" }
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -29,17 +33,24 @@ export function Header() {
     const update = () =>
       setCount(readEnquiryItems().reduce((total, item) => total + item.quantity, 0));
     const updateWishlist = () => setWishlistCount(readWishlistItems().length);
+    const updateCart = () =>
+      setCartCount(readCartItems().reduce((total, item) => total + item.quantity, 0));
     update();
     updateWishlist();
+    updateCart();
     window.addEventListener("storage", update);
     window.addEventListener("storage", updateWishlist);
     window.addEventListener("minskhi-enquiry-updated", update);
     window.addEventListener("minskhi-wishlist-updated", updateWishlist);
+    window.addEventListener("minskhi-cart-updated", updateCart);
+    window.addEventListener("storage", updateCart);
     return () => {
       window.removeEventListener("storage", update);
       window.removeEventListener("storage", updateWishlist);
       window.removeEventListener("minskhi-enquiry-updated", update);
       window.removeEventListener("minskhi-wishlist-updated", updateWishlist);
+      window.removeEventListener("minskhi-cart-updated", updateCart);
+      window.removeEventListener("storage", updateCart);
     };
   }, []);
 
@@ -77,6 +88,18 @@ export function Header() {
             priority
             className={isHome ? "h-auto w-[148px] sm:w-[156px] lg:w-[230px]" : "h-auto w-[132px] sm:w-[156px] lg:w-[220px]"}
           />
+        </Link>
+        <Link
+          aria-label="Shopping cart"
+          className="relative mt-1 justify-self-end transition hover:opacity-70 lg:hidden"
+          href="/cart"
+        >
+          <BagIcon />
+          {cartCount ? (
+            <span className="absolute -right-3 -top-3 grid h-5 min-w-5 place-items-center rounded-full bg-[#082e2b] px-1 text-[10px] leading-none text-white">
+              {cartCount}
+            </span>
+          ) : null}
         </Link>
         <nav
             className={
@@ -139,9 +162,17 @@ export function Header() {
             ) : null}
           </Link>
           <Link href="/enquiry-list" aria-label="Enquiry list" className="relative transition hover:opacity-70">
+            <EnquiryIcon />
+            {count ? (
+              <span className="absolute -right-[13px] -top-[12px] grid h-5 min-w-5 place-items-center rounded-full bg-[#082e2b] px-1 text-[11px] leading-none text-white">
+                {count}
+              </span>
+            ) : null}
+          </Link>
+          <Link href="/cart" aria-label="Shopping cart" className="relative transition hover:opacity-70">
             <BagIcon />
             <span className="absolute -right-[18px] -top-[17px] grid h-7 min-w-7 place-items-center rounded-full bg-[#082e2b] px-1 text-[14px] leading-none text-white">
-              {count}
+              {cartCount}
             </span>
           </Link>
         </div>
@@ -192,6 +223,15 @@ function BagIcon() {
     <svg aria-hidden="true" viewBox="0 0 24 24" className="h-[22px] w-[22px]" fill="none" stroke="currentColor" strokeWidth="1.1">
       <path d="M6.7 8.3h10.6l1 13H5.7l1-13Z" />
       <path d="M9 8.3V6a3 3 0 0 1 6 0v2.3" />
+    </svg>
+  );
+}
+
+function EnquiryIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-[22px] w-[22px]" fill="none" stroke="currentColor" strokeWidth="1.1">
+      <path d="M7 4h10a2 2 0 0 1 2 2v14H5V6a2 2 0 0 1 2-2Z" />
+      <path d="M9 4.2V2.8h6v1.4M8.5 9h7M8.5 13h7M8.5 17h4.5" />
     </svg>
   );
 }

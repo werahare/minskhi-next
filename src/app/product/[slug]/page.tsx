@@ -5,7 +5,7 @@ import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductInfo } from "@/components/product/ProductInfo";
 import { ProductCertificationCare } from "@/components/product/ProductCertificationCare";
 import { RelatedProducts } from "@/components/product/RelatedProducts";
-import { getProductBySlug, getRelatedProducts, products } from "@/lib/products";
+import { getProductBySlug, getRelatedProducts, hasPrice, parsePrice, products } from "@/lib/products";
 import { getProductVideos } from "@/lib/product-videos";
 import { siteConfig } from "@/config/site";
 
@@ -47,12 +47,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     image: product.galleryImages,
     description: product.shortDescription || product.description || product.name,
     brand: { "@type": "Brand", name: siteConfig.brandName },
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceCurrency: "AUD",
-      url: `${siteConfig.url}/product/${product.slug}`
-    }
+    offers: hasPrice(product)
+      ? {
+          "@type": "Offer",
+          availability: "https://schema.org/InStock",
+          price: parsePrice(product),
+          priceCurrency: siteConfig.currency,
+          url: `${siteConfig.url}/product/${product.slug}`
+        }
+      : undefined
   };
 
   const breadcrumbJsonLd = {
